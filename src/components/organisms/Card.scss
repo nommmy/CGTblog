@@ -1,0 +1,17 @@
+.card_container {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+
+  .card_item {
+    width: clamp(200px, 200px + 3vw, 350px);
+    margin: 10px;
+
+    .card_media {
+      height: 0;
+      padding-top: 56.25%; // 16:9
+    }
+  }
+}

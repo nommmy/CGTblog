@@ -1,0 +1,37 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+
+  header {
+    height: clamp(100px, 100px + 1vw, 200px);
+    background: #f8e4e7;
+  }
+
+  .container {
+    display: flex;
+    flex: 1;
+
+    main {
+      flex: 1;
+      background: rgb(202, 240, 255);
+    }
+
+    nav {
+      order: -1;
+      width: 100px;
+      background: rgb(255, 190, 178);
+    }
+
+    aside {
+      width: 100px;
+      background: rgb(255, 230, 183);
+    }
+  }
+
+  footer {
+    height: clamp(100px, 100px + 1vw, 200px);
+    background: rgb(201, 255, 201);
+  }
+}
