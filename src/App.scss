@@ -25,13 +25,13 @@
     }
 
     aside {
-      width: 100px;
+      width: 250px;
       background: rgb(255, 230, 183);
     }
   }
 
   footer {
-    height: clamp(100px, 100px + 1vw, 200px);
+    height: clamp(100px, 100px + 1vw, 150px);
     background: rgb(201, 255, 201);
   }
 }

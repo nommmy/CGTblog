@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
-// import { Icon, Item } from 'semantic-ui-react';
 import { comicsData } from 'data/comics';
 import ArticleCards from 'components/organisms/ArticleCards'
 

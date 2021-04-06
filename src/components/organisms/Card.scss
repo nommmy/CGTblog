@@ -1,17 +1,59 @@
+@mixin title {
+  position: absolute;
+  bottom: 0.5vw;
+  left: 1vw;
+  margin: 0;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+$reco_height: 60px;
+
+.reco_container {
+  margin: 0 auto;
+
+  .reco_item {
+    height: $reco_height;
+    margin: 10px;
+
+    .reco_thumbnail {
+      position: relative;
+
+      .reco_media {
+        width: 100%;
+        height: $reco_height;
+      }
+
+      p {
+        @include title;
+      }
+    }
+  }
+}
+
 .card_container {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
 
   .card_item {
     width: clamp(200px, 200px + 3vw, 350px);
     margin: 10px;
 
-    .card_media {
-      height: 0;
-      padding-top: 56.25%; // 16:9
+    .card_thumbnail {
+      position: relative;
+
+      .card_media {
+        height: 0;
+        padding-top: 70%; // 16:9
+      }
+
+      p {
+        @include title;
+      }
     }
   }
 }

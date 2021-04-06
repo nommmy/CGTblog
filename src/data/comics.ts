@@ -1,5 +1,5 @@
 export type Comic = {
-  id: number;
+  code: string;
   title: string;
   genres: string;
   overview: string;
@@ -12,25 +12,25 @@ export type ComicData = {
 export const comicsData: ComicData = {
   comics: [
     {
-      id: 1,
+      code: 'worldtrigger',
       title: 'WORLD TRIGGER',
       genres: 'battle',
       overview: '集団戦',
     },
     {
-      id: 2,
+      code: 'akebi',
       title: '明日ちゃんのセーラー服',
       genres: 'prime',
       overview: '尊い',
     },
     {
-      id: 3,
+      code: 'miso',
       title: '味噌汁でカンパイ!',
       genres: 'prime',
       overview: '尊い2',
     },
     {
-      id: 4,
+      code: 'kageki',
       title: 'かげきしょうじょ!',
       genres: 'prime',
       overview: '宝塚',

@@ -1,7 +1,11 @@
 import { FC, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
-
-import Home from './components/pages/Home'
+import { Link } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
+import Home from './components/pages/Home';
+import Aside from './components/pages/Aside';
+import Intro from './components/templates/Intro';
+import Article from './containers/templates/Article';
 import './App.scss';
 
 const App: FC = () => {
@@ -13,16 +17,25 @@ const App: FC = () => {
 
   return (
     <div className="body">
-      <header> </header>
+      <header>
+        <Link to="intro">このサイトについて</Link>
+        <Link to="/">
+          <HomeIcon color="primary" />
+        </Link>
+      </header>
       <div className="container">
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="*" element={<Navigate to="/" replace />} />;
+            <Route path=":code" element={<Article />} />
+            <Route path="intro" element={<Intro />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <nav> </nav>
-        <aside> </aside>
+        <aside>
+          <Aside />
+        </aside>
       </div>
       <footer> </footer>
     </div>
