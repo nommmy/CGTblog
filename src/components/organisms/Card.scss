@@ -7,6 +7,48 @@
   color: whitesmoke;
 }
 
+@mixin genre_icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px;
+  pointer-events: none;
+
+  &[data-color='blue'] {
+    background: rgb(32, 136, 255);
+  }
+
+  &[data-color='pink'] {
+    background: pink;
+  }
+
+  &[data-color='skyblue'] {
+    background: skyblue;
+  }
+
+  &[data-color='red'] {
+    background: red;
+  }
+
+  &[data-color='green'] {
+    background: green;
+  }
+
+  &[data-color='orange'] {
+    background: orange;
+  }
+
+  &[data-color='purple'] {
+    background: purple;
+  }
+
+  &[data-color='yellow'] {
+    background: yellow;
+  }
+
+  border-radius: 50%;
+}
+
 $reco_height: 60px;
 
 .reco_container {
@@ -15,6 +57,7 @@ $reco_height: 60px;
   .reco_item {
     height: $reco_height;
     margin: 10px;
+    overflow: visible;
 
     .reco_thumbnail {
       position: relative;
@@ -22,6 +65,11 @@ $reco_height: 60px;
       .reco_media {
         width: 100%;
         height: $reco_height;
+        border-radius: 4px;
+
+        .genre_icon {
+          @include genre_icon;
+        }
       }
 
       p {
@@ -40,8 +88,15 @@ $reco_height: 60px;
   padding: 10px;
 
   .card_item {
+    position: relative;
     width: clamp(200px, 200px + 3vw, 350px);
     margin: 10px;
+    overflow: visible;
+
+    // stylelint-disable-next-line no-descending-specificity
+    .genre_icon {
+      @include genre_icon;
+    }
 
     .card_thumbnail {
       position: relative;

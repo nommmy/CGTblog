@@ -1,7 +1,7 @@
 export type Comic = {
   code: string;
   title: string;
-  genres: string;
+  genre: string;
   overview: string;
 };
 
@@ -14,26 +14,26 @@ export const comicsData: ComicData = {
     {
       code: 'worldtrigger',
       title: 'WORLD TRIGGER',
-      genres: 'battle',
+      genre: 'battle',
       overview: '集団戦',
     },
     {
       code: 'akebi',
       title: '明日ちゃんのセーラー服',
-      genres: 'prime',
+      genre: 'aoharu',
       overview: '尊い',
     },
     {
       code: 'miso',
       title: '味噌汁でカンパイ!',
-      genres: 'prime',
+      genre: 'aoharu',
       overview: '尊い2',
     },
     {
       code: 'kageki',
       title: 'かげきしょうじょ!',
-      genres: 'prime',
+      genre: 'aoharu',
       overview: '宝塚',
     },
-  ]
-}
+  ],
+};

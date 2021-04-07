@@ -14,9 +14,9 @@ const EnhancedArticle: FC = () => {
       (comic) => comic.code === code,
     )[0];
 
-    const { title, genres, overview } = comicObj;
+    const { title, genre, overview } = comicObj;
 
-    return <Article title={title} genres={genres} overview={overview} />;
+    return <Article title={title} genres={genre} overview={overview} />;
   }
 
   return <Navigate to="/" replace />;
