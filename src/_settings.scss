@@ -30,4 +30,12 @@
   &[data-color='yellow'] {
     background: rgb(255, 221, 0);
   }
+
+  &[data-color='gray'] {
+    background: gray;
+  }
+
+  &[data-color='lightgreen'] {
+    background: lightgreen;
+  }
 }

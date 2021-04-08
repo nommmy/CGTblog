@@ -15,7 +15,11 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
       <Card className="card_item" key={comic.code}>
         <Link to={comic.code}>
           <div style={{ height: 30 }}>
-            <GenreIcon genre={comic.genre} />
+            <div className="genre_icon_group">
+              {comic.genres.map((genre) => (
+                <GenreIcon key={genre + comic.title} genre={genre} />
+              ))}
+            </div>
           </div>
           <div className="card_thumbnail">
             <CardMedia className="card_media" image="./aiko.png" title="aiko" />

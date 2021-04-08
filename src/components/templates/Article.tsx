@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 type Props = {
   title: string;
-  genres: string;
+  genres: string[];
   overview: string;
 }
 

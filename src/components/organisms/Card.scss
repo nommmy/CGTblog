@@ -9,10 +9,13 @@
 
 @import '/src/settings';
 
-@mixin genre_icon {
+@mixin icon_position {
   position: absolute;
   top: -10px;
   right: -10px;
+}
+
+@mixin genre_icon {
   padding: 5px;
   pointer-events: none;
 
@@ -28,7 +31,7 @@ $reco_height: 60px;
 
   .reco_item {
     height: $reco_height;
-    margin: 10px;
+    margin: 20px 10px;
     overflow: visible;
 
     .reco_thumbnail {
@@ -39,8 +42,12 @@ $reco_height: 60px;
         height: $reco_height;
         border-radius: 4px;
 
-        .genre_icon {
-          @include genre_icon;
+        .genre_icon_group {
+          @include icon_position;
+
+          .genre_icon {
+            @include genre_icon;
+          }
         }
       }
 
@@ -66,8 +73,12 @@ $reco_height: 60px;
     overflow: visible;
 
     // stylelint-disable-next-line no-descending-specificity
-    .genre_icon {
-      @include genre_icon;
+    .genre_icon_group {
+      @include icon_position;
+      // stylelint-disable-next-line no-descending-specificity
+      .genre_icon {
+        @include genre_icon;
+      }
     }
 
     .card_thumbnail {

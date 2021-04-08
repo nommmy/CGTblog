@@ -8,7 +8,7 @@ import {
   GiMusicalNotes,
   GiMeal,
 } from 'react-icons/gi';
-import { FaRegGrinSquintTears } from 'react-icons/fa';
+import { FaRegGrinSquintTears, FaRegSadTear } from 'react-icons/fa';
 
 
 export const genreIconProps = {
@@ -30,6 +30,7 @@ export const genres: genresData = {
   music: <GiMusicalNotes data-color="purple" />,
   food: <GiMeal data-color="orange" />,
   gag: <FaRegGrinSquintTears data-color="yellow" />,
+  impression: <FaRegSadTear data-color="lightgreen" />
 };
 
 const GenreIcon: FC<{ genre: string }> = ({ genre }) => {

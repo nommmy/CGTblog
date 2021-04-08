@@ -1,17 +1,24 @@
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import { comicsData } from 'data/comics';
+import { Comic } from 'data/comics';
 import ArticleCards from 'components/organisms/ArticleCards';
 import SearchForms from 'components/organisms/SearchForms';
+import { useSelector } from 'react-redux';
+import { typeState } from 'features/articleList';
 
-const Home: FC = () => (
-  <>
-    <Helmet>
-      <title>Articles一覧</title>
-    </Helmet>
-    <SearchForms />
-    <ArticleCards comics={comicsData.comics} />
-  </>
-);
+const Home: FC = () => {
+  const articles = useSelector<typeState, Comic[]>((state) => state.articles);
+  // eslint-disable-next-line
+
+  return (
+    <>
+      <Helmet>
+        <title>Articles一覧</title>
+      </Helmet>
+      <SearchForms />
+      <ArticleCards comics={articles} />
+    </>
+  );
+};
 
 export default Home;

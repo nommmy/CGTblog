@@ -1,7 +1,7 @@
 export type Comic = {
   code: string;
   title: string;
-  genre: string;
+  genres: string[];
   overview: string;
 };
 
@@ -14,85 +14,85 @@ export const comicsData: ComicData = {
     {
       code: 'worldtrigger',
       title: 'WORLD TRIGGER',
-      genre: 'battle',
+      genres: ['battle'],
       overview: '集団戦',
     },
     {
       code: 'akebi',
       title: '明日ちゃんのセーラー服',
-      genre: 'aoharu',
+      genres: ['aoharu'],
       overview: 'これぞ尊い',
     },
     {
       code: 'miso',
       title: '味噌汁でカンパイ!',
-      genre: 'love',
+      genres: ['love', 'food'],
       overview: '味噌汁より二人の関係が気になる！',
     },
     {
       code: 'kageki',
       title: 'かげきしょうじょ!',
-      genre: 'aoharu',
+      genres: ['aoharu'],
       overview: '歌劇団に通う少女たちの物語',
     },
     {
       code: 'aoashi',
       title: 'アオアシ',
-      genre: 'sports',
+      genres: ['sports'],
       overview: '超・戦略的サッカー',
     },
     {
       code: 'lastgame',
       title: 'ラストゲーム',
-      genre: 'love',
+      genres: ['love'],
       overview: '鈍感な女の子 vs 一途な男の子',
     },
     {
       code: 'radiation',
       title: 'ラジエーションハウス',
-      genre: 'drama',
+      genres: ['drama', 'love'],
       overview: '放射線技師',
     },
     {
       code: 'hina',
       title: 'ヒナまつり',
-      genre: 'gag',
+      genres: ['gag'],
       overview: 'ヤクザ✖️サイキック少女',
     },
     {
       code: 'setoutsumi',
       title: 'セトウツミ',
-      genre: 'gag',
+      genres: ['gag'],
       overview: 'だべり系漫才',
     },
     {
       code: 'millionlive',
-      title: 'アイドルマスター ミリオンライブ!!',
-      genre: 'aoharu',
+      title: 'ミリオンライブ!!',
+      genres: ['aoharu', 'impression'],
       overview: 'トップアイドルを目指す少女の物語',
     },
     {
       code: 'gash',
       title: '金色のガッシュ!!',
-      genre: 'battle',
+      genres: ['battle', 'drama', 'impression'],
       overview: 'パートナーと戦い抜け',
     },
     {
       code: 'ballroom',
       title: 'ボールルームへようこそ',
-      genre: 'sports',
+      genres: ['sports'],
       overview: '競技ダンス',
     },
     {
       code: 'summertime',
       title: 'サマータイムレンダ',
-      genre: 'battle',
+      genres: ['battle'],
       overview: '孤島タイムスリップサスペンス',
     },
     {
       code: 'unsang',
       title: 'アンサングシンデレラ',
-      genre: 'drama',
+      genres: ['drama'],
       overview: '謳われない薬剤師',
     },
   ],
