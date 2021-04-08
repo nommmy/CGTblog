@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Helmet } from 'react-helmet'
 
 type Props = {
   title: string;
@@ -8,7 +9,12 @@ type Props = {
 
 const Article: FC<Props> = ({ title, genres, overview }) => (
   <div className="">
-    {title}{genres}{ overview}
+    <Helmet>
+      <title>{ title }</title>
+    </Helmet>
+    {title}
+    {genres}
+    {overview}
   </div>
 );
 

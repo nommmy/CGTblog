@@ -1,10 +1,12 @@
 .body {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   margin: 0;
 
   header {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1;
     height: clamp(100px, 100px + 1vw, 200px);
     background: #f8e4e7;
   }
@@ -16,13 +18,6 @@
     main {
       flex: 1;
       background: rgb(202, 240, 255);
-    }
-
-    nav {
-      order: -1;
-      width: 100px;
-      padding: 0 10px;
-      background: rgb(255, 190, 178);
     }
 
     aside {

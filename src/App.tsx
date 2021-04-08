@@ -32,12 +32,11 @@ const App: FC = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
-        <nav> </nav>
         <aside>
           <Aside />
         </aside>
       </div>
-      <footer> </footer>
+      <footer>Footer</footer>
     </div>
   );
 };

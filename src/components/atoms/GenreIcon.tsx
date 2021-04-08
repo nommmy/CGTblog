@@ -2,15 +2,16 @@ import React, { FC } from 'react';
 import {
   GiCrossedSwords,
   GiHealing,
-  GiCharm,
+  GiHeartKey,
   GiBurningRoundShot,
   GiHeartInside,
-  GiGavel,
   GiMusicalNotes,
   GiMeal,
 } from 'react-icons/gi';
+import { FaRegGrinSquintTears } from 'react-icons/fa';
 
-const genreIconProps = {
+
+export const genreIconProps = {
   className: 'genre_icon',
   color: 'white',
   size: '20',
@@ -20,15 +21,15 @@ type genresData = {
   [genreCode: string]: JSX.Element;
 };
 
-const genres: genresData = {
-  battle: <GiCrossedSwords data-color="blue"/>,
-  love: <GiCharm data-color="pink"/>,
-  aoharu: <GiHealing data-color="skyblue"/>,
-  sports: <GiBurningRoundShot data-color="red"/>,
-  drama: <GiHeartInside data-color="green"/>,
-  job: <GiGavel data-color="orange"/>,
-  music: <GiMusicalNotes data-color="purple"/>,
-  food: <GiMeal data-color="yellow"/>,
+export const genres: genresData = {
+  battle: <GiCrossedSwords data-color="blue" />,
+  love: <GiHeartKey data-color="pink" />,
+  aoharu: <GiHealing data-color="skyblue" />,
+  sports: <GiBurningRoundShot data-color="red" />,
+  drama: <GiHeartInside data-color="green" />,
+  music: <GiMusicalNotes data-color="purple" />,
+  food: <GiMeal data-color="orange" />,
+  gag: <FaRegGrinSquintTears data-color="yellow" />,
 };
 
 const GenreIcon: FC<{ genre: string }> = ({ genre }) => {

@@ -7,6 +7,8 @@
   color: whitesmoke;
 }
 
+@import '/src/settings';
+
 @mixin genre_icon {
   position: absolute;
   top: -10px;
@@ -14,37 +16,7 @@
   padding: 5px;
   pointer-events: none;
 
-  &[data-color='blue'] {
-    background: rgb(32, 136, 255);
-  }
-
-  &[data-color='pink'] {
-    background: pink;
-  }
-
-  &[data-color='skyblue'] {
-    background: skyblue;
-  }
-
-  &[data-color='red'] {
-    background: red;
-  }
-
-  &[data-color='green'] {
-    background: green;
-  }
-
-  &[data-color='orange'] {
-    background: orange;
-  }
-
-  &[data-color='purple'] {
-    background: purple;
-  }
-
-  &[data-color='yellow'] {
-    background: yellow;
-  }
+  @include icon_color;
 
   border-radius: 50%;
 }

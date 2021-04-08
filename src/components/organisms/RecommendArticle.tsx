@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import GenreIcon from 'components/molecules/GenreIcon';
+import GenreIcon from 'components/atoms/GenreIcon';
 import './Card.scss';
 
 const RecommendArticle: FC<ComicData> = ({ comics }) => (
