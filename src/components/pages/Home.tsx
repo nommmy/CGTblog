@@ -8,7 +8,6 @@ import { typeState } from 'features/articleList';
 
 const Home: FC = () => {
   const articles = useSelector<typeState, Comic[]>((state) => state.articles);
-  // eslint-disable-next-line
 
   return (
     <>

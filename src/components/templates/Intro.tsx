@@ -6,8 +6,10 @@ const Intro: FC = () => (
     <Helmet>
       <title>welcome</title>
     </Helmet>
-    <h2>ようこそ</h2>
-    <p>このサイトは、何たらかんたら。</p>
+    <article className="article_container">
+      <h2>ようこそ</h2>
+      <p>このサイトは、何たらかんたら。</p>
+    </article>
   </>
 );
 

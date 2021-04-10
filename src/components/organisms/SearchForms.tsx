@@ -4,9 +4,9 @@ import SearchGenreButton from 'components/molecules/SearchGenreButton';
 import './FormGroup.scss';
 
 const SearchForms: FC = () => (
-  <div className="form_container">
+  <section className="form_container">
     <SearchGenreButton />
-  </div>
+  </section>
 );
 
 export default SearchForms;

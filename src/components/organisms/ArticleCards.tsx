@@ -10,21 +10,21 @@ import GenreIcon from 'components/atoms/GenreIcon';
 import './Card.scss';
 
 const ArticleCards: FC<ComicData> = ({ comics }) => (
-  <div className="card_container">
+  <article className="card_container">
     {comics.map((comic) => (
       <Card className="card_item" key={comic.code}>
         <Link to={comic.code}>
-          <div style={{ height: 30 }}>
+          <section style={{ height: 30 }}>
             <div className="genre_icon_group">
               {comic.genres.map((genre) => (
                 <GenreIcon key={genre + comic.title} genre={genre} />
               ))}
             </div>
-          </div>
-          <div className="card_thumbnail">
+          </section>
+          <section className="card_thumbnail">
             <CardMedia className="card_media" image="./aiko.png" title="aiko" />
             <p>{comic.title}</p>
-          </div>
+          </section>
         </Link>
         <CardActions disableSpacing>
           <FavariteButton />
@@ -32,7 +32,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
         </CardActions>
       </Card>
     ))}
-  </div>
+  </article>
 );
 
 export default ArticleCards;

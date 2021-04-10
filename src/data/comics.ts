@@ -21,7 +21,7 @@ export const comicsData: ComicData = {
       code: 'akebi',
       title: '明日ちゃんのセーラー服',
       genres: ['aoharu'],
-      overview: 'これぞ尊い',
+      overview: 'セーラー服に憧れる真っ直ぐな女の子',
     },
     {
       code: 'miso',

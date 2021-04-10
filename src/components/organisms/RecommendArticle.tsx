@@ -8,11 +8,11 @@ import GenreIcon from 'components/atoms/GenreIcon';
 import './Card.scss';
 
 const RecommendArticle: FC<ComicData> = ({ comics }) => (
-  <div className="reco_container">
+  <article className="reco_container">
     {comics.map((comic) => (
       <Link to={comic.code} key={comic.code}>
         <Card className="reco_item">
-          <div className="reco_thumbnail">
+          <section className="reco_thumbnail">
             <CardMedia className="reco_media" image="./aiko.png" title="aiko">
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
@@ -21,12 +21,12 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
               </div>
             </CardMedia>
             <p>{comic.title}</p>
-          </div>
+          </section>
           <CardActions disableSpacing />
         </Card>
       </Link>
     ))}
-  </div>
+  </article>
 );
 
 export default RecommendArticle;

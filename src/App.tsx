@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Aside from './components/pages/Aside';
 import Intro from './components/templates/Intro';
 import Article from './containers/templates/Article';
+// import ArticleSideContents from './components/templates/ArticleSideContents';
 import './App.scss';
 
 const App: FC = () => {

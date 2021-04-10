@@ -1,0 +1,109 @@
+@import '/src/settings';
+
+.article_container {
+  position: relative;
+  padding: 50px clamp(30px, 30px + 1vw, 50px);
+  margin: 0 50px;
+  background-color: white;
+
+  .genre_icon_group {
+    @include icon_position;
+
+    .genre_icon {
+      @include genre_icon;
+    }
+  }
+
+  .option {
+    display: flex;
+    margin-bottom: 50px;
+
+    .date_container {
+      margin-left: auto;
+    }
+  }
+
+  .article_header {
+    position: relative;
+    margin-bottom: 50px;
+
+    .header_image {
+      width: calc(((100% - 264px) / 6 ) * 6 + 192px);
+      overflow: hidden;
+      border: 1px solid rgba(64, 87, 109, 0.07);
+      border-radius: 4px;
+    }
+
+    .title_container {
+      position: absolute;
+      top: 60%;
+      right: 0;
+      width: calc(((100% - 264px)/12) * 5 + 102px);
+      padding: 2vw;
+      padding-right: 0;
+      overflow: hidden;
+      background: white;
+      border-radius: 8px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+
+      &::before {
+        display: block;
+        padding-top: 50%;
+        content: '';
+      }
+
+      .article_title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 2vw;
+        padding-right: 0;
+
+        .title {
+          margin: 0;
+          font-size: 2vw;
+          font-weight: 700;
+        }
+
+        .overview {
+          font-size: 0.8vw;
+          color: gray;
+        }
+      }
+    }
+  }
+
+  .summary_box {
+    margin: 2vw 0;
+    border: solid 2px #ffc107;
+
+    .box_title {
+      position: relative;
+      top: -2px;
+      display: inline-block;
+      padding: 2px 9px;
+      font-size: 1.5vw;
+      font-weight: bold;
+      line-height: 1.5;
+      color: #fff;
+      background: #ffc107;
+    }
+
+    .box_content {
+      padding: 2vw;
+    }
+  }
+
+  .chapter {
+    padding: 1rem 2rem;
+    font-size: 1.5vw;
+    font-weight: bold;
+    border-left: 4px solid #ffc107;
+  }
+}
