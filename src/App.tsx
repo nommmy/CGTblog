@@ -3,10 +3,9 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import Home from './components/pages/Home';
-import Aside from './components/pages/Aside';
-import Intro from './components/templates/Intro';
-import Article from './containers/templates/Article';
-// import ArticleSideContents from './components/templates/ArticleSideContents';
+import IntroPage from './components/pages/IntroPage';
+import ArticlePage from './containers/pages/ArticlePage';
+
 import './App.scss';
 
 const App: FC = () => {
@@ -25,17 +24,12 @@ const App: FC = () => {
         </Link>
       </header>
       <div className="container">
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path=":code" element={<Article />} />
-            <Route path="intro" element={<Intro />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <aside>
-          <Aside />
-        </aside>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path=":code" element={<ArticlePage />} />
+          <Route path="intro" element={<IntroPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
       <footer>Footer</footer>
     </div>

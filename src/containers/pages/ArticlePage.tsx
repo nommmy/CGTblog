@@ -3,8 +3,10 @@ import { Navigate, useParams } from 'react-router-dom';
 
 import Article from 'components/templates/Article';
 import { Comic, comicsData } from 'data/comics';
+import Aside from 'components/templates/Aside';
+import ArticleSideContents from 'components/templates/ArticleSideContents';
 
-const EnhancedArticle: FC = () => {
+const ArticlePage: FC = () => {
   const { code } = useParams();
   const comicCodeList: string[] = comicsData.comics.map((obj) => obj.code);
 
@@ -16,10 +18,20 @@ const EnhancedArticle: FC = () => {
 
     const { title, genres, overview } = comicObj;
 
-    return <Article title={title} genres={genres} overview={overview} />;
+    return (
+      <>
+        <main>
+          <Article title={title} genres={genres} overview={overview} />
+        </main>
+        <aside>
+          <ArticleSideContents/>
+          <Aside />
+        </aside>
+      </>
+    );
   }
 
   return <Navigate to="/" replace />;
 };
 
-export default EnhancedArticle;
+export default ArticlePage;

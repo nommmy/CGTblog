@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { comicsData } from 'data/comics';
 import RecommendArticle from 'components/organisms/RecommendArticle';
+import './Aside.scss'
 
 const Aside: FC = () => (
   <div className="ranking">
