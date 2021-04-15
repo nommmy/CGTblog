@@ -1,0 +1,21 @@
+type Comic @model {
+  id: ID!
+  code: String!
+  title: String!
+  genres: [String!]!
+  overview: String!
+  like: Int!
+  image: String
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+type Comment @model @key(name: "byPost", fields: ["postID", "createdAt"]) {
+  id: ID!
+  postID: ID!
+  post: Comic @connection(fields: ["postID"])
+  content: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}

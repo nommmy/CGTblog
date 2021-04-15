@@ -10,7 +10,8 @@ import './Card.scss';
 const RecommendArticle: FC<ComicData> = ({ comics }) => (
   <article className="reco_container">
     {comics.map((comic) => (
-      <Link to={comic.code} key={comic.code}>
+      // eslint-disable-next-line
+      <Link to={'/' + comic.code} key={comic.code}>
         <Card className="reco_item">
           <section className="reco_thumbnail">
             <CardMedia className="reco_media" image="./aiko.png" title="aiko">
