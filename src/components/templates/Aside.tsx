@@ -1,15 +1,22 @@
 import { FC } from 'react';
-import { comicsData } from 'data/comics';
+import { Comic } from 'data/comics';
 import RecommendArticle from 'components/organisms/RecommendArticle';
-import './Aside.scss'
+import './Aside.scss';
+import { typeState } from 'features/articleList';
+import { useSelector, shallowEqual } from 'react-redux';
 
-const Aside: FC = () => (
-  <div className="ranking">
-    <div className="ranking_header sub_font">
-      Ranking
+const Aside: FC = () => {
+  const articles = useSelector<typeState, Comic[]>(
+    (state) => state.showArticles,
+    shallowEqual,
+  );
+
+  return (
+    <div className="ranking">
+      <div className="ranking_header sub_font">Ranking</div>
+      <RecommendArticle comics={articles} />
     </div>
-    <RecommendArticle comics={comicsData.comics} />
-  </div>
-);
+  );
+};
 
 export default Aside;

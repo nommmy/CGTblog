@@ -1,30 +1,48 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-
 import Article from 'components/templates/Article';
-import { Comic, comicsData } from 'data/comics';
+import { Comic } from 'data/comics';
 import Aside from 'components/templates/Aside';
 import ArticleSideContents from 'components/templates/ArticleSideContents';
+import { comicsByCode } from 'graphql/queries';
+import { ComicsByCodeQuery } from 'API';
+import { API, graphqlOperation } from 'aws-amplify';
 
 const ArticlePage: FC = () => {
   const { code } = useParams();
-  const comicCodeList: string[] = comicsData.comics.map((obj) => obj.code);
+  const [article, setArticle] = useState<Comic>();
 
-  if (comicCodeList.includes(code)) {
-    // これあんまよくないよな。まあ合致するのはは必ず一つっていう前提
-    const comicObj: Comic = comicsData.comics.filter(
-      (comic) => comic.code === code,
-    )[0];
+  // ここ違和感。resultの時点でthen, catchが自然じゃない？
+  useEffect(() => {
+    const chooseComic = async () => {
+      try {
+        const result = await API.graphql(
+          graphqlOperation(comicsByCode, { code }),
+        );
+        if ('data' in result && result.data) {
+          const articleData = result.data as ComicsByCodeQuery;
+          if (articleData.comicsByCode) {
+            setArticle((articleData.comicsByCode.items as unknown) as Comic);
+          }
+        }
+      } catch (e) {
+        setArticle(undefined);
+      }
+    };
+    // eslint-disable-next-line
+    chooseComic();
+  }, [code]);
 
-    const { title, genres, overview } = comicObj;
 
+  if (article) {
     return (
       <>
         <main>
-          <Article title={title} genres={genres} overview={overview} />
+          {/* eslint-disable-next-line */}
+          <Article {...article } />
         </main>
         <aside>
-          <ArticleSideContents/>
+          <ArticleSideContents />
           <Aside />
         </aside>
       </>

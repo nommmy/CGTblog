@@ -3,7 +3,7 @@ type Comic
   @key(
     name: "code-index"
     fields: ["code"]
-    queryField: "comicByCode"
+    queryField: "comicsByCode"
   ) {
   id: ID!
   code: String!

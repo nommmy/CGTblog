@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { MdUpdate } from 'react-icons/md';
 import './Article.scss';
+import { Comic } from 'data/comics';
 
-type Props = {
-  title: string;
-  genres: string[];
-  overview: string;
-};
+// type Props = {
+//   title: string;
+//   genres: string[];
+//   overview: string;
+// };
 
-const Article: FC<Props> = ({ title, genres, overview }) => (
+const Article: FC<Comic> = ({ title, genres, subtitle, updatedAt }) => (
   <article className="article_container">
     <Helmet>
       <title>{title}</title>
@@ -27,7 +28,7 @@ const Article: FC<Props> = ({ title, genres, overview }) => (
       </div>
       <div className="date_container">
         <MdUpdate style={{ color: 'gray', margin: 5 }} />
-        <span className="date">2021 / 04 / 09</span>
+        <span className="date">{updatedAt}</span>
       </div>
     </section>
     <section className="article_header">
@@ -40,7 +41,7 @@ const Article: FC<Props> = ({ title, genres, overview }) => (
       </div>
       <div className="title_container">
         <div className="article_title">
-          <p className="overview">{overview}</p>
+          <p className="overview">{subtitle}</p>
           <p className="title">{title}</p>
         </div>
       </div>
@@ -49,7 +50,7 @@ const Article: FC<Props> = ({ title, genres, overview }) => (
     <section>
       <div className="summary_box">
         <div className="box_title">ここがポイント</div>
-        <div className="box_content">{overview}</div>
+        <div className="box_content">{subtitle}</div>
       </div>
     </section>
     <section className="chapter">aa</section>

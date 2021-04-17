@@ -16,5 +16,19 @@
         }
       }
     }
+  },
+  "auth": {
+    "charlottech734334e4": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "charlottorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

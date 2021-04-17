@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { ComicData } from 'data/comics';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -7,7 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import FavariteButton from 'components/atoms/FavariteButton';
 import ShareButton from 'components/atoms/ShareButton';
 import GenreIcon from 'components/atoms/GenreIcon';
+import { ComicData } from 'data/comics';
 import './Card.scss';
+
 
 const ArticleCards: FC<ComicData> = ({ comics }) => (
   <article className="card_container">
