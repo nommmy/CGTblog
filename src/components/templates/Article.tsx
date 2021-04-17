@@ -6,12 +6,6 @@ import { MdUpdate } from 'react-icons/md';
 import './Article.scss';
 import { Comic } from 'data/comics';
 
-// type Props = {
-//   title: string;
-//   genres: string[];
-//   overview: string;
-// };
-
 const Article: FC<Comic> = ({ title, genres, subtitle, updatedAt }) => (
   <article className="article_container">
     <Helmet>

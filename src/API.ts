@@ -561,7 +561,7 @@ export type ListCommentsQuery = {
   } | null,
 };
 
-export type ComicsByCodeQueryVariables = {
+export type ComicByCodeQueryVariables = {
   code?: string | null,
   sortDirection?: ModelSortDirection | null,
   filter?: ModelComicFilterInput | null,
@@ -569,8 +569,8 @@ export type ComicsByCodeQueryVariables = {
   nextToken?: string | null,
 };
 
-export type ComicsByCodeQuery = {
-  comicsByCode?:  {
+export type ComicByCodeQuery = {
+  comicByCode?:  {
     __typename: "ModelComicConnection",
     items?:  Array< {
       __typename: "Comic",

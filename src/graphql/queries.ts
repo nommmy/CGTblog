@@ -110,15 +110,15 @@ export const listComments = /* GraphQL */ `
     }
   }
 `;
-export const comicsByCode = /* GraphQL */ `
-  query ComicsByCode(
+export const comicByCode = /* GraphQL */ `
+  query ComicByCode(
     $code: String
     $sortDirection: ModelSortDirection
     $filter: ModelComicFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    comicsByCode(
+    comicByCode(
       code: $code
       sortDirection: $sortDirection
       filter: $filter

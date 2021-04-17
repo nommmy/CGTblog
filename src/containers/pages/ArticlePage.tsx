@@ -4,8 +4,8 @@ import Article from 'components/templates/Article';
 import { Comic } from 'data/comics';
 import Aside from 'components/templates/Aside';
 import ArticleSideContents from 'components/templates/ArticleSideContents';
-import { comicsByCode } from 'graphql/queries';
-import { ComicsByCodeQuery } from 'API';
+import { comicByCode } from 'graphql/queries';
+import { ComicByCodeQuery } from 'API';
 import { API, graphqlOperation } from 'aws-amplify';
 
 const ArticlePage: FC = () => {
@@ -17,12 +17,12 @@ const ArticlePage: FC = () => {
     const chooseComic = async () => {
       try {
         const result = await API.graphql(
-          graphqlOperation(comicsByCode, { code }),
+          graphqlOperation(comicByCode, { code }),
         );
         if ('data' in result && result.data) {
-          const articleData = result.data as ComicsByCodeQuery;
-          if (articleData.comicsByCode) {
-            setArticle((articleData.comicsByCode.items as unknown) as Comic);
+          const articleData = result.data as ComicByCodeQuery;
+          if (articleData.comicByCode) {
+            setArticle((articleData.comicByCode.items as unknown) as Comic);
           }
         }
       } catch (e) {
@@ -33,13 +33,12 @@ const ArticlePage: FC = () => {
     chooseComic();
   }, [code]);
 
-
   if (article) {
     return (
       <>
         <main>
           {/* eslint-disable-next-line */}
-          <Article {...article } />
+          <Article {...article} />
         </main>
         <aside>
           <ArticleSideContents />
