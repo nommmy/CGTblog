@@ -1,6 +1,8 @@
 .body {
-  display: flex;
-  flex-direction: column;
+  // ここflexすると、headerとかfooterの大きさがおかしくなる
+  // 設定しないと記事がないとき、仮にAPIとかとって来れなかった時空白ができる
+  // display: flex;
+  // flex-direction: column;
   height: 100%;
   margin: 0;
 

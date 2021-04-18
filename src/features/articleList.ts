@@ -2,10 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Comic } from 'data/comics';
 import { Genre } from 'API';
 
-export type typeState = { allArticles: Comic[]; showArticles: Comic[] };
+export type typeState = {
+  allArticles: Comic[];
+  showArticles: Comic[];
+  currentArticle: Comic;
+};
 export const initialState = {
   allArticles: [] as Comic[],
   showArticles: [] as Comic[],
+  currentArticle: {} as Comic,
 };
 export const articleListSlice = createSlice({
   name: 'articlelist',
@@ -15,8 +20,19 @@ export const articleListSlice = createSlice({
       ...state,
       allArticles: action.payload,
       showArticles: action.payload,
+      currentArticle: {} as Comic,
     }),
-    genreSearch: (state, action: PayloadAction<Genre>) => {
+    setCurrentArticle: (state, action: PayloadAction<string>) => {
+      const article = state.allArticles.find((comic) =>
+        comic.code === action.payload,
+      );
+
+      return {
+        ...state,
+        currentArticle: article ?? {} as Comic
+      };
+    },
+    searchGenre: (state, action: PayloadAction<Genre>) => {
       const articleList = state.allArticles.filter((comic) =>
         comic.genres.includes(action.payload),
       );
@@ -26,7 +42,7 @@ export const articleListSlice = createSlice({
         showArticles: articleList,
       };
     },
-    resetSearch: (state) => ({
+    resetShowArticle: (state) => ({
       ...state,
       showArticles: state.allArticles,
     }),

@@ -9,7 +9,7 @@ import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
-import ArticlePage from './containers/pages/ArticlePage';
+import ArticlePage from './components/pages/ArticlePage';
 import { articleListSlice } from './features/articleList';
 import './App.scss';
 
@@ -28,11 +28,7 @@ const App: FC = () => {
       const result = await API.graphql(graphqlOperation(listComics));
       if ('data' in result && result.data) {
         const articlesData = result.data as ListComicsQuery;
-        if (articlesData.listComics) {
-          // eslint-disable-next-line
-          console.log(articlesData.listComics.items);
-          dispatch(initArticle(articlesData.listComics.items as Comic[]));
-        }
+        dispatch(initArticle(articlesData?.listComics?.items as Comic[]));
       }
     })();
     // eslint-disable-next-line

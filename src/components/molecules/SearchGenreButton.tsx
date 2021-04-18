@@ -8,18 +8,18 @@ import { Genre } from 'API';
 
 const SearchGenreButton: FC = () => {
   const genreList = Object.entries(Genre);
-  const { genreSearch, resetSearch } = articleListSlice.actions;
+  const { searchGenre, resetShowArticle } = articleListSlice.actions;
   const dispatch = useDispatch();
 
   return (
     <div className="button_group">
-      <IconButton key="reset" onClick={() => dispatch(resetSearch())}>
+      <IconButton key="reset" onClick={() => dispatch(resetShowArticle())}>
         {React.cloneElement(<MdViewList data-color="gray" />, genreIconProps)}
       </IconButton>
       {genreList.map((genre) => (
         <IconButton
           key={genre[0]}
-          onClick={() => dispatch(genreSearch(genre[1]))}
+          onClick={() => dispatch(searchGenre(genre[1]))}
         >
           {React.cloneElement(genres[genre[0]], genreIconProps)}
         </IconButton>
