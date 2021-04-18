@@ -9,7 +9,7 @@ import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
-import ArticlePage from './components/pages/ArticlePage';
+import ArticlePage from './containers/pages/ArticlePage';
 import { articleListSlice } from './features/articleList';
 import './App.scss';
 
