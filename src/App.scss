@@ -1,6 +1,23 @@
 .body {
+  // ここflexすると、headerとかfooterの大きさがおかしくなる
+  // 設定しないと記事がないとき、仮にAPIとかとって来れなかった時空白ができる
+  // display: flex;
+  // flex-direction: column;
   height: 100%;
   margin: 0;
+
+  a {
+    color: rgb(0, 78, 204);
+    text-decoration: none;
+  }
+
+  .date {
+    color: gray;
+  }
+
+  .sub_font {
+    font-family: “Quicksand”, “Avenir”, “Arial”, “BIZ UDGothic”, “Hiragino Kaku Gothic ProN”, YuGothic, “Yu Gothic”, “Hiragino Sans”, “ヒラギノ角ゴシック”, “メイリオ”, Meiryo, sans-serif;
+  }
 
   header {
     position: sticky;
@@ -8,22 +25,24 @@
     top: 0;
     z-index: 1;
     height: clamp(100px, 100px + 1vw, 200px);
-    background: #f8e4e7;
+    background: #ffc107;
   }
 
   .container {
     display: flex;
     flex: 1;
+    padding: 8vh 0;
+    background: whitesmoke;
 
     main {
       flex: 1;
-      background: rgb(202, 240, 255);
     }
 
     aside {
-      width: 250px;
+      display: flex;
+      flex-direction: column;
+      width: 300px;
       padding: 0 10px;
-      background: rgb(255, 230, 183);
     }
   }
 

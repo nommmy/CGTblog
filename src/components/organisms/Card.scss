@@ -9,24 +9,10 @@
 
 @import '/src/settings';
 
-@mixin icon_position {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-}
-
-@mixin genre_icon {
-  padding: 5px;
-  pointer-events: none;
-
-  @include icon_color;
-
-  border-radius: 50%;
-}
-
 $reco_height: 60px;
 
 .reco_container {
+  padding: 0.5vw 1vw;
   margin: 0 auto;
 
   .reco_item {

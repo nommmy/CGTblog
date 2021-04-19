@@ -14,7 +14,7 @@ import { FaRegGrinSquintTears, FaRegSadTear } from 'react-icons/fa';
 export const genreIconProps = {
   className: 'genre_icon',
   color: 'white',
-  size: '20',
+  size: '30',
 };
 
 type genresData = {

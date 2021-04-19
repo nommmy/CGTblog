@@ -1,39 +1,37 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Comic, comicsData } from 'data/comics';
+import { Comic } from 'data/comics';
+import { Genre } from 'API';
 
-export type typeState = { articles: Comic[] };
-export const initialState = { articles: comicsData.comics };
+export type typeState = {
+  allArticles: Comic[];
+  showArticles: Comic[];
+};
+export const initialState = {
+  allArticles: [] as Comic[],
+  showArticles: [] as Comic[],
+};
 export const articleListSlice = createSlice({
-  name: 'list',
+  name: 'articlelist',
   initialState,
   reducers: {
-    genreSearch: (state, action: PayloadAction<string>) => {
-      const articleList = comicsData.comics.filter(
-        (comic) => comic.genres.includes(action.payload),
-      );
-
-      return {
-        articles: articleList,
-      };
-    },
-    resetSearch: () => ({
-      articles: comicsData.comics,
+    initArticle: (state, action: PayloadAction<Comic[]>) => ({
+      ...state,
+      allArticles: action.payload,
+      showArticles: action.payload,
     }),
-    textSearch: (state, action: PayloadAction<string>) => {
-      if (!action.payload) {
-        return {
-          articles: comicsData.comics,
-        };
-      }
-
-      const articleList = state.articles.filter(
-        (comic) =>
-          comic.title.toLowerCase().search(action.payload.toLowerCase()) === 0,
+    searchGenre: (state, action: PayloadAction<Genre>) => {
+      const articleList = state.allArticles.filter((comic) =>
+        comic.genres.includes(action.payload),
       );
 
       return {
-        articles: articleList,
+        ...state,
+        showArticles: articleList,
       };
     },
+    resetShowArticle: (state) => ({
+      ...state,
+      showArticles: state.allArticles,
+    }),
   },
 });

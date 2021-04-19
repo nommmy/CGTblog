@@ -1,0 +1,40 @@
+type Comic
+  @model
+  @key(
+    name: "code-index"
+    fields: ["code"]
+    queryField: "comicByCode"
+  ) {
+  id: ID!
+  code: String!
+  title: String!
+  genres: [Genre!]!
+  subtitle: String!
+  like: Int!
+  image: String
+  content: String!
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+type Comment @model @key(name: "byPost", fields: ["postID", "createdAt"]) {
+  id: ID!
+  postID: ID!
+  post: Comic @connection(fields: ["postID"])
+  content: String
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+
+enum Genre {
+  battle
+  love
+  aoharu
+  sports
+  drama
+  music
+  food
+  gag
+  impression
+}

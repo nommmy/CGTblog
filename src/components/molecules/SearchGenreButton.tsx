@@ -4,28 +4,24 @@ import { IconButton } from '@material-ui/core';
 import { articleListSlice } from 'features/articleList';
 import { useDispatch } from 'react-redux';
 import { MdViewList } from 'react-icons/md';
-
-// const SearchGenreButton: FC = () => {
-//   const iconList = Object.keys(genres).map((genreKey) =>
-//     React.cloneElement(genres[genreKey], { key:genreKey, ...genreIconProps }),
-//   );
-
-//   return <div>{iconList}</div>;
-// };
+import { Genre } from 'API';
 
 const SearchGenreButton: FC = () => {
-  const genreList = Object.keys(genres);
-  const { genreSearch, resetSearch } = articleListSlice.actions;
+  const genreList = Object.entries(Genre);
+  const { searchGenre, resetShowArticle } = articleListSlice.actions;
   const dispatch = useDispatch();
 
   return (
     <div className="button_group">
-      <IconButton key="reset" onClick={() => dispatch(resetSearch())}>
+      <IconButton key="reset" onClick={() => dispatch(resetShowArticle())}>
         {React.cloneElement(<MdViewList data-color="gray" />, genreIconProps)}
       </IconButton>
       {genreList.map((genre) => (
-        <IconButton key={genre} onClick={() => dispatch(genreSearch(genre))}>
-          {React.cloneElement(genres[genre], genreIconProps)}
+        <IconButton
+          key={genre[0]}
+          onClick={() => dispatch(searchGenre(genre[1]))}
+        >
+          {React.cloneElement(genres[genre[0]], genreIconProps)}
         </IconButton>
       ))}
     </div>
