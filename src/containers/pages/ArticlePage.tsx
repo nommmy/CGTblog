@@ -15,16 +15,10 @@ const ArticlePage: FC = () => {
     shallowEqual,
   );
 
-  // eslint-disable-next-line
-  console.log(allArticles);
-
   const currentArticle = useMemo(
     () => allArticles.filter((comic) => comic.code === code),
     [code, allArticles],
   );
-
-  // eslint-disable-next-line
-  console.log(currentArticle);
 
   return (
     <>
@@ -38,8 +32,6 @@ const ArticlePage: FC = () => {
       </aside>
     </>
   );
-
-  // return <Navigate to="/" replace />;
 };
 
 export default ArticlePage;

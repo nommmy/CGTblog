@@ -28,11 +28,12 @@ const App: FC = () => {
       const result = await API.graphql(graphqlOperation(listComics));
       if ('data' in result && result.data) {
         const articlesData = result.data as ListComicsQuery;
-        dispatch(initArticle(articlesData?.listComics?.items as Comic[]));
+        if (articlesData.listComics) {
+          dispatch(initArticle(articlesData.listComics.items as Comic[]));
+        }
       }
     })();
-    // eslint-disable-next-line
-  }, []);
+  }, [dispatch, initArticle]);
 
   return (
     <div className="body">

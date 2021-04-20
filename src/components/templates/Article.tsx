@@ -12,17 +12,19 @@ const Article: FC<Comic> = ({ title, genres, subtitle, updatedAt }) => (
       <title>{title}</title>
     </Helmet>
     <div className="genre_icon_group">
-      {genres && genres.map((genre) => (
-        <GenreIcon key={genre} genre={genre} />
-      ))}
+      {genres && genres.map((genre) => <GenreIcon key={genre} genre={genre} />)}
     </div>
     <section className="option">
       <div>
         <Link to="/">Top</Link> / {title}
       </div>
       <div className="date_container">
-        <MdUpdate style={{ color: 'gray', margin: 5 }} />
-        <span className="date">{updatedAt?.split("T")[0]}</span>
+        {updatedAt &&
+          <>
+            <MdUpdate style={{ color: 'gray', margin: 5 }} />
+            <span className="date">{updatedAt?.split('T')[0]}</span>
+          </>
+        }
       </div>
     </section>
     <section className="article_header">
