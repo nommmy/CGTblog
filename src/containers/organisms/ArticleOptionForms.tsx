@@ -15,7 +15,7 @@ type Props = {
   getValues: UseFormGetValues<IFormInputs>;
 };
 
-const ArticleOptionForms: FC<Props> = ({control, getValues}) => {
+const ArticleOptionForms: FC<Props> = ({ control, getValues }) => {
   const handleSelect = (checkedName: string) => {
     const names = getValues()?.genres;
     const newNames = names?.includes(checkedName)
@@ -24,34 +24,29 @@ const ArticleOptionForms: FC<Props> = ({control, getValues}) => {
 
     return newNames;
   };
-    const genreList = useMemo(
-      () => Object.entries(Genre).map((genre) => genre[0]),
-      [],
-    );
-  
+  const genreList = useMemo(
+    () => Object.entries(Genre).map((genre) => genre[0]),
+    [],
+  );
+
   return (
-    <div>
+    <div className="meta_forms_container">
       <Controller
         control={control}
         name="title"
         defaultValue=""
         rules={{ required: true }}
-        render={({ field }) => <TextField {...field} label="Title" />}
+        render={({ field }) => (
+          <TextField {...field} className="title_form" label="Title" />
+        )}
       />
       <Controller
         control={control}
         name="code"
         defaultValue=""
         rules={{ required: true }}
-        render={({ field }) => <TextField {...field} label="Code" />}
-      />
-      <Controller
-        control={control}
-        name="subtitle"
-        defaultValue=""
-        rules={{ required: true }}
         render={({ field }) => (
-          <TextField {...field} label="Subtitle" fullWidth />
+          <TextField {...field} className="code_form" label="Code" />
         )}
       />
       <Controller
@@ -65,9 +60,19 @@ const ArticleOptionForms: FC<Props> = ({control, getValues}) => {
             accept="image/*"
             id="contained-button-file"
             name="image"
+            className="image_form"
             multiple
             type="file"
           />
+        )}
+      />
+      <Controller
+        control={control}
+        name="subtitle"
+        defaultValue=""
+        rules={{ required: true }}
+        render={({ field }) => (
+          <TextField {...field} label="Subtitle" fullWidth />
         )}
       />
       <Controller

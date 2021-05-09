@@ -5,6 +5,45 @@
   flex-direction: column;
   justify-content: center;
 
+  button {
+    float: right;
+    margin: 2vw 1vw;
+    background: #0f83fd;
+  }
+
+  .meta_forms_container {
+    display: grid;
+    grid-template-areas:
+      'a b c'
+      'd d d'
+      'e e e';
+    gap: 1vw 2vw;
+    padding: 3vw;
+    margin: 1vw;
+    background: white;
+    box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 1px 1px rgba(16, 22, 26, 0.2);
+
+    .MuiFormGroup-row {
+      grid-area: e;
+    }
+
+    .MuiFormControl-fullWidth {
+      grid-area: d;
+    }
+
+    .title_form {
+      grid-area: a;
+    }
+
+    .code_form {
+      grid-area: b;
+    }
+
+    .image_form {
+      grid-area: c;
+    }
+  }
+
   .react-split-mde-wrap {
     display: flex;
     width: 100%;
