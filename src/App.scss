@@ -25,6 +25,7 @@
     top: 0;
     z-index: 1;
     height: clamp(100px, 100px + 1vw, 200px);
+    padding: 2vw;
     background: #ffc107;
   }
 
@@ -48,6 +49,7 @@
 
   footer {
     height: clamp(100px, 100px + 1vw, 150px);
+    padding: 2vw;
     background: rgb(201, 255, 201);
   }
 

@@ -5,6 +5,19 @@
   flex-direction: column;
   justify-content: center;
 
+  .image_insert_button {
+    position: fixed;
+    top: 10vh;
+    left: 2vw;
+    z-index: 10;
+    background: #0f83fd;
+    border-radius: 50%;
+
+    svg {
+      color: white;
+    }
+  }
+
   button {
     float: right;
     margin: 2vw 1vw;

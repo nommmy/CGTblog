@@ -7,15 +7,21 @@ import {
   FormGroup,
   Checkbox,
 } from '@material-ui/core';
-import { Controller, UseFormGetValues, Control } from 'react-hook-form';
+import {
+  Controller,
+  UseFormGetValues,
+  Control,
+  ControllerRenderProps,
+} from 'react-hook-form';
 import { IFormInputs } from 'containers/templates/MarkdownContentForms';
 
 type Props = {
   control: Control<IFormInputs>;
   getValues: UseFormGetValues<IFormInputs>;
+  setHeader: React.Dispatch<React.SetStateAction<File | undefined>>;
 };
 
-const ArticleOptionForms: FC<Props> = ({ control, getValues }) => {
+const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
   const handleSelect = (checkedName: string) => {
     const names = getValues()?.genres;
     const newNames = names?.includes(checkedName)
@@ -28,6 +34,16 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues }) => {
     () => Object.entries(Genre).map((genre) => genre[0]),
     [],
   );
+
+  const headerInput = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    cr: ControllerRenderProps<IFormInputs, 'image'>,
+  ) => {
+    cr.onChange(e);
+    if (!e?.target?.files) return;
+    const file = e.target.files[0];
+    setHeader(file);
+  };
 
   return (
     <div className="meta_forms_container">
@@ -44,7 +60,9 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues }) => {
         control={control}
         name="code"
         defaultValue=""
-        rules={{ required: true }}
+        rules={{
+          required: true,
+        }}
         render={({ field }) => (
           <TextField {...field} className="code_form" label="Code" />
         )}
@@ -63,6 +81,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues }) => {
             className="image_form"
             multiple
             type="file"
+            onChange={(e) => headerInput(e, field)}
           />
         )}
       />
