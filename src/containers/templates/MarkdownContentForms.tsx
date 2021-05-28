@@ -16,6 +16,7 @@ import { Button } from '@material-ui/core';
 import ArticleOptionForms from 'containers/organisms/ArticleOptionForms';
 import { API, Storage, graphqlOperation } from 'aws-amplify';
 import { createComic } from 'graphql/mutations';
+import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
 import InsertImageButton from 'components/atoms/InsertImageButton';
 import './markdown.scss';
 
@@ -23,16 +24,6 @@ import './markdown.scss';
 const hint = require('remark-hint');
 // eslint-disable-next-line
 const sectionize = require('remark-sectionize');
-
-export type IFormInputs = {
-  title: string;
-  code: string;
-  subtitle: string;
-  content: string;
-  image: string;
-  like: number;
-  genres: string[];
-};
 
 const MarkdownContentForms: FC = () => {
   // めちゃくちゃ無理矢理ts対応
@@ -125,50 +116,57 @@ const MarkdownContentForms: FC = () => {
     );
   };
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="post_container">
       <div className="image_insert_button">
-        <InsertImageButton imageInsert={imageInsert} />
+        <InsertImageButton imageInsert={imageInsert} insertOK={!codeWatched} />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ArticleOptionForms
-          control={control}
-          getValues={getValues}
-          setHeader={setHeader}
-        />
-        <div className="react-split-mde-wrap">
-          <div className="react-split-mde react-split-mde-box">
-            {codeWatched ? (
-              <textarea
-                value={text}
-                {...register('content')}
-                className="react-split-mde-textarea"
-                onChange={({ currentTarget }) => {
-                  setText(currentTarget.value);
-                  setMarkdown(currentTarget.value);
-                }}
-              />
-            ) : (
-              <textarea
-                value={text}
-                disabled
-                {...register('content')}
-                className="react-split-mde-textarea"
-                onChange={({ currentTarget }) => {
-                  setText(currentTarget.value);
-                  setMarkdown(currentTarget.value);
-                }}
-              />
-            )}
-          </div>
-          <div className="react-split-mde-box react-split-mde-preview">
-            {markdown}
-          </div>
+      <ArticleOptionForms
+        control={control}
+        getValues={getValues}
+        setHeader={setHeader}
+      />
+      <div className="react-split-mde-wrap">
+        <div className="react-split-mde react-split-mde-box">
+          <textarea
+            value={text}
+            placeholder="「Code」を先に入力してください"
+            disabled={!codeWatched}
+            {...register('content')}
+            className="react-split-mde-textarea"
+            onChange={({ currentTarget }) => {
+              setText(currentTarget.value);
+              setMarkdown(currentTarget.value);
+            }}
+          />
         </div>
-        <Button variant="contained" color="primary" type="submit">
-          Submit
-        </Button>
-      </form>
+        <div className="react-split-mde-box react-split-mde-preview">
+          {markdown}
+        </div>
+      </div>
+      <Button
+        variant="contained"
+        color="primary"
+        type="button"
+        onClick={handleOpen}
+      >
+        Submit
+      </Button>
+      <ConfirmModal
+        onClose={handleClose}
+        open={open}
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        control={control}
+      />
     </div>
   );
 };

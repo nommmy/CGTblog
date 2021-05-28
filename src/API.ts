@@ -10,6 +10,7 @@ export type CreateComicInput = {
   subtitle: string,
   like: number,
   image?: string | null,
+  isPublic: boolean,
   content: string,
   createdAt?: string | null,
   updatedAt?: string | null,
@@ -35,6 +36,7 @@ export type ModelComicConditionInput = {
   subtitle?: ModelStringInput | null,
   like?: ModelIntInput | null,
   image?: ModelStringInput | null,
+  isPublic?: ModelBooleanInput | null,
   content?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
@@ -102,6 +104,13 @@ export type ModelIntInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
 export type Comic = {
   __typename: "Comic",
   id?: string,
@@ -111,6 +120,7 @@ export type Comic = {
   subtitle?: string,
   like?: number,
   image?: string | null,
+  isPublic?: boolean,
   content?: string,
   comments?: ModelCommentConnection,
   createdAt?: string | null,
@@ -141,6 +151,7 @@ export type UpdateComicInput = {
   subtitle?: string | null,
   like?: number | null,
   image?: string | null,
+  isPublic?: boolean | null,
   content?: string | null,
   createdAt?: string | null,
   updatedAt?: string | null,
@@ -204,6 +215,7 @@ export type ModelComicFilterInput = {
   subtitle?: ModelStringInput | null,
   like?: ModelIntInput | null,
   image?: ModelStringInput | null,
+  isPublic?: ModelBooleanInput | null,
   content?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
@@ -250,6 +262,7 @@ export type CreateComicMutation = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -283,6 +296,7 @@ export type UpdateComicMutation = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -316,6 +330,7 @@ export type DeleteComicMutation = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -353,6 +368,7 @@ export type CreateCommentMutation = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -386,6 +402,7 @@ export type UpdateCommentMutation = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -419,6 +436,7 @@ export type DeleteCommentMutation = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -447,6 +465,7 @@ export type GetComicQuery = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -483,6 +502,7 @@ export type ListComicsQuery = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -513,6 +533,7 @@ export type GetCommentQuery = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -549,6 +570,7 @@ export type ListCommentsQuery = {
         subtitle: string,
         like: number,
         image?: string | null,
+        isPublic: boolean,
         content: string,
         createdAt?: string | null,
         updatedAt?: string | null,
@@ -581,6 +603,7 @@ export type ComicByCodeQuery = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -603,6 +626,7 @@ export type OnCreateComicSubscription = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -631,6 +655,7 @@ export type OnUpdateComicSubscription = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -659,6 +684,7 @@ export type OnDeleteComicSubscription = {
     subtitle: string,
     like: number,
     image?: string | null,
+    isPublic: boolean,
     content: string,
     comments?:  {
       __typename: "ModelCommentConnection",
@@ -691,6 +717,7 @@ export type OnCreateCommentSubscription = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -719,6 +746,7 @@ export type OnUpdateCommentSubscription = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",
@@ -747,6 +775,7 @@ export type OnDeleteCommentSubscription = {
       subtitle: string,
       like: number,
       image?: string | null,
+      isPublic: boolean,
       content: string,
       comments?:  {
         __typename: "ModelCommentConnection",

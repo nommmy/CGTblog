@@ -13,7 +13,7 @@ import {
   Control,
   ControllerRenderProps,
 } from 'react-hook-form';
-import { IFormInputs } from 'containers/templates/MarkdownContentForms';
+import { IFormInputs } from 'containers/molecules/Modal';
 
 type Props = {
   control: Control<IFormInputs>;

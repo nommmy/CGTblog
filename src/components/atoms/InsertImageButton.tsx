@@ -4,18 +4,24 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 type Props = {
   imageInsert: (e: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
+  insertOK: boolean;
 };
 
-const InsertImageButton: FC<Props> = ({ imageInsert }) => (
+const InsertImageButton: FC<Props> = ({ imageInsert, insertOK }) => (
   <label htmlFor="icon-button-file">
     <input
       accept="image/*"
+      disabled={insertOK}
       style={{ display: 'none' }}
       id="icon-button-file"
       type="file"
       onChange={imageInsert}
     />
-    <IconButton color="primary" aria-label="upload picture" component="span">
+    <IconButton
+      disabled={insertOK}
+      aria-label="upload picture"
+      component="span"
+    >
       <PhotoCamera />
     </IconButton>
   </label>
