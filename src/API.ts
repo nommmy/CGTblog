@@ -9,7 +9,7 @@ export type CreateComicInput = {
   genres: Array< Genre >,
   subtitle: string,
   like: number,
-  image?: string | null,
+  image: string,
   isPublic: boolean,
   content: string,
   createdAt?: string | null,
@@ -119,7 +119,7 @@ export type Comic = {
   genres?: Array< Genre >,
   subtitle?: string,
   like?: number,
-  image?: string | null,
+  image?: string,
   isPublic?: boolean,
   content?: string,
   comments?: ModelCommentConnection,
@@ -261,7 +261,7 @@ export type CreateComicMutation = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -295,7 +295,7 @@ export type UpdateComicMutation = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -329,7 +329,7 @@ export type DeleteComicMutation = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -367,7 +367,7 @@ export type CreateCommentMutation = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -401,7 +401,7 @@ export type UpdateCommentMutation = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -435,7 +435,7 @@ export type DeleteCommentMutation = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -464,7 +464,7 @@ export type GetComicQuery = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -501,7 +501,7 @@ export type ListComicsQuery = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -532,7 +532,7 @@ export type GetCommentQuery = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -569,7 +569,7 @@ export type ListCommentsQuery = {
         genres: Array< Genre >,
         subtitle: string,
         like: number,
-        image?: string | null,
+        image: string,
         isPublic: boolean,
         content: string,
         createdAt?: string | null,
@@ -602,7 +602,7 @@ export type ComicByCodeQuery = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -625,7 +625,7 @@ export type OnCreateComicSubscription = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -654,7 +654,7 @@ export type OnUpdateComicSubscription = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -683,7 +683,7 @@ export type OnDeleteComicSubscription = {
     genres: Array< Genre >,
     subtitle: string,
     like: number,
-    image?: string | null,
+    image: string,
     isPublic: boolean,
     content: string,
     comments?:  {
@@ -716,7 +716,7 @@ export type OnCreateCommentSubscription = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -745,7 +745,7 @@ export type OnUpdateCommentSubscription = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {
@@ -774,7 +774,7 @@ export type OnDeleteCommentSubscription = {
       genres: Array< Genre >,
       subtitle: string,
       like: number,
-      image?: string | null,
+      image: string,
       isPublic: boolean,
       content: string,
       comments?:  {

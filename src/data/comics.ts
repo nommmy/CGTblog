@@ -8,7 +8,7 @@ export type Comic = {
   genres: Array<Genre>;
   subtitle: string;
   like: number;
-  image?: string | null;
+  image: string;
   isPublic: boolean;
   content: string;
   comments?: ModelCommentConnection;

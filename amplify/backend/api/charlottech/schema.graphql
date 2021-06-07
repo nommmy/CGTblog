@@ -7,7 +7,7 @@ type Comic
   genres: [Genre!]!
   subtitle: String!
   like: Int!
-  image: String
+  image: String!
   isPublic: Boolean!
   content: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])

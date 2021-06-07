@@ -18,6 +18,7 @@ import { API, Storage, graphqlOperation } from 'aws-amplify';
 import { createComic } from 'graphql/mutations';
 import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
 import InsertImageButton from 'components/atoms/InsertImageButton';
+import awsmobile from 'aws-exports';
 import './markdown.scss';
 
 // eslint-disable-next-line
@@ -76,24 +77,30 @@ const MarkdownContentForms: FC = () => {
   const navigate = useNavigate();
   const onSubmit = async (data: IFormInputs) => {
     if (header === undefined) return;
+    const imageUrlDefault = `https://${awsmobile.aws_user_files_s3_bucket}.s3-${awsmobile.aws_user_files_s3_bucket_region}.amazonaws.com/public/`;
     await Storage.put(`${codeWatched}/${header.name}`, header, {
       level: 'public',
       contentType: header.type,
-    }) // eslint-disable-next-line
-      .then((result) => console.log(result))
+    }).then((result) => {
       // eslint-disable-next-line
-      .catch((err) => console.log(err));
-    const headerPath = (await Storage.get(
-      `${codeWatched}/${header.name}`,
-    )) as string;
+      console.log(result);
+    });
+    // // eslint-disable-next-line
+    // .catch ((err) => console.log(err));
+
+    // const headerPath = (await Storage.get(
+    //   `${codeWatched}/${header.name}`,
+    // )) as string;
+    const imageUrl = `${imageUrlDefault}${codeWatched}/${header.name}`;
 
     const submitData: IFormInputs = {
       ...data,
-      image: headerPath,
+      image: imageUrl,
       content: text,
       like: 0,
     };
-
+    // eslint-disable-next-line
+    console.log(submitData);
     await API.graphql(graphqlOperation(createComic, { input: submitData }));
 
     navigate('/');
@@ -109,10 +116,9 @@ const MarkdownContentForms: FC = () => {
       .then((result) => console.log(result))
       // eslint-disable-next-line
       .catch((err) => console.log(err));
-    const image = (await Storage.get(`${codeWatched}/${file.name}`)) as string;
+    // const image = (await Storage.get(`${codeWatched}/${file.name}`)) as string;
     setText(
-      `${text}![${file.name}](${image})`,
-      // `${text}![${file.name}](https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3-ap-northeast-1.amazonaws.com/public/${codeWatched}/${file.name})`,
+      `${text}![${file.name}](https://${awsmobile.aws_user_files_s3_bucket}.s3-${awsmobile.aws_user_files_s3_bucket_region}.amazonaws.com/public/${codeWatched}/${file.name})`,
     );
   };
 
