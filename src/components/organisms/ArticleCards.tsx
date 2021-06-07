@@ -23,7 +23,11 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
             </div>
           </section>
           <section className="card_thumbnail">
-            <CardMedia className="card_media" image="./aiko.png" title="aiko" />
+            <CardMedia
+              className="card_media"
+              image={comic.image}
+              title={comic.title}
+            />
             <p>{comic.title}</p>
           </section>
         </Link>

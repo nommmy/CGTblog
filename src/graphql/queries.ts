@@ -12,6 +12,7 @@ export const getComic = /* GraphQL */ `
       subtitle
       like
       image
+      isPublic
       content
       comments {
         items {
@@ -43,6 +44,7 @@ export const listComics = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken
@@ -67,6 +69,7 @@ export const getComment = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken
@@ -98,6 +101,7 @@ export const listComments = /* GraphQL */ `
           subtitle
           like
           image
+          isPublic
           content
           createdAt
           updatedAt
@@ -133,6 +137,7 @@ export const comicByCode = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken

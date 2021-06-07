@@ -1,17 +1,14 @@
 type Comic
   @model
-  @key(
-    name: "code-index"
-    fields: ["code"]
-    queryField: "comicByCode"
-  ) {
+  @key(name: "code-index", fields: ["code"], queryField: "comicByCode") {
   id: ID!
   code: String!
   title: String!
   genres: [Genre!]!
   subtitle: String!
   like: Int!
-  image: String
+  image: String!
+  isPublic: Boolean!
   content: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
   createdAt: AWSDateTime

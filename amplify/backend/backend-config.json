@@ -26,7 +26,7 @@
     }
   },
   "storage": {
-    "charlottorage": {
+    "charlottestrage": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }

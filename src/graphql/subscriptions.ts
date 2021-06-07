@@ -12,6 +12,7 @@ export const onCreateComic = /* GraphQL */ `
       subtitle
       like
       image
+      isPublic
       content
       comments {
         items {
@@ -38,6 +39,7 @@ export const onUpdateComic = /* GraphQL */ `
       subtitle
       like
       image
+      isPublic
       content
       comments {
         items {
@@ -64,6 +66,7 @@ export const onDeleteComic = /* GraphQL */ `
       subtitle
       like
       image
+      isPublic
       content
       comments {
         items {
@@ -93,6 +96,7 @@ export const onCreateComment = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken
@@ -119,6 +123,7 @@ export const onUpdateComment = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken
@@ -145,6 +150,7 @@ export const onDeleteComment = /* GraphQL */ `
         subtitle
         like
         image
+        isPublic
         content
         comments {
           nextToken

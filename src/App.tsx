@@ -10,6 +10,7 @@ import { listComics } from 'graphql/queries';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
+import CreatePage from './components/pages/CreatePage';
 import { articleListSlice } from './features/articleList';
 import './App.scss';
 
@@ -39,6 +40,7 @@ const App: FC = () => {
     <div className="body">
       <header>
         <Link to="intro">このサイトについて</Link>
+        <Link to="new">Create New Article</Link>
         <Link to="/">
           <HomeIcon color="primary" />
         </Link>
@@ -48,6 +50,7 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path=":code" element={<ArticlePage />} />
           <Route path="intro" element={<IntroPage />} />
+          <Route path="new" element={<CreatePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

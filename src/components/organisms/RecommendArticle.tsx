@@ -14,7 +14,11 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
       <Link to={'/' + comic.code} key={comic.code}>
         <Card className="reco_item">
           <section className="reco_thumbnail">
-            <CardMedia className="reco_media" image="./aiko.png" title="aiko">
+            <CardMedia
+              className="reco_media"
+              image={comic.image}
+              title={comic.title}
+            >
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
                   <GenreIcon key={genre + comic.title} genre={genre} />

@@ -78,32 +78,4 @@
       }
     }
   }
-
-  .summary_box {
-    margin: 2vw 0;
-    border: solid 2px #ffc107;
-
-    .box_title {
-      position: relative;
-      top: -2px;
-      display: inline-block;
-      padding: 2px 9px;
-      font-size: 1.5vw;
-      font-weight: bold;
-      line-height: 1.5;
-      color: #fff;
-      background: #ffc107;
-    }
-
-    .box_content {
-      padding: 2vw;
-    }
-  }
-
-  .chapter {
-    padding: 1rem 2rem;
-    font-size: 1.5vw;
-    font-weight: bold;
-    border-left: 4px solid #ffc107;
-  }
 }

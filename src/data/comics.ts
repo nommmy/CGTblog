@@ -8,7 +8,8 @@ export type Comic = {
   genres: Array<Genre>;
   subtitle: string;
   like: number;
-  image?: string | null;
+  image: string;
+  isPublic: boolean;
   content: string;
   comments?: ModelCommentConnection;
   createdAt?: string | null;
@@ -18,13 +19,6 @@ export type Comic = {
 export type ComicData = {
   comics: Comic[];
 };
-
-// export type Comic = {
-//   code: string;
-//   title: string;
-//   genres: string[];
-//   overview: string;
-// };
 
 // export const comicsData: ComicData = {
 //   comics: [
