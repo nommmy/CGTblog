@@ -1,6 +1,16 @@
 type Comic
   @model
-  @key(name: "code-index", fields: ["code"], queryField: "comicByCode") {
+  @key(name: "code-index", fields: ["code"], queryField: "comicByCode")
+  @auth(
+    rules: [
+      {
+        allow: private
+        provider: userPools
+        operations: [create, read, update, delete]
+      }
+      { allow: public, provider: iam, operations: [read] }
+    ]
+  ) {
   id: ID!
   code: String!
   title: String!
@@ -15,7 +25,15 @@ type Comic
   updatedAt: AWSDateTime
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "createdAt"]) {
+type Comment
+  @model
+  @key(name: "byPost", fields: ["postID", "createdAt"])
+  @auth(
+    rules: [
+      { allow: private, provider: userPools }
+      { allow: public, provider: iam }
+    ]
+  ) {
   id: ID!
   postID: ID!
   post: Comic @connection(fields: ["postID"])

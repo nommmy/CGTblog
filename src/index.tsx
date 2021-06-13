@@ -4,12 +4,23 @@ import './index.scss';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { articleListSlice } from 'features/articleList';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import config from './aws-exports';
 
 Amplify.configure(config);
+Auth.currentAuthenticatedUser()
+  .then(() => {
+    Amplify.configure({
+      aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
+    });
+  })
+  .catch(() => {
+    Amplify.configure({
+      aws_appsync_authenticationType: 'AWS_IAM',
+    });
+  });
 
 const store = configureStore({ reducer: articleListSlice.reducer });
 

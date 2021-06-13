@@ -3,10 +3,11 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import { useDispatch } from 'react-redux';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { ListComicsQuery } from 'API';
 import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
@@ -26,7 +27,10 @@ const App: FC = () => {
   useEffect(() => {
     // eslint-disable-next-line
     (async () => {
-      const result = await API.graphql(graphqlOperation(listComics));
+      const result = await API.graphql({
+        query: listComics,
+        authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+      });
       if ('data' in result && result.data) {
         const articlesData = result.data as ListComicsQuery;
         if (articlesData.listComics) {

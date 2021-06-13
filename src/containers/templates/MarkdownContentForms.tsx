@@ -14,9 +14,10 @@ import { Node } from 'unist';
 import h from 'hastscript';
 import { Button } from '@material-ui/core';
 import ArticleOptionForms from 'containers/organisms/ArticleOptionForms';
-import { API, Storage, graphqlOperation } from 'aws-amplify';
+import { API, Storage } from 'aws-amplify';
 import { createComic } from 'graphql/mutations';
 import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import InsertImageButton from 'components/atoms/InsertImageButton';
 import awsmobile from 'aws-exports';
 import './markdown.scss';
@@ -101,7 +102,11 @@ const MarkdownContentForms: FC = () => {
     };
     // eslint-disable-next-line
     console.log(submitData);
-    await API.graphql(graphqlOperation(createComic, { input: submitData }));
+    await API.graphql({
+      query: createComic,
+      variables: { input: submitData },
+      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    });
 
     navigate('/');
   };
