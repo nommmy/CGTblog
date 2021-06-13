@@ -4,7 +4,7 @@ import Article from 'components/templates/Article';
 import Aside from 'components/templates/Aside';
 import ArticleSideContents from 'components/templates/ArticleSideContents';
 import { useSelector, shallowEqual } from 'react-redux';
-import { typeState } from 'features/articleList';
+import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
 
 const ArticlePage: FC = () => {

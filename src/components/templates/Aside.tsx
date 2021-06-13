@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Comic } from 'data/comics';
 import RecommendArticle from 'components/organisms/RecommendArticle';
 import './Aside.scss';
-import { typeState } from 'features/articleList';
+import { typeState } from 'ducks/articleList';
 import { useSelector, shallowEqual } from 'react-redux';
 
 const Aside: FC = () => {

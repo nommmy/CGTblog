@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { articleListSlice } from 'features/articleList';
+import { articleListSlice } from 'ducks/articleList';
 import Amplify, { Auth } from 'aws-amplify';
 import reportWebVitals from './reportWebVitals';
 import App from './App';

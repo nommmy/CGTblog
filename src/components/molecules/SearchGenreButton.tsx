@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { genreIconProps, genres } from 'components/atoms/GenreIcon';
 import { IconButton } from '@material-ui/core';
-import { articleListSlice } from 'features/articleList';
+import { articleListSlice } from 'ducks/articleList';
 import { useDispatch } from 'react-redux';
 import { MdViewList } from 'react-icons/md';
 import { Genre } from 'API';

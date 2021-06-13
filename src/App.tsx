@@ -11,8 +11,10 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
+import EditPage from './components/pages/EditPage';
 import CreatePage from './components/pages/CreatePage';
-import { articleListSlice } from './features/articleList';
+import AdminPage from './components/pages/AdminPage';
+import { articleListSlice } from './ducks/articleList';
 import './App.scss';
 
 const App: FC = () => {
@@ -44,7 +46,7 @@ const App: FC = () => {
     <div className="body">
       <header>
         <Link to="intro">このサイトについて</Link>
-        <Link to="new">Create New Article</Link>
+        <Link to="admin">編集＆NEW</Link>
         <Link to="/">
           <HomeIcon color="primary" />
         </Link>
@@ -54,7 +56,13 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path=":code" element={<ArticlePage />} />
           <Route path="intro" element={<IntroPage />} />
-          <Route path="new" element={<CreatePage />} />
+          <Route path="admin" element={<AdminPage />}/>
+          <Route path="admin/new" element={<CreatePage />} />
+          <Route path="admin/:code" element={<EditPage />} />
+          {/* <Route path="admin" element={<AdminPage />}>
+            <Route path="new" element={<CreatePage />} />
+            <Route path=":code" element={<ArticlePage />} />
+          </Route> */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

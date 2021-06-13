@@ -4,26 +4,34 @@ import ArticleCards from 'components/organisms/ArticleCards';
 import SearchForms from 'components/organisms/SearchForms';
 import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
-import Aside from 'components/templates/Aside';
 import { Comic } from 'data/comics';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Link } from 'react-router-dom';
+import CreateIcon from '@material-ui/icons/Create';
 
-const Home: FC = () => {
-  const articles = useSelector<typeState, Comic[]>((state) => state.showArticles, shallowEqual);
+const AdminPage: FC = () => {
+  const articles = useSelector<typeState, Comic[]>(
+    (state) => state.showArticles,
+    shallowEqual,
+  );
 
   return (
     <>
       <Helmet>
-        <title>Articles一覧</title>
+        <title>Admin</title>
       </Helmet>
       <main>
         <SearchForms />
         <ArticleCards comics={articles} />
       </main>
       <aside>
-        <Aside />
+        <Link to="new">
+          Create New Article
+          <CreateIcon color="primary" fontSize="large" />
+        </Link>
       </aside>
     </>
   );
 };
 
-export default Home;
+export default withAuthenticator(AdminPage);
