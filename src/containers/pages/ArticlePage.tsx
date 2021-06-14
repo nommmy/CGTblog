@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import Article from 'components/templates/Article';
+import Article from 'containers/templates/Article';
 import Aside from 'components/templates/Aside';
 import ArticleSideContents from 'components/templates/ArticleSideContents';
 import { useSelector, shallowEqual } from 'react-redux';

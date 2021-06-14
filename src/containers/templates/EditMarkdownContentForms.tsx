@@ -46,7 +46,7 @@ const EditMarkdownContentForms: FC<Comic> = ({
   } = useForm<IFormInputs>({
     defaultValues: { genres: genres as string[] }
   });
-  const codeWatched = watch('code', '');
+  const codeWatched = watch('code', code);
 
   const [text, setText] = useState<string>(content);
   const [header, setHeader] = useState<File>();
