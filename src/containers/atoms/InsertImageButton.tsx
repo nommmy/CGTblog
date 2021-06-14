@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { Storage } from 'aws-amplify';
-import awsmobile from 'aws-exports';
 
 type Props = {
   text: string;
@@ -22,8 +21,11 @@ const InsertImageButton: FC<Props> = ({ text, setText, codeWatched }) => {
       // eslint-disable-next-line
       .catch((err) => console.log(err));
     // const image = (await Storage.get(`${codeWatched}/${file.name}`)) as string;
+    const s3Bucket = process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET as string;
+    const s3BucketRegion = process.env
+      .REACT_APP_AWS_USER_FILES_S3_BUCKET_REGION as string;
     setText(
-      `${text}![${file.name}](https://${awsmobile.aws_user_files_s3_bucket}.s3-${awsmobile.aws_user_files_s3_bucket_region}.amazonaws.com/public/${codeWatched}/${file.name})`,
+      `${text}![${file.name}](https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/${codeWatched}/${file.name})`,
     );
   };
 

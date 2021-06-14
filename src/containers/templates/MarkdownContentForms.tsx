@@ -9,7 +9,6 @@ import { createComic } from 'graphql/mutations';
 import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import InsertImageButton from 'containers/atoms/InsertImageButton';
-import awsmobile from 'aws-exports';
 import './markdown.scss';
 
 const MarkdownContentForms: FC = () => {
@@ -27,7 +26,10 @@ const MarkdownContentForms: FC = () => {
   const navigate = useNavigate();
   const onSubmit = async (data: IFormInputs) => {
     if (header === undefined) return;
-    const imageUrlDefault = `https://${awsmobile.aws_user_files_s3_bucket}.s3-${awsmobile.aws_user_files_s3_bucket_region}.amazonaws.com/public/`;
+    const s3Bucket = process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET as string;
+    const s3BucketRegion = process.env
+      .REACT_APP_AWS_USER_FILES_S3_BUCKET_REGION as string;
+    const imageUrlDefault = `https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/`;
     await Storage.put(`${codeWatched}/${header.name}`, header, {
       level: 'public',
       contentType: header.type,
