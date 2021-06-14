@@ -3,15 +3,18 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import { useDispatch } from 'react-redux';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { ListComicsQuery } from 'API';
 import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
+import EditPage from './containers/pages/EditPage';
 import CreatePage from './components/pages/CreatePage';
-import { articleListSlice } from './features/articleList';
+import AdminPage from './components/pages/AdminPage';
+import { articleListSlice } from './ducks/articleList';
 import './App.scss';
 
 const App: FC = () => {
@@ -26,7 +29,10 @@ const App: FC = () => {
   useEffect(() => {
     // eslint-disable-next-line
     (async () => {
-      const result = await API.graphql(graphqlOperation(listComics));
+      const result = await API.graphql({
+        query: listComics,
+        authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+      });
       if ('data' in result && result.data) {
         const articlesData = result.data as ListComicsQuery;
         if (articlesData.listComics) {
@@ -40,7 +46,7 @@ const App: FC = () => {
     <div className="body">
       <header>
         <Link to="intro">このサイトについて</Link>
-        <Link to="new">Create New Article</Link>
+        <Link to="admin">編集＆NEW</Link>
         <Link to="/">
           <HomeIcon color="primary" />
         </Link>
@@ -50,7 +56,13 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path=":code" element={<ArticlePage />} />
           <Route path="intro" element={<IntroPage />} />
-          <Route path="new" element={<CreatePage />} />
+          <Route path="admin" element={<AdminPage />}/>
+          <Route path="admin/new" element={<CreatePage />} />
+          <Route path="admin/:code" element={<EditPage />} />
+          {/* <Route path="admin" element={<AdminPage />}>
+            <Route path="new" element={<CreatePage />} />
+            <Route path=":code" element={<ArticlePage />} />
+          </Route> */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

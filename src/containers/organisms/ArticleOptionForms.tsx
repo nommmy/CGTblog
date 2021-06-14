@@ -15,13 +15,26 @@ import {
 } from 'react-hook-form';
 import { IFormInputs } from 'containers/molecules/Modal';
 
+type defaultValueType = {
+  title: string;
+  code: string;
+  subtitle: string;
+  genres: string[];
+};
+
 type Props = {
   control: Control<IFormInputs>;
   getValues: UseFormGetValues<IFormInputs>;
   setHeader: React.Dispatch<React.SetStateAction<File | undefined>>;
+  defaultValue?: defaultValueType;
 };
-
-const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
+// eslint-disable
+const ArticleOptionForms: FC<Props> = ({
+  control,
+  getValues,
+  setHeader,
+  defaultValue = { title: '', code: '', subtitle: '', genres: [''] },
+}) => {
   const handleSelect = (checkedName: string) => {
     const names = getValues()?.genres;
     const newNames = names?.includes(checkedName)
@@ -50,7 +63,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
       <Controller
         control={control}
         name="title"
-        defaultValue=""
+        defaultValue={defaultValue.title}
         rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} className="title_form" label="Title" />
@@ -59,7 +72,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
       <Controller
         control={control}
         name="code"
-        defaultValue=""
+        defaultValue={defaultValue.code}
         rules={{
           required: true,
         }}
@@ -70,8 +83,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
       <Controller
         control={control}
         name="image"
-        defaultValue=""
-        rules={{ required: true }}
+        defaultValue=''
         render={({ field }) => (
           <input
             {...field}
@@ -88,7 +100,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
       <Controller
         control={control}
         name="subtitle"
-        defaultValue=""
+        defaultValue={defaultValue.subtitle}
         rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} label="Subtitle" fullWidth />
@@ -108,6 +120,7 @@ const ArticleOptionForms: FC<Props> = ({ control, getValues, setHeader }) => {
                 control={
                   <Checkbox
                     value={genre}
+                    defaultChecked={defaultValue.genres.includes(genre)}
                     icon={genres[genre]}
                     checkedIcon={genres[genre]}
                     onChange={() => fields.field.onChange(handleSelect(genre))}

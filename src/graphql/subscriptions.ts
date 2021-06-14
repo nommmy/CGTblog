@@ -14,6 +14,8 @@ export const onCreateComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -24,8 +26,6 @@ export const onCreateComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -41,6 +41,8 @@ export const onUpdateComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -51,8 +53,6 @@ export const onUpdateComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -68,6 +68,8 @@ export const onDeleteComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -78,8 +80,6 @@ export const onDeleteComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -88,6 +88,9 @@ export const onCreateComment = /* GraphQL */ `
     onCreateComment {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -98,15 +101,12 @@ export const onCreateComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -115,6 +115,9 @@ export const onUpdateComment = /* GraphQL */ `
     onUpdateComment {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -125,15 +128,12 @@ export const onUpdateComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -142,6 +142,9 @@ export const onDeleteComment = /* GraphQL */ `
     onDeleteComment {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -152,15 +155,12 @@ export const onDeleteComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;

@@ -17,6 +17,8 @@ export const createComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -27,8 +29,6 @@ export const createComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -47,6 +47,8 @@ export const updateComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -57,8 +59,6 @@ export const updateComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -77,6 +77,8 @@ export const deleteComic = /* GraphQL */ `
       image
       isPublic
       content
+      createdAt
+      updatedAt
       comments {
         items {
           id
@@ -87,8 +89,6 @@ export const deleteComic = /* GraphQL */ `
         }
         nextToken
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -100,6 +100,9 @@ export const createComment = /* GraphQL */ `
     createComment(input: $input, condition: $condition) {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -110,15 +113,12 @@ export const createComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -130,6 +130,9 @@ export const updateComment = /* GraphQL */ `
     updateComment(input: $input, condition: $condition) {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -140,15 +143,12 @@ export const updateComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -160,6 +160,9 @@ export const deleteComment = /* GraphQL */ `
     deleteComment(input: $input, condition: $condition) {
       id
       postID
+      content
+      createdAt
+      updatedAt
       post {
         id
         code
@@ -170,15 +173,12 @@ export const deleteComment = /* GraphQL */ `
         image
         isPublic
         content
+        createdAt
+        updatedAt
         comments {
           nextToken
         }
-        createdAt
-        updatedAt
       }
-      content
-      createdAt
-      updatedAt
     }
   }
 `;
