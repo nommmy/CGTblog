@@ -21,7 +21,7 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
             >
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
-                  <GenreIcon key={genre + comic.title} genre={genre} />
+                  <GenreIcon key={genre + comic.title} genre={genre} iconSize={{ size: '25' }} />
                 ))}
               </div>
             </CardMedia>

@@ -75,7 +75,7 @@ const Article: FC<Comic> = ({
             style={{ width: '100%', display: 'block' }}
             onError={(e) => {
               (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3-ap-northeast-1.amazonaws.com/public/_11I3301a.png';
+                'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/public/IMG_0770.jpg';
             }}
           />
         </div>

@@ -10,11 +10,14 @@ import {
 } from 'react-icons/gi';
 import { FaRegGrinSquintTears, FaRegSadTear } from 'react-icons/fa';
 
-
 export const genreIconProps = {
   className: 'genre_icon',
   color: 'white',
   size: '30',
+};
+
+type sizeProps = {
+  size: string;
 };
 
 type genresData = {
@@ -30,14 +33,19 @@ export const genres: genresData = {
   music: <GiMusicalNotes data-color="purple" />,
   food: <GiMeal data-color="orange" />,
   gag: <FaRegGrinSquintTears data-color="yellow" />,
-  impression: <FaRegSadTear data-color="lightgreen" />
+  impression: <FaRegSadTear data-color="lightgreen" />,
 };
 
-const GenreIcon: FC<{ genre: string }> = ({ genre }) => {
+const GenreIcon: FC<{ genre: string; iconSize?: sizeProps }> = ({
+  genre,
+  iconSize = { size: '30' },
+}) => {
   const genreList = Object.keys(genres);
   if (genreList.includes(genre)) {
-    // return genres[genre];
-    return React.cloneElement(genres[genre], genreIconProps);
+    return React.cloneElement(
+      genres[genre],
+      Object.assign(genreIconProps, iconSize),
+    );
   }
 
   return null;
