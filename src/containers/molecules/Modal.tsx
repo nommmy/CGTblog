@@ -25,6 +25,7 @@ type Props = {
   // onSubmit: (data: IFormInputs) => Promise<void>;
   onSubmit: (data: IFormInputs) => void;
   control: Control<IFormInputs>;
+  defaultValue?: boolean;
 };
 
 const ConfirmModal: FC<Props> = ({
@@ -33,6 +34,7 @@ const ConfirmModal: FC<Props> = ({
   handleSubmit,
   onSubmit,
   control,
+  defaultValue = false,
 }) => {
   const [isPublic, setState] = useState(false);
   const handleChange = () => {
@@ -69,6 +71,7 @@ const ConfirmModal: FC<Props> = ({
                   control={
                     <Checkbox
                       value={isPublic}
+                      defaultChecked={defaultValue}
                       onChange={() => fields.field.onChange(handleChange())}
                       color="primary"
                     />

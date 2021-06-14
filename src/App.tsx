@@ -11,7 +11,7 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
-import EditPage from './components/pages/EditPage';
+import EditPage from './containers/pages/EditPage';
 import CreatePage from './components/pages/CreatePage';
 import AdminPage from './components/pages/AdminPage';
 import { articleListSlice } from './ducks/articleList';

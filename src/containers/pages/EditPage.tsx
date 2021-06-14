@@ -1,20 +1,17 @@
 import { FC, useMemo } from 'react';
+import EditMarkdownContentForms from 'containers/templates/EditMarkdownContentForms';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 import { useParams } from 'react-router-dom';
-import Article from 'components/templates/Article';
-import Aside from 'components/templates/Aside';
-import ArticleSideContents from 'components/templates/ArticleSideContents';
 import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
 
-const ArticlePage: FC = () => {
+const EditPage: FC = () => {
   const { code } = useParams();
-
   const allArticles = useSelector<typeState, Comic[]>(
     (state) => state.allArticles,
     shallowEqual,
   );
-
   const currentArticle = useMemo(
     () => allArticles.filter((comic) => comic.code === code),
     [code, allArticles],
@@ -23,14 +20,10 @@ const ArticlePage: FC = () => {
   return (
     <>
       <main>
-        <Article {...currentArticle[0]} />
+        {currentArticle[0] && <EditMarkdownContentForms {...currentArticle[0]} />}
       </main>
-      <aside>
-        <ArticleSideContents />
-        <Aside />
-      </aside>
     </>
   );
 };
 
-export default ArticlePage;
+export default withAuthenticator(EditPage);
