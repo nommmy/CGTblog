@@ -11,7 +11,7 @@ import CreateIcon from '@material-ui/icons/Create';
 
 const AdminPage: FC = () => {
   const articles = useSelector<typeState, Comic[]>(
-    (state) => state.showArticles,
+    (state) => state.allArticles,
     shallowEqual,
   );
 

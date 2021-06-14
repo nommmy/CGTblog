@@ -12,11 +12,12 @@ import directive from 'remark-directive';
 import { Node } from 'unist';
 import h from 'hastscript';
 import { visit } from 'unist-util-visit';
-// eslint-disable-next-line
-const hint = require('remark-hint');
-// eslint-disable-next-line
-const sectionize = require('remark-sectionize');
 
+/* eslint-disable */
+const hint = require('remark-hint');
+const sectionize = require('remark-sectionize');
+const slug = require('remark-slug');
+/* eslint-enable */
 
 type Props = {
   text: string;
@@ -24,29 +25,29 @@ type Props = {
   register: UseFormRegister<IFormInputs>;
   codeWatched: string;
 };
+// めちゃくちゃ無理矢理ts対応
+/* eslint-disable */
+export const htmlDirectives = () => {
+  const ondirective = (node: Node) => {
+    const data = node.data || (node.data = {});
+    const hast = h(node.name as string, node.attributes as string);
+
+    data.hName = hast.tagName;
+    data.hProperties = hast.properties;
+  };
+  const transform = (tree: Node) => {
+    visit(
+      tree,
+      ['textDirective', 'leafDirective', 'containerDirective'],
+      ondirective,
+    );
+  };
+
+  return transform;
+};
+/* eslint-enable */
 
 const ArticleContentForm: FC<Props> = ({ text, setText, register, codeWatched }) => {
-  // めちゃくちゃ無理矢理ts対応
-  /* eslint-disable */
-  const htmlDirectives = () => {
-    const ondirective = (node: Node) => {
-      const data = node.data || (node.data = {});
-      const hast = h(node.name as string, node.attributes as string);
-
-      data.hName = hast.tagName;
-      data.hProperties = hast.properties;
-    };
-    const transform = (tree: Node) => {
-      visit(
-        tree,
-        ['textDirective', 'leafDirective', 'containerDirective'],
-        ondirective,
-      );
-    };
-
-    return transform;
-  };
-  /* eslint-enable */
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
       [emoji],
@@ -55,6 +56,7 @@ const ArticleContentForm: FC<Props> = ({ text, setText, register, codeWatched })
       [gfm],
       [directive],
       [htmlDirectives],
+      [slug],
       [toc],
       [hint],
       [sectionize],

@@ -14,11 +14,17 @@ export const articleListSlice = createSlice({
   name: 'articlelist',
   initialState,
   reducers: {
-    initArticle: (state, action: PayloadAction<Comic[]>) => ({
-      ...state,
-      allArticles: action.payload,
-      showArticles: action.payload,
-    }),
+    initArticle: (state, action: PayloadAction<Comic[]>) => {
+      const publicArticles = action.payload.filter(
+        (comic) => comic.isPublic === true,
+      );
+
+      return {
+        ...state,
+        allArticles: action.payload,
+        showArticles: publicArticles,
+      };
+    },
     searchGenre: (state, action: PayloadAction<Genre>) => {
       const articleList = state.allArticles.filter((comic) =>
         comic.genres.includes(action.payload),
