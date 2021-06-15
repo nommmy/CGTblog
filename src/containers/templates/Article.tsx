@@ -35,6 +35,31 @@ const Article: FC<Comic> = ({
   image,
   content,
 }) => {
+  const metaItems = [...document.querySelectorAll('meta')];
+  // eslint-disable-next-line
+  metaItems.map((item) => {
+    const name = item.attributes[0].nodeValue ?? item.name;
+    switch (name) {
+      case 'og:title':
+        item.setAttribute('content', title);
+        break;
+      case 'description':
+        item.setAttribute('content', subtitle);
+        break;
+      case 'og:description':
+        item.setAttribute('content', subtitle);
+        break;
+      case 'og:url':
+        item.setAttribute('content', window.location.href);
+        break;
+      case 'og:image':
+        item.setAttribute('content', image);
+        break;
+      default:
+        break;
+    }
+  });
+
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
       [emoji],
@@ -53,22 +78,9 @@ const Article: FC<Comic> = ({
 
   return (
     <article className="article_container">
-      <Helmet
-        title={title}
-        meta={[
-          { name: 'description', content: subtitle },
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { property: 'og:title', content: title },
-          { property: 'og:type', content: 'article' },
-          { property: 'og:site_name', content: '未定' },
-          { property: 'og:url', content: window.location.href },
-          { property: 'og:image', content: image },
-          {
-            property: 'og:description',
-            content: subtitle,
-          },
-        ]}
-      />
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <div className="genre_icon_group">
         {genres &&
           genres.map((genre) => <GenreIcon key={genre} genre={genre} />)}
