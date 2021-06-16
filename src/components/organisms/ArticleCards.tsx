@@ -1,14 +1,12 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { MdUpdate } from 'react-icons/md';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import FavariteButton from 'components/atoms/FavariteButton';
-import ShareButton from 'components/atoms/ShareButton';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { ComicData } from 'data/comics';
 import './Card.scss';
-
 
 const ArticleCards: FC<ComicData> = ({ comics }) => (
   <article className="card_container">
@@ -30,11 +28,11 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
             />
             <p>{comic.title}</p>
           </section>
+          <CardActions disableSpacing className="card_footer">
+            <MdUpdate style={{ color: 'gray', margin: 5 }} />
+            <span className="date">{comic.updatedAt?.split('T')[0]}</span>
+          </CardActions>
         </Link>
-        <CardActions disableSpacing>
-          <FavariteButton />
-          <ShareButton />
-        </CardActions>
       </Card>
     ))}
   </article>

@@ -5,10 +5,12 @@ import { Genre } from 'API';
 export type typeState = {
   allArticles: Comic[];
   showArticles: Comic[];
+  recommendArticles: Comic[];
 };
 export const initialState = {
   allArticles: [] as Comic[],
   showArticles: [] as Comic[],
+  recommendArticles: [] as Comic[],
 };
 export const articleListSlice = createSlice({
   name: 'articlelist',
@@ -18,11 +20,13 @@ export const articleListSlice = createSlice({
       const publicArticles = action.payload.filter(
         (comic) => comic.isPublic === true,
       );
+      const sortArticles = publicArticles.slice().sort((n, m) => n.like < m.like ? -1 : 1);
 
       return {
         ...state,
         allArticles: action.payload,
         showArticles: publicArticles,
+        recommendArticles: sortArticles.slice(0,5),
       };
     },
     searchGenre: (state, action: PayloadAction<Genre>) => {
@@ -35,9 +39,15 @@ export const articleListSlice = createSlice({
         showArticles: articleList,
       };
     },
-    resetShowArticle: (state) => ({
-      ...state,
-      showArticles: state.allArticles,
-    }),
-  },
+    resetShowArticle: (state) => {
+      const publicArticles = state.allArticles.filter(
+        (comic) => comic.isPublic === true,
+      );
+
+      return {
+        ...state,
+        showArticles: publicArticles,
+      };
+    },
+  }
 });

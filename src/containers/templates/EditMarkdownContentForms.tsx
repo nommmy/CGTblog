@@ -7,7 +7,7 @@ import ArticleOptionForms from 'containers/organisms/ArticleOptionForms';
 import ArticleContentForm from 'containers/organisms/ArticleContentForm';
 import { API, Storage } from 'aws-amplify';
 import { updateComic } from 'graphql/mutations';
-import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
+import ConfirmModal, { IFormInputs } from 'components/molecules/Modal';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import InsertImageButton from 'containers/atoms/InsertImageButton';
 import { Comic } from 'data/comics';
@@ -59,12 +59,7 @@ const EditMarkdownContentForms: FC<Comic> = ({
       await Storage.put(`${codeWatched}/${header.name}`, header, {
         level: 'public',
         contentType: header.type,
-      }).then((result) => {
-        // eslint-disable-next-line
-        console.log(result);
       });
-      // // eslint-disable-next-line
-      // .catch ((err) => console.log(err));
     }
 
     const submitData: UpdateInput = {
@@ -74,8 +69,6 @@ const EditMarkdownContentForms: FC<Comic> = ({
       content: text,
     };
 
-    // eslint-disable-next-line
-    console.log(submitData);
     await API.graphql({
       query: updateComic,
       variables: { input: submitData },

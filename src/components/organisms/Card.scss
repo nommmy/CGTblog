@@ -39,6 +39,8 @@ $reco_height: 60px;
 
       p {
         @include title;
+
+        font-size: 0.9em;
       }
     }
   }
@@ -77,6 +79,15 @@ $reco_height: 60px;
 
       p {
         @include title;
+      }
+    }
+
+    .card_footer {
+      float: right;
+      height: 5vh;
+
+      .date {
+        font-size: 0.9vw;
       }
     }
   }

@@ -13,7 +13,7 @@ import {
   Control,
   ControllerRenderProps,
 } from 'react-hook-form';
-import { IFormInputs } from 'containers/molecules/Modal';
+import { IFormInputs } from 'components/molecules/Modal';
 
 type defaultValueType = {
   title: string;
@@ -77,7 +77,7 @@ const ArticleOptionForms: FC<Props> = ({
           required: true,
         }}
         render={({ field }) => (
-          <TextField {...field} className="code_form" label="Code" />
+          <TextField {...field} disabled={!!defaultValue.code} className="code_form" label="Code" />
         )}
       />
       <Controller

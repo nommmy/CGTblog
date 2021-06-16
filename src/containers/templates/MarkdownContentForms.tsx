@@ -6,7 +6,7 @@ import ArticleOptionForms from 'containers/organisms/ArticleOptionForms';
 import ArticleContentForm from 'containers/organisms/ArticleContentForm';
 import { API, Storage } from 'aws-amplify';
 import { createComic } from 'graphql/mutations';
-import ConfirmModal, { IFormInputs } from 'containers/molecules/Modal';
+import ConfirmModal, { IFormInputs } from 'components/molecules/Modal';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import InsertImageButton from 'containers/atoms/InsertImageButton';
 import './markdown.scss';
@@ -33,12 +33,7 @@ const MarkdownContentForms: FC = () => {
     await Storage.put(`${codeWatched}/${header.name}`, header, {
       level: 'public',
       contentType: header.type,
-    }).then((result) => {
-      // eslint-disable-next-line
-      console.log(result);
     });
-    // // eslint-disable-next-line
-    // .catch ((err) => console.log(err));
 
     // const headerPath = (await Storage.get(
     //   `${codeWatched}/${header.name}`,
@@ -51,8 +46,7 @@ const MarkdownContentForms: FC = () => {
       content: text,
       like: 0,
     };
-    // eslint-disable-next-line
-    console.log(submitData);
+
     await API.graphql({
       query: createComic,
       variables: { input: submitData },

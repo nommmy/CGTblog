@@ -16,10 +16,7 @@ const InsertImageButton: FC<Props> = ({ text, setText, codeWatched }) => {
     await Storage.put(`${codeWatched}/${file.name}`, file, {
       level: 'public',
       contentType: file.type,
-    }) // eslint-disable-next-line
-      .then((result) => console.log(result))
-      // eslint-disable-next-line
-      .catch((err) => console.log(err));
+    }) 
     // const image = (await Storage.get(`${codeWatched}/${file.name}`)) as string;
     const s3Bucket = process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET as string;
     const s3BucketRegion = process.env

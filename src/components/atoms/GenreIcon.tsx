@@ -10,7 +10,7 @@ import {
 } from 'react-icons/gi';
 import { FaRegGrinSquintTears, FaRegSadTear } from 'react-icons/fa';
 
-export const genreIconProps = {
+const genreIconProps = {
   className: 'genre_icon',
   color: 'white',
   size: '30',

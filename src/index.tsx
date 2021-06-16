@@ -4,7 +4,7 @@ import './index.scss';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { articleListSlice } from 'ducks/articleList';
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify, { Auth, Analytics } from 'aws-amplify'; // eslint-disable-line
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
@@ -24,6 +24,10 @@ Amplify.configure({
   aws_user_files_s3_bucket: process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET,
   aws_user_files_s3_bucket_region:
     process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET_REGION,
+  aws_mobile_analytics_app_id:
+    process.env.REACT_APP_AWS_MOBILE_ANALYTICS_APP_ID,
+  aws_mobile_analytics_app_region:
+    process.env.REACT_APP_AWS_MOBILE_ANALYTICS_APP_REGION,
 });
 Auth.currentAuthenticatedUser()
   .then(() => {

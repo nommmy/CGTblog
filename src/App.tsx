@@ -60,8 +60,8 @@ const App: FC = () => {
           <Route path="admin/new" element={<CreatePage />} />
           <Route path="admin/:code" element={<EditPage />} />
           {/* <Route path="admin" element={<AdminPage />}>
-            <Route path="new" element={<CreatePage />} />
-            <Route path=":code" element={<ArticlePage />} />
+            <Route path="new" exact element={<CreatePage />} />
+            <Route path=":code" exact element={<EditPage />} />
           </Route> */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

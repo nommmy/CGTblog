@@ -7,7 +7,7 @@ import { useSelector, shallowEqual } from 'react-redux';
 
 const Aside: FC = () => {
   const articles = useSelector<typeState, Comic[]>(
-    (state) => state.showArticles,
+    (state) => state.recommendArticles,
     shallowEqual,
   );
 

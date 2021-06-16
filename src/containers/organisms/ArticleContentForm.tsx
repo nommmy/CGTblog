@@ -1,6 +1,6 @@
 import { FC} from 'react';
 import {UseFormRegister} from 'react-hook-form';
-import { IFormInputs } from 'containers/molecules/Modal';
+import { IFormInputs } from 'components/molecules/Modal';
 import { useRemark } from 'react-remark';
 import emoji from 'remark-emoji';
 import breaks from 'remark-breaks';
