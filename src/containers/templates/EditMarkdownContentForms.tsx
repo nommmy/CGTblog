@@ -22,8 +22,9 @@ const EditMarkdownContentForms: FC<Comic> = ({
   image,
   isPublic,
   content,
+  isHot,
+  relation,
 }) => {
-
   type UpdateInput = {
     id: string;
     code: string;
@@ -34,6 +35,8 @@ const EditMarkdownContentForms: FC<Comic> = ({
     image: string;
     isPublic: boolean;
     content: string;
+    isHot: boolean;
+    relation: string[] | null;
   };
 
   const {
@@ -43,7 +46,7 @@ const EditMarkdownContentForms: FC<Comic> = ({
     getValues,
     watch,
   } = useForm<IFormInputs>({
-    defaultValues: { genres: genres as string[] }
+    defaultValues: { genres: genres as string[] },
   });
   const codeWatched = watch('code', code);
 
@@ -100,7 +103,13 @@ const EditMarkdownContentForms: FC<Comic> = ({
         control={control}
         getValues={getValues}
         setHeader={setHeader}
-        defaultValue={{ title, code, subtitle, genres: genres as string[] }}
+        defaultValue={{
+          title,
+          code,
+          subtitle,
+          relation,
+          genres: genres as string[],
+        }}
       />
       <ArticleContentForm
         text={text}
@@ -122,7 +131,7 @@ const EditMarkdownContentForms: FC<Comic> = ({
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         control={control}
-        defaultValue={isPublic}
+        defaultValue={{ isPublic, isHot }}
       />
     </div>
   );

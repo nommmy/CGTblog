@@ -17,5 +17,23 @@
         "charlottech734334e4": {}
       }
     }
+  },
+  "admin": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-charlottech-admin-122905-authRole",
+      "UnauthRoleArn": "arn:aws:iam::380184075481:role/amplify-charlottech-admin-122905-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::380184075481:role/amplify-charlottech-admin-122905-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-charlottech-admin-122905-deployment",
+      "UnauthRoleName": "amplify-charlottech-admin-122905-unauthRole",
+      "StackName": "amplify-charlottech-admin-122905",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:380184075481:stack/amplify-charlottech-admin-122905/adf6fb10-d177-11eb-bff8-0e19a08b64d1",
+      "AmplifyAppId": "d38bmcz6iedhz1"
+    },
+    "categories": {
+      "auth": {
+        "charlottech734334e4": {}
+      }
+    }
   }
 }

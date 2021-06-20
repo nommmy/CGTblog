@@ -20,24 +20,8 @@ type Comic
   image: String!
   isPublic: Boolean!
   content: String!
-  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
-  createdAt: AWSDateTime
-  updatedAt: AWSDateTime
-}
-
-type Comment
-  @model
-  @key(name: "byPost", fields: ["postID", "createdAt"])
-  @auth(
-    rules: [
-      { allow: private, provider: userPools }
-      { allow: public, provider: iam }
-    ]
-  ) {
-  id: ID!
-  postID: ID!
-  post: Comic @connection(fields: ["postID"])
-  content: String
+  isHot: Boolean!
+  relation: [String!]
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }

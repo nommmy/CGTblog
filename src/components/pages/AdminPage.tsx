@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import ArticleCards from 'components/organisms/ArticleCards';
-import SearchForms from 'components/organisms/SearchForms';
 import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
@@ -21,7 +20,6 @@ const AdminPage: FC = () => {
         <title>Admin</title>
       </Helmet>
       <main>
-        <SearchForms />
         <ArticleCards comics={articles} />
       </main>
       <aside>

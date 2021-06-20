@@ -14,8 +14,15 @@ export type IFormInputs = {
   content: string;
   image: string;
   isPublic: boolean;
+  isHot: boolean;
+  relation: string[];
   like: number;
   genres: string[];
+};
+
+type defaultValueType = {
+  isPublic: boolean;
+  isHot: boolean;
 };
 
 type Props = {
@@ -25,7 +32,7 @@ type Props = {
   // onSubmit: (data: IFormInputs) => Promise<void>;
   onSubmit: (data: IFormInputs) => void;
   control: Control<IFormInputs>;
-  defaultValue?: boolean;
+  defaultValue?: defaultValueType;
 };
 
 const ConfirmModal: FC<Props> = ({
@@ -34,7 +41,7 @@ const ConfirmModal: FC<Props> = ({
   handleSubmit,
   onSubmit,
   control,
-  defaultValue = false,
+  defaultValue = { isPublic: false, isHot: false },
 }) => (
   <Modal
     aria-labelledby="transition-modal-title"
@@ -55,14 +62,32 @@ const ConfirmModal: FC<Props> = ({
           <Controller
             control={control}
             name="isPublic"
-            defaultValue={defaultValue}
+            defaultValue={defaultValue.isPublic}
             render={(fields) => (
               <FormControlLabel
                 label="公開"
                 control={
                   <Checkbox
                     value={fields.field.value}
-                    defaultChecked={defaultValue}
+                    defaultChecked={defaultValue.isPublic}
+                    onChange={fields.field.onChange}
+                    color="primary"
+                  />
+                }
+              />
+            )}
+          />
+          <Controller
+            control={control}
+            name="isHot"
+            defaultValue={defaultValue.isHot}
+            render={(fields) => (
+              <FormControlLabel
+                label="おすすめ"
+                control={
+                  <Checkbox
+                    value={fields.field.value}
+                    defaultChecked={defaultValue.isHot}
                     onChange={fields.field.onChange}
                     color="primary"
                   />

@@ -46,6 +46,7 @@
     grid-template-areas:
       'a b c'
       'd d d'
+      'f f f'
       'e e e';
     gap: 1vw 2vw;
     padding: 3vw;
@@ -71,6 +72,10 @@
 
     .image_form {
       grid-area: c;
+    }
+
+    .relation_selector {
+      grid-area: f;
     }
   }
 

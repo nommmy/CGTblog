@@ -6,6 +6,12 @@ import {
   FormControlLabel,
   FormGroup,
   Checkbox,
+  Chip,
+  Select,
+  InputLabel,
+  Input,
+  MenuItem,
+  FormControl,
 } from '@material-ui/core';
 import {
   Controller,
@@ -14,11 +20,15 @@ import {
   ControllerRenderProps,
 } from 'react-hook-form';
 import { IFormInputs } from 'components/molecules/Modal';
+import { useSelector, shallowEqual } from 'react-redux';
+import { typeState } from 'ducks/articleList';
+import { Comic } from 'data/comics';
 
 type defaultValueType = {
   title: string;
   code: string;
   subtitle: string;
+  relation: string[] | null;
   genres: string[];
 };
 
@@ -33,7 +43,13 @@ const ArticleOptionForms: FC<Props> = ({
   control,
   getValues,
   setHeader,
-  defaultValue = { title: '', code: '', subtitle: '', genres: [''] },
+  defaultValue = {
+    title: '',
+    code: '',
+    subtitle: '',
+    genres: [''],
+    relation: [],
+  },
 }) => {
   const handleSelect = (checkedName: string) => {
     const names = getValues()?.genres;
@@ -46,6 +62,10 @@ const ArticleOptionForms: FC<Props> = ({
   const genreList = useMemo(
     () => Object.entries(Genre).map((genre) => genre[0]),
     [],
+  );
+  const articles = useSelector<typeState, Comic[]>(
+    (state) => state.allArticles,
+    shallowEqual,
   );
 
   const headerInput = (
@@ -77,13 +97,18 @@ const ArticleOptionForms: FC<Props> = ({
           required: true,
         }}
         render={({ field }) => (
-          <TextField {...field} disabled={!!defaultValue.code} className="code_form" label="Code" />
+          <TextField
+            {...field}
+            disabled={!!defaultValue.code}
+            className="code_form"
+            label="Code"
+          />
         )}
       />
       <Controller
         control={control}
         name="image"
-        defaultValue=''
+        defaultValue=""
         render={({ field }) => (
           <input
             {...field}
@@ -104,6 +129,39 @@ const ArticleOptionForms: FC<Props> = ({
         rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} label="Subtitle" fullWidth />
+        )}
+      />
+      <Controller
+        control={control}
+        name="relation"
+        defaultValue={defaultValue.relation}
+        render={(fields) => (
+          <FormControl fullWidth className="relation_selector" >
+            <InputLabel id="demo-mutiple-chip-label">Relation</InputLabel>
+            <Select
+              labelId="demo-mutiple-chip-label"
+              multiple
+              value={fields.field.value ?? []}
+              onChange={fields.field.onChange}
+              input={<Input/>}
+              renderValue={(selected) => (
+                <>
+                  {(selected as string[]).map((value) => (
+                    <Chip key={value} label={value} style={{ margin: 2}}/>
+                  ))}
+                </>
+              )}
+            >
+              {articles.map(
+                (comic) =>
+                  comic.code !== defaultValue.code && (
+                    <MenuItem key={comic.code} value={comic.code}>
+                      {comic.title}
+                    </MenuItem>
+                  ),
+              )}
+            </Select>
+          </FormControl>
         )}
       />
       <Controller

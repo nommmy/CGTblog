@@ -1,6 +1,6 @@
+@import '_variables.scss';
+
 .body {
-  // ここflexすると、headerとかfooterの大きさがおかしくなる
-  // 設定しないと記事がないとき、仮にAPIとかとって来れなかった時空白ができる
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -26,7 +26,7 @@
     z-index: 1;
     height: clamp(100px, 100px + 1vw, 200px);
     padding: 2vw;
-    background: #ffc107;
+    background: $main-color;
   }
 
   .container {
@@ -55,7 +55,7 @@
 
   .summary_box {
     margin: 2vw 0;
-    border: solid 2px #ffc107;
+    border: solid 2px $main-color;
 
     .box_title {
       position: relative;
@@ -66,7 +66,7 @@
       font-weight: bold;
       line-height: 1.5;
       color: #fff;
-      background: #ffc107;
+      background: $main-color;
     }
 
     .box_content {
@@ -78,7 +78,7 @@
     padding: 1rem 2rem;
     font-size: 1.5vw;
     font-weight: bold;
-    border-left: 4px solid #ffc107;
+    border-left: 4px solid $main-color;
   }
 
   .hint {

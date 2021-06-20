@@ -17,18 +17,10 @@ export const createComic = /* GraphQL */ `
       image
       isPublic
       content
+      isHot
+      relation
       createdAt
       updatedAt
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
     }
   }
 `;
@@ -47,18 +39,10 @@ export const updateComic = /* GraphQL */ `
       image
       isPublic
       content
+      isHot
+      relation
       createdAt
       updatedAt
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
     }
   }
 `;
@@ -77,108 +61,10 @@ export const deleteComic = /* GraphQL */ `
       image
       isPublic
       content
+      isHot
+      relation
       createdAt
       updatedAt
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      postID
-      content
-      createdAt
-      updatedAt
-      post {
-        id
-        code
-        title
-        genres
-        subtitle
-        like
-        image
-        isPublic
-        content
-        createdAt
-        updatedAt
-        comments {
-          nextToken
-        }
-      }
-    }
-  }
-`;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      postID
-      content
-      createdAt
-      updatedAt
-      post {
-        id
-        code
-        title
-        genres
-        subtitle
-        like
-        image
-        isPublic
-        content
-        createdAt
-        updatedAt
-        comments {
-          nextToken
-        }
-      }
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      postID
-      content
-      createdAt
-      updatedAt
-      post {
-        id
-        code
-        title
-        genres
-        subtitle
-        like
-        image
-        isPublic
-        content
-        createdAt
-        updatedAt
-        comments {
-          nextToken
-        }
-      }
     }
   }
 `;

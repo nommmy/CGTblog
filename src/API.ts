@@ -12,6 +12,8 @@ export type CreateComicInput = {
   image: string,
   isPublic: boolean,
   content: string,
+  isHot: boolean,
+  relation?: Array< string > | null,
   createdAt?: string | null,
   updatedAt?: string | null,
 };
@@ -38,6 +40,8 @@ export type ModelComicConditionInput = {
   image?: ModelStringInput | null,
   isPublic?: ModelBooleanInput | null,
   content?: ModelStringInput | null,
+  isHot?: ModelBooleanInput | null,
+  relation?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
   and?: Array< ModelComicConditionInput | null > | null,
@@ -122,25 +126,10 @@ export type Comic = {
   image?: string,
   isPublic?: boolean,
   content?: string,
+  isHot?: boolean,
+  relation?: Array< string > | null,
   createdAt?: string | null,
   updatedAt?: string | null,
-  comments?: ModelCommentConnection,
-};
-
-export type ModelCommentConnection = {
-  __typename: "ModelCommentConnection",
-  items?:  Array<Comment | null > | null,
-  nextToken?: string | null,
-};
-
-export type Comment = {
-  __typename: "Comment",
-  id?: string,
-  postID?: string,
-  content?: string | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
-  post?: Comic,
 };
 
 export type UpdateComicInput = {
@@ -153,6 +142,8 @@ export type UpdateComicInput = {
   image?: string | null,
   isPublic?: boolean | null,
   content?: string | null,
+  isHot?: boolean | null,
+  relation?: Array< string > | null,
   createdAt?: string | null,
   updatedAt?: string | null,
 };
@@ -161,22 +152,23 @@ export type DeleteComicInput = {
   id?: string | null,
 };
 
-export type CreateCommentInput = {
-  id?: string | null,
-  postID: string,
-  content?: string | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
-};
-
-export type ModelCommentConditionInput = {
-  postID?: ModelIDInput | null,
+export type ModelComicFilterInput = {
+  id?: ModelIDInput | null,
+  code?: ModelStringInput | null,
+  title?: ModelStringInput | null,
+  genres?: ModelGenreListInput | null,
+  subtitle?: ModelStringInput | null,
+  like?: ModelIntInput | null,
+  image?: ModelStringInput | null,
+  isPublic?: ModelBooleanInput | null,
   content?: ModelStringInput | null,
+  isHot?: ModelBooleanInput | null,
+  relation?: ModelStringInput | null,
   createdAt?: ModelStringInput | null,
   updatedAt?: ModelStringInput | null,
-  and?: Array< ModelCommentConditionInput | null > | null,
-  or?: Array< ModelCommentConditionInput | null > | null,
-  not?: ModelCommentConditionInput | null,
+  and?: Array< ModelComicFilterInput | null > | null,
+  or?: Array< ModelComicFilterInput | null > | null,
+  not?: ModelComicFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -195,35 +187,6 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdateCommentInput = {
-  id: string,
-  postID?: string | null,
-  content?: string | null,
-  createdAt?: string | null,
-  updatedAt?: string | null,
-};
-
-export type DeleteCommentInput = {
-  id?: string | null,
-};
-
-export type ModelComicFilterInput = {
-  id?: ModelIDInput | null,
-  code?: ModelStringInput | null,
-  title?: ModelStringInput | null,
-  genres?: ModelGenreListInput | null,
-  subtitle?: ModelStringInput | null,
-  like?: ModelIntInput | null,
-  image?: ModelStringInput | null,
-  isPublic?: ModelBooleanInput | null,
-  content?: ModelStringInput | null,
-  createdAt?: ModelStringInput | null,
-  updatedAt?: ModelStringInput | null,
-  and?: Array< ModelComicFilterInput | null > | null,
-  or?: Array< ModelComicFilterInput | null > | null,
-  not?: ModelComicFilterInput | null,
-};
-
 export type ModelComicConnection = {
   __typename: "ModelComicConnection",
   items?:  Array<Comic | null > | null,
@@ -235,17 +198,6 @@ export enum ModelSortDirection {
   DESC = "DESC",
 }
 
-
-export type ModelCommentFilterInput = {
-  id?: ModelIDInput | null,
-  postID?: ModelIDInput | null,
-  content?: ModelStringInput | null,
-  createdAt?: ModelStringInput | null,
-  updatedAt?: ModelStringInput | null,
-  and?: Array< ModelCommentFilterInput | null > | null,
-  or?: Array< ModelCommentFilterInput | null > | null,
-  not?: ModelCommentFilterInput | null,
-};
 
 export type CreateComicMutationVariables = {
   input?: CreateComicInput,
@@ -264,20 +216,10 @@ export type CreateComicMutation = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
@@ -298,20 +240,10 @@ export type UpdateComicMutation = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
@@ -332,122 +264,33 @@ export type DeleteComicMutation = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
-export type CreateCommentMutationVariables = {
-  input?: CreateCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type GetComicQueryVariables = {
+  id?: string,
 };
 
-export type CreateCommentMutation = {
-  createComment?:  {
-    __typename: "Comment",
+export type GetComicQuery = {
+  getComic?:  {
+    __typename: "Comic",
     id: string,
-    postID: string,
-    content?: string | null,
+    code: string,
+    title: string,
+    genres: Array< Genre >,
+    subtitle: string,
+    like: number,
+    image: string,
+    isPublic: boolean,
+    content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
-  } | null,
-};
-
-export type UpdateCommentMutationVariables = {
-  input?: UpdateCommentInput,
-  condition?: ModelCommentConditionInput | null,
-};
-
-export type UpdateCommentMutation = {
-  updateComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
-  } | null,
-};
-
-export type DeleteCommentMutationVariables = {
-  input?: DeleteCommentInput,
-  condition?: ModelCommentConditionInput | null,
-};
-
-export type DeleteCommentMutation = {
-  deleteComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
   } | null,
 };
 
@@ -471,47 +314,12 @@ export type ListComicsQuery = {
       image: string,
       isPublic: boolean,
       content: string,
+      isHot: boolean,
+      relation?: Array< string > | null,
       createdAt?: string | null,
       updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
     } | null > | null,
     nextToken?: string | null,
-  } | null,
-};
-
-export type GetComicQueryVariables = {
-  id?: string,
-};
-
-export type GetComicQuery = {
-  getComic?:  {
-    __typename: "Comic",
-    id: string,
-    code: string,
-    title: string,
-    genres: Array< Genre >,
-    subtitle: string,
-    like: number,
-    image: string,
-    isPublic: boolean,
-    content: string,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
@@ -537,80 +345,10 @@ export type ComicByCodeQuery = {
       image: string,
       isPublic: boolean,
       content: string,
+      isHot: boolean,
+      relation?: Array< string > | null,
       createdAt?: string | null,
       updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetCommentQueryVariables = {
-  id?: string,
-};
-
-export type GetCommentQuery = {
-  getComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
-  } | null,
-};
-
-export type ListCommentsQueryVariables = {
-  filter?: ModelCommentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListCommentsQuery = {
-  listComments?:  {
-    __typename: "ModelCommentConnection",
-    items?:  Array< {
-      __typename: "Comment",
-      id: string,
-      postID: string,
-      content?: string | null,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      post?:  {
-        __typename: "Comic",
-        id: string,
-        code: string,
-        title: string,
-        genres: Array< Genre >,
-        subtitle: string,
-        like: number,
-        image: string,
-        isPublic: boolean,
-        content: string,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -628,20 +366,10 @@ export type OnCreateComicSubscription = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
@@ -657,20 +385,10 @@ export type OnUpdateComicSubscription = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
   } | null,
 };
 
@@ -686,106 +404,9 @@ export type OnDeleteComicSubscription = {
     image: string,
     isPublic: boolean,
     content: string,
+    isHot: boolean,
+    relation?: Array< string > | null,
     createdAt?: string | null,
     updatedAt?: string | null,
-    comments?:  {
-      __typename: "ModelCommentConnection",
-      items?:  Array< {
-        __typename: "Comment",
-        id: string,
-        postID: string,
-        content?: string | null,
-        createdAt?: string | null,
-        updatedAt?: string | null,
-      } | null > | null,
-      nextToken?: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnCreateCommentSubscription = {
-  onCreateComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
-  } | null,
-};
-
-export type OnUpdateCommentSubscription = {
-  onUpdateComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
-  } | null,
-};
-
-export type OnDeleteCommentSubscription = {
-  onDeleteComment?:  {
-    __typename: "Comment",
-    id: string,
-    postID: string,
-    content?: string | null,
-    createdAt?: string | null,
-    updatedAt?: string | null,
-    post?:  {
-      __typename: "Comic",
-      id: string,
-      code: string,
-      title: string,
-      genres: Array< Genre >,
-      subtitle: string,
-      like: number,
-      image: string,
-      isPublic: boolean,
-      content: string,
-      createdAt?: string | null,
-      updatedAt?: string | null,
-      comments?:  {
-        __typename: "ModelCommentConnection",
-        nextToken?: string | null,
-      } | null,
-    } | null,
   } | null,
 };

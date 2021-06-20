@@ -1,4 +1,4 @@
-import { Genre, ModelCommentConnection } from 'API';
+import { Genre } from 'API';
 
 export type Comic = {
   __typename: 'Comic';
@@ -11,7 +11,8 @@ export type Comic = {
   image: string;
   isPublic: boolean;
   content: string;
-  comments?: ModelCommentConnection;
+  isHot: boolean;
+  relation: string[] | null;
   createdAt?: string | null;
   updatedAt?: string | null;
 };

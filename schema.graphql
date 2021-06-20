@@ -28,7 +28,12 @@ type Comic
 type Comment
   @model
   @key(name: "byPost", fields: ["postID", "createdAt"])
-  @auth(rules: [{ allow: public, provider: iam }]) {
+  @auth(
+    rules: [
+      { allow: private, provider: userPools }
+      { allow: public, provider: iam }
+    ]
+  ) {
   id: ID!
   postID: ID!
   post: Comic @connection(fields: ["postID"])
