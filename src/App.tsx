@@ -14,6 +14,7 @@ import ArticlePage from './containers/pages/ArticlePage';
 import EditPage from './containers/pages/EditPage';
 import CreatePage from './components/pages/CreatePage';
 import AdminPage from './components/pages/AdminPage';
+import HotArticles from './containers/templates/HotArticles';
 import { articleListSlice } from './ducks/articleList';
 import './App.scss';
 
@@ -51,12 +52,13 @@ const App: FC = () => {
           <HomeIcon color="primary" />
         </Link>
       </header>
+      {pathname === '/' && <HotArticles />}
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path=":code" element={<ArticlePage />} />
           <Route path="intro" element={<IntroPage />} />
-          <Route path="admin" element={<AdminPage />}/>
+          <Route path="admin" element={<AdminPage />} />
           <Route path="admin/new" element={<CreatePage />} />
           <Route path="admin/:code" element={<EditPage />} />
           {/* <Route path="admin" element={<AdminPage />}>

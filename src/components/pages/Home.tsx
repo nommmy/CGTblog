@@ -8,7 +8,9 @@ import Aside from 'components/templates/Aside';
 import { Comic } from 'data/comics';
 
 const Home: FC = () => {
-  const articles = useSelector<typeState, Comic[]>((state) => state.showArticles, shallowEqual);
+  const articles = useSelector<typeState, Comic[]>(
+    (state) => state.showArticles,
+    shallowEqual);
 
   return (
     <>

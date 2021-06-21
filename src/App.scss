@@ -23,7 +23,7 @@
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 1;
+    z-index: 20;
     height: clamp(100px, 100px + 1vw, 200px);
     padding: 2vw;
     background: $main-color;

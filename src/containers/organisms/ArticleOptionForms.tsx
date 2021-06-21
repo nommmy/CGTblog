@@ -147,7 +147,7 @@ const ArticleOptionForms: FC<Props> = ({
               renderValue={(selected) => (
                 <>
                   {(selected as string[]).map((value) => (
-                    <Chip key={value} label={value} style={{ margin: 2}}/>
+                    <Chip key={value} label={value} style={{ margin: 2, padding: 1}}/>
                   ))}
                 </>
               )}

@@ -6,11 +6,13 @@ export type typeState = {
   allArticles: Comic[];
   showArticles: Comic[];
   recommendArticles: Comic[];
+  hotArticles: Comic[];
 };
 export const initialState = {
   allArticles: [] as Comic[],
   showArticles: [] as Comic[],
   recommendArticles: [] as Comic[],
+  hotArticles: [] as Comic[],
 };
 export const articleListSlice = createSlice({
   name: 'articlelist',
@@ -22,11 +24,16 @@ export const articleListSlice = createSlice({
       );
       const sortArticles = publicArticles.slice().sort((n, m) => n.like < m.like ? -1 : 1);
 
+      const faveArticles = publicArticles.filter(
+        (comic) => comic.isHot === true,
+      )
+
       return {
         ...state,
         allArticles: action.payload,
         showArticles: publicArticles,
-        recommendArticles: sortArticles.slice(0,5),
+        recommendArticles: sortArticles.slice(0, 5),
+        hotArticles: faveArticles,
       };
     },
     searchGenre: (state, action: PayloadAction<Genre>) => {
