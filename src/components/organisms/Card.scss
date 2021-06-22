@@ -1,10 +1,13 @@
 @mixin title {
   position: absolute;
-  bottom: 0.5vw;
-  left: 1vw;
+  bottom: 0;
+  width: 100%;
+  padding-left: 1vw;
   margin: 0;
   font-weight: bold;
+  line-height: 30px;
   color: whitesmoke;
+  background: rgb(103, 103, 103, 0.5);
 }
 
 @import '/src/settings';
@@ -41,6 +44,8 @@ $reco_height: 60px;
         @include title;
 
         font-size: 0.9em;
+        line-height: 20px;
+        border-radius: 0 0 4px 4px;
       }
     }
   }
@@ -49,8 +54,12 @@ $reco_height: 60px;
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 16px;
+  grid-gap: 3vw 20px;
   padding: 10px 20px;
+
+  .MuiPaper-elevation1 {
+    box-shadow: none;
+  }
 
   .card_item {
     position: relative;
@@ -71,10 +80,23 @@ $reco_height: 60px;
       .card_media {
         height: 0;
         padding-top: 70%; // 16:9
+        border-radius: 4px;
       }
 
       p {
         @include title;
+
+        border-radius: 0 0 4px 4px;
+      }
+    }
+
+    .card_subtitle {
+      padding: 0 1vw;
+
+      h3 {
+        height: 36px;
+        font-size: 14px;
+        color: rgb(86, 86, 86);
       }
     }
 

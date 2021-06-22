@@ -15,7 +15,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
       {comics.map((comic) => (
         <Card className="card_item" key={comic.code}>
           <Link to={comic.code}>
-            <section style={{ height: 30 }}>
+            <section style={{ height: 5 }}>
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
                   <GenreIcon key={genre + comic.title} genre={genre} />
@@ -29,6 +29,9 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
                 title={comic.title}
               />
               <p>{comic.title}</p>
+            </section>
+            <section className="card_subtitle">
+              <h3>{comic.subtitle}</h3>
             </section>
             <CardActions disableSpacing className="card_footer">
               <MdUpdate style={{ color: 'gray', margin: 5 }} />
