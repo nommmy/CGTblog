@@ -27,7 +27,7 @@ export enum Genre {
   music = "music",
   food = "food",
   gag = "gag",
-  impression = "impression",
+  tears = "tears",
 }
 
 

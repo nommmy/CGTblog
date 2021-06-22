@@ -1,24 +1,30 @@
 @import '/src/settings';
 
-.form_container {
-  display: flex;
-  margin: 20px;
+.button_group {
+  margin-bottom: 1vw;
 
-  .button_group {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    margin-left: auto;
+  .MuiTab-textColorInherit {
+    &:hover {
+      @include selected-color;
 
-    .genre_icon {
-      padding: 5px;
-      border-radius: 50%;
+      opacity: 1;
+    }
 
-      @include icon_color;
+    &.Mui-selected {
+      @include selected-color;
+
+      font-weight: bold;
     }
   }
 
-  .search_form {
-    margin: 0 auto;
+  .MuiTab-root {
+    flex: 1;
+    min-width: auto;
+    padding: 0.5vw 1vw;
+    font-size: 0.6rem;
+  }
+
+  .PrivateTabIndicator-colorSecondary-3 {
+    background-color: $main-color;
   }
 }

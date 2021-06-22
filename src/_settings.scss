@@ -1,42 +1,86 @@
+@import '_variables.scss';
+
 @mixin icon_color {
-  &[data-color='blue'] {
-    background: rgb(32, 136, 255);
+  &[data-color='battle'] {
+    background: $blue;
   }
 
-  &[data-color='pink'] {
-    background: pink;
+  &[data-color='love'] {
+    background: $pink;
   }
 
-  &[data-color='skyblue'] {
-    background: skyblue;
+  &[data-color='aoharu'] {
+    background: $skyblue;
   }
 
-  &[data-color='red'] {
-    background: red;
+  &[data-color='sports'] {
+    background: $red;
   }
 
-  &[data-color='green'] {
-    background: green;
+  &[data-color='drama'] {
+    background: $green;
   }
 
-  &[data-color='orange'] {
-    background: orange;
+  &[data-color='food'] {
+    background: $orange;
   }
 
-  &[data-color='purple'] {
-    background: purple;
+  &[data-color='music'] {
+    background: $purple;
   }
 
-  &[data-color='yellow'] {
-    background: rgb(255, 221, 0);
+  &[data-color='gag'] {
+    background: $yellow;
   }
 
   &[data-color='gray'] {
     background: gray;
   }
 
-  &[data-color='lightgreen'] {
-    background: lightgreen;
+  &[data-color='tears'] {
+    background: $lightgreen;
+  }
+}
+
+@mixin selected_color {
+  &[data-color='battle'] {
+    color: $blue;
+  }
+
+  &[data-color='love'] {
+    color: $pink;
+  }
+
+  &[data-color='aoharu'] {
+    color: $skyblue;
+  }
+
+  &[data-color='sports'] {
+    color: $red;
+  }
+
+  &[data-color='drama'] {
+    color: $green;
+  }
+
+  &[data-color='food'] {
+    color: $orange;
+  }
+
+  &[data-color='music'] {
+    color: $purple;
+  }
+
+  &[data-color='gag'] {
+    color: $yellow;
+  }
+
+  &[data-color='gray'] {
+    color: #444;
+  }
+
+  &[data-color='tears'] {
+    color: $lightgreen;
   }
 }
 
