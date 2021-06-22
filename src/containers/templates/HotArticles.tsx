@@ -23,6 +23,7 @@ const HotArticles: FC = () => {
     pauseOnHover: true,
     swipeToSlide: true,
     centerMode: true,
+    autoplaySpeed: 6000,
   };
 
   const navigate = useNavigate();

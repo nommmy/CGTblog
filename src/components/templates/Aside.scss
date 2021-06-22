@@ -1,4 +1,5 @@
 @import '_variables.scss';
+@import '/src/settings';
 
 .ranking {
   margin: 0;
@@ -8,11 +9,46 @@
     position: relative;
     top: 0;
     width: 100%;
-    padding: 1vh 1vw;
     font-size: 1.8vw;
     font-weight: bold;
-    color: #fff;
-    text-align: center;
-    background: $main-color;
+    color: $main-color;
+  }
+
+  $reco_height: 60px;
+
+  .reco_container {
+    margin: 0 auto;
+
+    .reco_item {
+      height: $reco_height;
+      margin: 20px 10px;
+      overflow: visible;
+
+      .reco_thumbnail {
+        position: relative;
+
+        .reco_media {
+          width: 100%;
+          height: $reco_height;
+          border-radius: 4px;
+
+          .genre_icon_group {
+            @include icon_position;
+
+            .genre_icon {
+              @include genre_icon;
+            }
+          }
+        }
+
+        p {
+          @include title;
+
+          font-size: 0.9em;
+          line-height: 20px;
+          border-radius: 0 0 4px 4px;
+        }
+      }
+    }
   }
 }

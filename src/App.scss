@@ -12,6 +12,7 @@
   }
 
   .date {
+    font-size: 1.2vw;
     color: gray;
   }
 
@@ -24,9 +25,22 @@
     position: -webkit-sticky;
     top: 0;
     z-index: 20;
-    height: clamp(100px, 100px + 1vw, 200px);
-    padding: 2vw;
-    background: $main-color;
+    margin-bottom: 1vw;
+    background: white;
+    border-bottom: 1px solid $main-color;
+    box-shadow: 0 0 2px $main-color;
+
+    .header {
+      min-height: 64px;
+      padding: 1vw;
+      margin: 0 2vw;
+    }
+
+    img {
+      max-width: 100px;
+      max-height: 50px;
+      vertical-align: top;
+    }
   }
 
   .container {
@@ -44,13 +58,17 @@
       flex-direction: column;
       width: 300px;
       padding: 0 10px;
+      // border-left: 1px solid $sub-color;
+      // box-shadow: -3px 0 0 $sub-color;
     }
   }
 
   footer {
-    height: clamp(100px, 100px + 1vw, 150px);
+    min-height: 64px;
     padding: 2vw;
-    background: rgb(201, 255, 201);
+    background: $sub-color;
+    // border-top: 1px solid $sub-color;
+    // box-shadow: 0 0 -2px $sub-color;
   }
 
   .summary_box {

@@ -6,8 +6,6 @@
   .MuiTab-textColorInherit {
     &:hover {
       @include selected-color;
-
-      opacity: 1;
     }
 
     &.Mui-selected {

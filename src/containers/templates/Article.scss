@@ -2,8 +2,8 @@
 
 .article_container {
   position: relative;
-  padding: 50px clamp(30px, 30px + 1vw, 50px);
-  margin: 0 50px;
+  padding: 3vw 0;
+  margin: 0 2vw;
   background-color: white;
 
   .genre_icon_group {
@@ -16,19 +16,23 @@
 
   .option {
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 2vw;
 
     .date_container {
       margin-left: auto;
+    }
+
+    .location {
+      font-size: 1.4vw;
     }
   }
 
   .article_header {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 2vw;
 
     .header_image {
-      width: calc(100% - 60px);
+      width: 100%;
       overflow: hidden;
       border: 1px solid rgba(64, 87, 109, 0.07);
       border-radius: 4px;
@@ -43,7 +47,7 @@
       padding-right: 0;
       overflow: hidden;
       background: white;
-      border-radius: 8px;
+      border-radius: 8px 0 0 8px;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
 

@@ -15,7 +15,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
       {comics.map((comic) => (
         <Card className="card_item" key={comic.code}>
           <Link to={comic.code}>
-            <section style={{ height: 5 }}>
+            <section>
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
                   <GenreIcon key={genre + comic.title} genre={genre} />

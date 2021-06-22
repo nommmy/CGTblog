@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import HomeIcon from '@material-ui/icons/Home';
 import { useDispatch } from 'react-redux';
 import { API } from 'aws-amplify';
 import { ListComicsQuery } from 'API';
@@ -46,11 +45,13 @@ const App: FC = () => {
   return (
     <div className="body">
       <header>
-        <Link to="intro">このサイトについて</Link>
-        <Link to="admin">編集＆NEW</Link>
-        <Link to="/">
-          <HomeIcon color="primary" />
-        </Link>
+        <div className="header">
+          <Link to="/">
+            <img src="logo.png" alt="logo" />
+          </Link>
+          <Link to="intro">このサイトについて</Link>
+          <Link to="admin">編集＆NEW</Link>
+        </div>
       </header>
       {pathname === '/' && <HotArticles />}
       <div className="container">

@@ -86,13 +86,16 @@ const Article: FC<Comic> = ({
           genres.map((genre) => <GenreIcon key={genre} genre={genre} />)}
       </div>
       <section className="option">
-        <div>
+        <div className="location" >
           <Link to="/">Top</Link> / {title}
         </div>
         <div className="date_container">
           {updatedAt && (
             <>
-              <MdUpdate style={{ color: 'gray', margin: 5 }} />
+              <MdUpdate
+                style={{ color: 'gray', margin: 5, marginBottom: 0 }}
+                size="1.2vw"
+              />
               <span className="date">{updatedAt?.split('T')[0]}</span>
             </>
           )}

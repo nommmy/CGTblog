@@ -86,7 +86,7 @@
 
 @mixin icon_position {
   position: absolute;
-  top: -10px;
+  top: -15px;
   right: -10px;
   z-index: 2;
 }
@@ -98,4 +98,16 @@
   @include icon_color;
 
   border-radius: 50%;
+}
+
+@mixin title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 1vw;
+  margin: 0;
+  font-weight: bold;
+  line-height: 30px;
+  color: whitesmoke;
+  background: rgb(103, 103, 103, 0.5);
 }
