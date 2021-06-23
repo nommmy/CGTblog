@@ -6,7 +6,7 @@ import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import { Link } from 'react-router-dom';
-import CreateIcon from '@material-ui/icons/Create';
+import LaunchIcon from '@material-ui/icons/Launch';
 
 const AdminPage: FC = () => {
   const articles = useSelector<typeState, Comic[]>(
@@ -22,12 +22,9 @@ const AdminPage: FC = () => {
       <main>
         <ArticleCards comics={articles} />
       </main>
-      <aside>
-        <Link to="new">
-          Create New Article
-          <CreateIcon color="primary" fontSize="large" />
-        </Link>
-      </aside>
+      <Link to="new">
+        <LaunchIcon style={{ color: '#75deb9' }} fontSize="large" />
+      </Link>
     </>
   );
 };

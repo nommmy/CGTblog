@@ -10,14 +10,22 @@ import { Comic } from 'data/comics';
 const ArticlePage: FC = () => {
   const { code } = useParams();
 
-  const allArticles = useSelector<typeState, Comic[]>(
-    (state) => state.allArticles,
+  const showArticles = useSelector<typeState, Comic[]>(
+    (state) => state.showArticles,
     shallowEqual,
   );
 
   const currentArticle = useMemo(
-    () => allArticles.filter((comic) => comic.code === code),
-    [code, allArticles],
+    () => showArticles.filter((comic) => comic.code === code),
+    [code, showArticles],
+  );
+
+  const relationArticles = useMemo(
+    () =>
+      showArticles.filter((comic) =>
+        currentArticle[0].relation?.includes(comic.code),
+      ),
+    [showArticles, currentArticle],
   );
 
   return (
@@ -26,7 +34,7 @@ const ArticlePage: FC = () => {
         <Article {...currentArticle[0]} />
       </main>
       <aside>
-        <ArticleSideContents />
+        {!!relationArticles.length && <ArticleSideContents comics={relationArticles} />}
         <Aside />
       </aside>
     </>

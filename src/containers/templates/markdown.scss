@@ -1,4 +1,5 @@
 @import 'src/markdown_extension';
+@import 'src/variables';
 
 .modal {
   display: flex;
@@ -13,7 +14,7 @@
     button {
       display: block;
       margin: 2vw 1vw 1vw auto;
-      background: #0f83fd;
+      background: $sub-color;
     }
   }
 }
@@ -25,10 +26,10 @@
 
   .image_insert_button {
     position: fixed;
-    top: 10vh;
+    top: 15vh;
     left: 2vw;
     z-index: 10;
-    background: #0f83fd;
+    background: $sub-color;
     border-radius: 50%;
 
     svg {
@@ -38,7 +39,11 @@
 
   .MuiButton-containedPrimary {
     margin: 2vw 1vw 2vw auto;
-    background: #0f83fd;
+    background: $sub-color;
+
+    &:hover {
+      background-color: $sub-color;
+    }
   }
 
   .meta_forms_container {
