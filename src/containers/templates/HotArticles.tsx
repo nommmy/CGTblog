@@ -34,32 +34,35 @@ const HotArticles: FC = () => {
   return (
     <>
       {!!hotArticles.length && (
-        <Slider {...settings} className="article_container">
-          {hotArticles.map((comic) => (
-            <Hammer onTap={() => onTapAndMove(comic.code)} key={comic.code}>
-              <div className="hot_header">
-                <section className="article_header">
-                  <div className="header_image">
-                    <img
-                      src={comic.image}
-                      alt="Header"
-                      onError={(e) => {
-                        (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                          'IMG_0740.JPG';
-                      }}
-                    />
-                  </div>
-                  <div className="title_container">
-                    <div className="article_title">
-                      <p className="overview">{comic.subtitle}</p>
-                      <p className="title">{comic.title}</p>
+        <>
+          <img src="headline/hot-topics.png" alt="Hot Topics" className="headline" />
+          <Slider {...settings} className="article_container">
+            {hotArticles.map((comic) => (
+              <Hammer onTap={() => onTapAndMove(comic.code)} key={comic.code}>
+                <div className="hot_header">
+                  <section className="article_header">
+                    <div className="header_image">
+                      <img
+                        src={comic.image}
+                        alt="Header"
+                        onError={(e) => {
+                          (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                            'IMG_0740.JPG';
+                        }}
+                      />
                     </div>
-                  </div>
-                </section>
-              </div>
-            </Hammer>
-          ))}
-        </Slider>
+                    <div className="title_container">
+                      <div className="article_title">
+                        <p className="overview">{comic.subtitle}</p>
+                        <p className="title">{comic.title}</p>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </Hammer>
+            ))}
+          </Slider>
+        </>
       )}
     </>
   );

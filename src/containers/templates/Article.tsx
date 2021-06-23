@@ -83,10 +83,12 @@ const Article: FC<Comic> = ({
       </Helmet>
       <div className="genre_icon_group">
         {genres &&
-          genres.map((genre) => <GenreIcon key={genre} genre={genre} />)}
+          genres.map((genre) => (
+            <GenreIcon key={genre} genre={genre} iconSize={{ size: '35' }} />
+          ))}
       </div>
       <section className="option">
-        <div className="location" >
+        <div className="location">
           <Link to="/">Top</Link> / {title}
         </div>
         <div className="date_container">

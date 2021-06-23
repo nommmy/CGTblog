@@ -20,6 +20,15 @@
     font-family: “Quicksand”, “Avenir”, “Arial”, “BIZ UDGothic”, “Hiragino Kaku Gothic ProN”, YuGothic, “Yu Gothic”, “Hiragino Sans”, “ヒラギノ角ゴシック”, “メイリオ”, Meiryo, sans-serif;
   }
 
+  .headline {
+    position: relative;
+    top: 6vw;
+    left: 2vw;
+    z-index: 3;
+    width: 30vw;
+    margin-top: -7vw;
+  }
+
   header {
     position: sticky;
     position: -webkit-sticky;
@@ -28,17 +37,37 @@
     margin-bottom: 1vw;
     background: white;
     border-bottom: 1px solid $main-color;
-    box-shadow: 0 0 2px $main-color;
+    box-shadow: 0 0 5px $main-color;
 
     .header {
+      display: flex;
       min-height: 64px;
       padding: 1vw;
       margin: 0 2vw;
+
+      .header_nav {
+        margin-left: auto;
+
+        .nav {
+          margin-left: 16px;
+          font-weight: bold;
+        }
+
+        a {
+          color: $main-color;
+          vertical-align: middle;
+        }
+
+        button {
+          color: white;
+          background-color: $main-color;
+        }
+      }
     }
 
     img {
-      max-width: 100px;
-      max-height: 50px;
+      max-width: 200px;
+      max-height: 64px;
       vertical-align: top;
     }
   }

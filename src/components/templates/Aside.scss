@@ -7,11 +7,11 @@
 
   .ranking_header {
     position: relative;
-    top: 0;
-    width: 100%;
-    font-size: 1.8vw;
-    font-weight: bold;
-    color: $main-color;
+    top: 4vw;
+    left: -2vw;
+    z-index: 3;
+    width: 18vw;
+    margin-top: -4vw;
   }
 
   $reco_height: 60px;

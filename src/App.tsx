@@ -7,6 +7,7 @@ import { ListComicsQuery } from 'API';
 import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
+import Button from '@material-ui/core/Button';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
@@ -47,10 +48,18 @@ const App: FC = () => {
       <header>
         <div className="header">
           <Link to="/">
-            <img src="logo.png" alt="logo" />
+            <img src="logo7.png" alt="logo" />
           </Link>
-          <Link to="intro">このサイトについて</Link>
-          <Link to="admin">編集＆NEW</Link>
+          <nav className="header_nav">
+            <Link to="intro" className="nav">
+              ぽむログとは？
+            </Link>
+            <Link to="admin">
+              <Button className="nav" disableElevation variant="contained">
+                Admin
+              </Button>
+            </Link>
+          </nav>
         </div>
       </header>
       {pathname === '/' && <HotArticles />}
