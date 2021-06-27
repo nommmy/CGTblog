@@ -37,7 +37,7 @@
     margin-bottom: 1vw;
     background: white;
     border-bottom: 1px solid $main-color;
-    box-shadow: 0 0 5px $main-color;
+    box-shadow: 0 0 10px $main-color;
 
     .header {
       display: flex;
@@ -76,7 +76,7 @@
     display: flex;
     flex: 1;
     margin: 4vh 4vw;
-    background: white;
+    background: $back-color;
 
     main {
       flex: 1;
@@ -162,6 +162,14 @@
 
     &::before {
       background: #ff7670;
+    }
+  }
+
+  .hint.error {
+    background: #f7f9f9;
+
+    &::before {
+      display: none;
     }
   }
 }

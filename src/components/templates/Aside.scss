@@ -1,9 +1,42 @@
 @import '_variables.scss';
 @import '/src/settings';
 
+.welcome {
+  margin-bottom: 3vw;
+
+  .welcome_header {
+    position: relative;
+    top: 3vw;
+    left: -1.5vw;
+    z-index: 3;
+    width: 23vw;
+    margin-top: -4vw;
+  }
+
+  .welcome_message {
+    padding: 1vw;
+    margin: 0 10px;
+    font-size: 1.1vw;
+    // box-shadow: 0 0 0 10px #ffeaea;
+    background: white;
+    // background: #ffeaea;
+    border: dashed 4px $main-color;
+    border-radius: 4px;
+
+    .welcome_link {
+      text-align: center;
+
+      a {
+        font-size: 1vw;
+        color: $main-color;
+      }
+    }
+  }
+}
+
 .ranking {
   margin: 0;
-  background: white;
+  background: $back-color;
 
   .ranking_header {
     position: relative;
@@ -14,7 +47,7 @@
     margin-top: -4vw;
   }
 
-  $reco_height: 60px;
+  $reco_height: 70px;
 
   .reco_container {
     margin: 0 auto;

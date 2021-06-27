@@ -1,3 +1,5 @@
+@import './variables';
+
 .react-split-mde-preview {
   line-height: 1.9;
 
@@ -11,12 +13,17 @@
     font-style: italic;
   }
 
+  p {
+    font-size: 1.3vw;
+    line-height: 1.7;
+  }
+
   strong {
     font-weight: 600;
   }
 
   a {
-    color: #0f83fd;
+    color: $sub-color;
 
     &:hover {
       text-decoration: underline;
@@ -124,11 +131,39 @@
   }
 
   h1 {
+    // // border-bottom: solid 1px rgba(92, 147, 187, 0.17);
+    // // padding-bottom: 0.2em;
+
+    // border-left: 4px solid $main-color;
+    // padding: 0.5em;
+    // position: relative;
+    // padding: 1rem 2rem;
+    // margin-bottom: 1.1rem;
+
+    // padding: 0.5em;
+    // background: #feecec;
+    // border-bottom: solid 3px $main-color;
+    // margin-bottom: 1.1rem;
+
+    // background: linear-gradient(transparent 70%, #fbb4ab 80%, $main-color 95%);
+    // background: linear-gradient(transparent 70%, #ff9689c4 70%);
+
     position: relative;
-    padding-bottom: 0.2em;
-    margin-bottom: 1.1rem;
+    padding-left: 1.4em;
+    margin-bottom: 2vw;
     font-size: 1.7em;
-    border-bottom: solid 1px rgba(92, 147, 187, 0.17);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1em;
+      font-weight: 900;
+      color: $main-color;
+      content: '\f00c';
+    }
   }
 
   h2 {

@@ -3,7 +3,7 @@
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 3vw 20px;
+  grid-gap: 4vw 20px;
   padding: 10px 20px;
 
   .MuiPaper-elevation1 {
@@ -44,6 +44,7 @@
 
       h3 {
         height: 36px;
+        margin-bottom: 0;
         font-size: 14px;
         color: rgb(86, 86, 86);
       }

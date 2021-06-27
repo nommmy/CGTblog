@@ -2,6 +2,7 @@
   padding: 0 2vw;
   margin: 1vw 8vw;
   margin-bottom: 3vw;
+  border-bottom: 1px solid lightgray;
 
   :hover {
     cursor: pointer;
@@ -30,6 +31,13 @@
 
         .overview {
           font-size: 0.5vw;
+        }
+
+        .text-overflow {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
       }
     }

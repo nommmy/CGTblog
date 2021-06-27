@@ -35,7 +35,11 @@ const HotArticles: FC = () => {
     <>
       {!!hotArticles.length && (
         <>
-          <img src="headline/hot-topics.png" alt="Hot Topics" className="headline" />
+          <img
+            src="headline/hot-topics.png"
+            alt="Hot Topics"
+            className="headline"
+          />
           <Slider {...settings} className="article_container">
             {hotArticles.map((comic) => (
               <Hammer onTap={() => onTapAndMove(comic.code)} key={comic.code}>
@@ -53,7 +57,9 @@ const HotArticles: FC = () => {
                     </div>
                     <div className="title_container">
                       <div className="article_title">
-                        <p className="overview">{comic.subtitle}</p>
+                        <p className="overview text-overflow">
+                          {comic.subtitle}
+                        </p>
                         <p className="title">{comic.title}</p>
                       </div>
                     </div>
