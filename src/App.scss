@@ -26,7 +26,7 @@
     left: 2vw;
     z-index: 3;
     width: 30vw;
-    margin-top: -7vw;
+    margin-top: -5vw;
   }
 
   header {
@@ -34,7 +34,7 @@
     position: -webkit-sticky;
     top: 0;
     z-index: 20;
-    margin-bottom: 1vw;
+    // margin-bottom: 1vw;
     background: white;
     border-bottom: 1px solid $main-color;
     box-shadow: 0 0 10px $main-color;
@@ -75,7 +75,7 @@
   .container {
     display: flex;
     flex: 1;
-    margin: 4vh 4vw;
+    padding: 6vh 4vw;
     background: $back-color;
 
     main {

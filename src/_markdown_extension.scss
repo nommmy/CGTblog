@@ -1,4 +1,5 @@
 @import './variables';
+@import './settings';
 
 .react-split-mde-preview {
   line-height: 1.9;
@@ -19,7 +20,7 @@
   }
 
   strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   a {
@@ -134,12 +135,6 @@
     // // border-bottom: solid 1px rgba(92, 147, 187, 0.17);
     // // padding-bottom: 0.2em;
 
-    // border-left: 4px solid $main-color;
-    // padding: 0.5em;
-    // position: relative;
-    // padding: 1rem 2rem;
-    // margin-bottom: 1.1rem;
-
     // padding: 0.5em;
     // background: #feecec;
     // border-bottom: solid 3px $main-color;
@@ -167,7 +162,28 @@
   }
 
   h2 {
+    position: relative;
+    padding: 0.5rem 2rem;
+    margin-bottom: 1.1rem;
     font-size: 1.5em;
+    border-left: 4px solid $main-color;
+  }
+
+  .index + section {
+    @include table-of-content-container;
+    @include table-of-content-list;
+
+    h2#table-of-content {
+      @include table-of-content-title;
+
+      font-size: 0;
+
+      &::before {
+        font-size: 1.5rem;
+        font-weight: bold;
+        content: 'この記事の目次';
+      }
+    }
   }
 
   h3 {
@@ -335,6 +351,7 @@
     text-align: center;
   }
 
+  // stylelint-disable-next-line
   .contains-task-list li::before {
     content: none !important;
   }
@@ -599,6 +616,7 @@
       margin: 0;
     }
 
+    // stylelint-disable-next-line
     a {
       color: inherit;
       text-decoration: underline;

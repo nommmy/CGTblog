@@ -1,8 +1,10 @@
 @import '/src/settings';
+@import '/src/variables';
 
 .article_container {
   position: relative;
-  padding: 3vw 0;
+  // padding: 3vw 0;
+  padding: 4vw;
   margin: 0 2vw;
   background-color: white;
 
@@ -11,6 +13,78 @@
 
     .genre_icon {
       @include genre_icon;
+    }
+  }
+
+  .welcome_content {
+    .welcome_table_of_content {
+      @include table-of-content-container;
+      @include table-of-content-list;
+
+      h2 {
+        @include table-of-content-title;
+
+        margin: 0;
+      }
+    }
+
+    .welcome_image {
+      padding: 0 1vw;
+      margin: 0 1vw;
+      border: 2px solid lightgray;
+    }
+
+    .icon_grid {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      gap: 2vw;
+      padding: 2vw;
+      margin: 0 1vw;
+      border: 2px solid lightgray;
+
+      .flex {
+        display: flex;
+
+        .genre_icon {
+          @include genre_icon;
+        }
+
+        p {
+          height: 30px;
+          padding-left: 2vw;
+          margin: 0;
+          line-height: 30px;
+        }
+      }
+    }
+
+    .twitter_container {
+      margin-top: 4vw;
+
+      .followme_header {
+        position: relative;
+        top: 40px;
+        left: -2vw;
+        z-index: 3;
+        width: 12vw;
+        margin-top: -40px;
+      }
+
+      .twitter_button {
+        display: block;
+        text-align: center;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        .twitter_id {
+          position: relative;
+          top: -10px;
+          font-size: 4px;
+          color: $sub-color;
+        }
+      }
     }
   }
 

@@ -111,3 +111,61 @@
   color: whitesmoke;
   background: rgb(103, 103, 103, 0.5);
 }
+
+@mixin table-of-content-container {
+  position: relative;
+  padding: 0.5em 1em;
+  margin: 5vw 3vw;
+  border: solid 3px $main-color;
+  border-radius: 8px;
+}
+
+@mixin table-of-content-title {
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  display: inline-block;
+  padding: 0 9px;
+  line-height: 1;
+  color: $main-color;
+  background: #fff;
+  border-left: none;
+}
+
+@mixin table-of-content-list {
+  ul {
+    padding: 0.5em 1em 0.5em 2.3em;
+    margin: 0.8vw 0.5vw;
+
+    li {
+      display: block;
+      padding: 0.5em 0;
+      margin: 0;
+
+      &::before {
+        position: absolute;
+        left: -25px;
+        width: 0;
+        height: 0;
+        background: none;
+        // stylelint-disable-next-line
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: $sub-color;
+        content: '\f00c';
+      }
+
+      ul {
+        padding-top: 0.7vw;
+        padding-bottom: 0;
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      a {
+        font-size: 1.4vw;
+        color: #666;
+      }
+    }
+  }
+}

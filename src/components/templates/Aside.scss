@@ -31,6 +31,31 @@
         color: $main-color;
       }
     }
+
+    .address_container {
+      .address {
+        margin: 0;
+        font-size: 0.8rem;
+        color: gray;
+
+        &:last-child {
+          padding-bottom: 5px;
+          margin-bottom: 10px;
+          border-bottom: 1px dashed lightgray;
+        }
+
+        .mail_icon {
+          width: 1rem;
+          margin-right: 4px;
+          vertical-align: middle;
+        }
+
+        .twitter_icon {
+          position: relative;
+          top: -10px;
+        }
+      }
+    }
   }
 }
 
