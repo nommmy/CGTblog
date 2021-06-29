@@ -19,6 +19,7 @@ export const createComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
       createdAt
       updatedAt
     }
@@ -41,6 +42,7 @@ export const updateComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
       createdAt
       updatedAt
     }
@@ -63,6 +65,7 @@ export const deleteComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
       createdAt
       updatedAt
     }

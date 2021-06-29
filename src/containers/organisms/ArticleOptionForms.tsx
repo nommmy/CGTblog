@@ -13,6 +13,7 @@ import {
   MenuItem,
   FormControl,
 } from '@material-ui/core';
+import ChipInput from 'material-ui-chip-input';
 import {
   Controller,
   UseFormGetValues,
@@ -30,6 +31,7 @@ type defaultValueType = {
   subtitle: string;
   relation: string[] | null;
   genres: string[];
+  tags: string[] | null;
 };
 
 type Props = {
@@ -49,6 +51,7 @@ const ArticleOptionForms: FC<Props> = ({
     subtitle: '',
     genres: [''],
     relation: [],
+    tags: [],
   },
 }) => {
   const handleSelect = (checkedName: string) => {
@@ -133,21 +136,39 @@ const ArticleOptionForms: FC<Props> = ({
       />
       <Controller
         control={control}
+        name="tags"
+        defaultValue={defaultValue.tags}
+        render={({ field }) => (
+          <ChipInput
+            onChange={(value) => field.onChange(value)}
+            defaultValue={defaultValue.tags ?? []}
+            label="Tags"
+            fullWidth
+            className="tag_chips"
+          />
+        )}
+      />
+      <Controller
+        control={control}
         name="relation"
         defaultValue={defaultValue.relation}
         render={(fields) => (
-          <FormControl fullWidth className="relation_selector" >
+          <FormControl fullWidth className="relation_selector">
             <InputLabel id="demo-mutiple-chip-label">Relation</InputLabel>
             <Select
               labelId="demo-mutiple-chip-label"
               multiple
               value={fields.field.value ?? []}
               onChange={fields.field.onChange}
-              input={<Input/>}
+              input={<Input />}
               renderValue={(selected) => (
                 <>
                   {(selected as string[]).map((value) => (
-                    <Chip key={value} label={value} style={{ margin: 2, padding: 1}}/>
+                    <Chip
+                      key={value}
+                      label={value}
+                      style={{ margin: 2, padding: 1 }}
+                    />
                   ))}
                 </>
               )}

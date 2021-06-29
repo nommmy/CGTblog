@@ -16,6 +16,7 @@ export type IFormInputs = {
   isPublic: boolean;
   isHot: boolean;
   relation: string[];
+  tags: string[];
   like: number;
   genres: string[];
 };

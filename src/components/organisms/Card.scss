@@ -38,10 +38,14 @@
     }
 
     .card_subtitle {
+      display: -webkit-box;
       padding: 0 1vw;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
 
       h3 {
-        height: 36px;
+        height: 40px;
         margin-bottom: 0;
         font-size: 14px;
         color: rgb(86, 86, 86);

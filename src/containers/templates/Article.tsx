@@ -18,6 +18,7 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from 'react-share';
+import Chip from '@material-ui/core/Chip';
 import './Article.scss';
 import '_markdown_extension.scss';
 
@@ -34,6 +35,7 @@ const Article: FC<Comic> = ({
   updatedAt,
   image,
   content,
+  tags,
 }) => {
   const metaItems = [...document.querySelectorAll('meta')];
   // eslint-disable-next-line
@@ -121,6 +123,17 @@ const Article: FC<Comic> = ({
             <p className="title">{title}</p>
           </div>
         </div>
+      </section>
+      <section className="article_tags">
+        {tags?.map((tag) => (
+          <Chip
+            key={tag}
+            variant="outlined"
+            size="small"
+            label={`#${tag}`}
+            className="tag"
+          />
+        ))}
       </section>
       <section className="react-split-mde-preview">{markdown}</section>
       <section className="share_button_group">

@@ -87,17 +87,25 @@
       flex-direction: column;
       width: 300px;
       padding: 0 10px;
-      // border-left: 1px solid $sub-color;
-      // box-shadow: -3px 0 0 $sub-color;
+    }
+
+    .article_tags {
+      height: 20px;
+      padding: 0 1vw;
+      margin-top: 1vw;
+
+      .tag {
+        margin: 0 2px;
+        color: $sub-color;
+        border: 1px solid $sub-color;
+      }
     }
   }
 
   footer {
     min-height: 64px;
     padding: 2vw;
-    background: $sub-color;
-    // border-top: 1px solid $sub-color;
-    // box-shadow: 0 0 -2px $sub-color;
+    background: $back-color;
   }
 
   .summary_box {
