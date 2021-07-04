@@ -17,6 +17,9 @@ export const getComic = /* GraphQL */ `
       isHot
       relation
       tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -42,6 +45,9 @@ export const listComics = /* GraphQL */ `
         isHot
         relation
         tags
+        author
+        volume
+        magazine
         createdAt
         updatedAt
       }
@@ -77,6 +83,9 @@ export const comicByCode = /* GraphQL */ `
         isHot
         relation
         tags
+        author
+        volume
+        magazine
         createdAt
         updatedAt
       }

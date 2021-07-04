@@ -23,6 +23,9 @@ type Comic
   isHot: Boolean!
   relation: [String!]
   tags: [String!]
+  author: String!
+  volume: String!
+  magazine: String!
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }

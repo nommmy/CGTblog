@@ -17,6 +17,9 @@ export const onCreateComic = /* GraphQL */ `
       isHot
       relation
       tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -37,6 +40,9 @@ export const onUpdateComic = /* GraphQL */ `
       isHot
       relation
       tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -57,6 +63,9 @@ export const onDeleteComic = /* GraphQL */ `
       isHot
       relation
       tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }

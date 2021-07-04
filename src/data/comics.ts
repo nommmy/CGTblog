@@ -14,6 +14,9 @@ export type Comic = {
   isHot: boolean;
   relation: string[] | null;
   tags: string[] | null;
+  author: string;
+  volume: string;
+  magazine: string;
   createdAt?: string | null;
   updatedAt?: string | null;
 };

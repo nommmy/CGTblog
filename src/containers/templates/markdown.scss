@@ -50,6 +50,7 @@
     display: grid;
     grid-template-areas:
       'a b c'
+      'h i j'
       'd d d'
       'g g g'
       'f f f'
@@ -86,6 +87,18 @@
 
     .tag_chips {
       grid-area: g;
+    }
+
+    .author_form {
+      grid-area: h;
+    }
+
+    .volume_form {
+      grid-area: i;
+    }
+
+    .magazine_form {
+      grid-area: j;
     }
   }
 

@@ -32,6 +32,9 @@ type defaultValueType = {
   relation: string[] | null;
   genres: string[];
   tags: string[] | null;
+  author: string;
+  volume: string;
+  magazine: string;
 };
 
 type Props = {
@@ -52,6 +55,9 @@ const ArticleOptionForms: FC<Props> = ({
     genres: [''],
     relation: [],
     tags: [],
+    author: '',
+    volume: '',
+    magazine: '',
   },
 }) => {
   const handleSelect = (checkedName: string) => {
@@ -123,6 +129,33 @@ const ArticleOptionForms: FC<Props> = ({
             type="file"
             onChange={(e) => headerInput(e, field)}
           />
+        )}
+      />
+      <Controller
+        control={control}
+        name="author"
+        defaultValue={defaultValue.author}
+        rules={{ required: true }}
+        render={({ field }) => (
+          <TextField {...field} className="author_form" label="Author" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="volume"
+        defaultValue={defaultValue.volume}
+        rules={{ required: true }}
+        render={({ field }) => (
+          <TextField {...field} className="volume_form" label="Volume" />
+        )}
+      />
+      <Controller
+        control={control}
+        name="magazine"
+        defaultValue={defaultValue.magazine}
+        rules={{ required: true }}
+        render={({ field }) => (
+          <TextField {...field} className="magazine_form" label="Magazine" />
         )}
       />
       <Controller

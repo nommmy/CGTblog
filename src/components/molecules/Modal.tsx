@@ -19,6 +19,9 @@ export type IFormInputs = {
   tags: string[];
   like: number;
   genres: string[];
+  author: string;
+  volume: string;
+  magazine: string;
 };
 
 type defaultValueType = {

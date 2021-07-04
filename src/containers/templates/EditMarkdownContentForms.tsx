@@ -25,6 +25,9 @@ const EditMarkdownContentForms: FC<Comic> = ({
   isHot,
   relation,
   tags,
+  author,
+  volume,
+  magazine,
 }) => {
   type UpdateInput = {
     id: string;
@@ -39,6 +42,9 @@ const EditMarkdownContentForms: FC<Comic> = ({
     isHot: boolean;
     relation: string[] | null;
     tags: string[] | null;
+    author: string;
+    volume: string;
+    magazine: string;
   };
 
   const {
@@ -110,8 +116,11 @@ const EditMarkdownContentForms: FC<Comic> = ({
           code,
           subtitle,
           relation,
-          // eslint-disable-next-line
           tags,
+          // eslint-disable-next-line
+          author,
+          volume,
+          magazine,
           genres: genres as string[],
         }}
       />

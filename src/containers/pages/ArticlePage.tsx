@@ -43,20 +43,20 @@ const ArticlePage: FC = () => {
         <div className="article-footer">
           <div className="article-info">
             <div className="info-header">作者</div>
-            <div className="info-data">葦原大輔</div>
+            <div className="info-data">{currentArticle[0].author}</div>
           </div>
           <div className="article-info">
             <div className="info-header">巻数</div>
             <div className="info-data">
-              {`23巻 ${
+              {`${currentArticle[0].volume}巻 (${
                 currentArticle[0].updatedAt?.split('T')[0] as string
-              } 現在`}
+              })`}
             </div>
           </div>
 
           <div className="article-info">
             <div className="info-header">連載</div>
-            <div className="info-data">週刊少年ジャンプ</div>
+            <div className="info-data">{currentArticle[0].magazine}</div>
           </div>
           <div className="article-info">
             <div className="info-header">タグ</div>
