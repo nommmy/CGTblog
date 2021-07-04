@@ -19,9 +19,13 @@ const EditPage: FC = () => {
 
   return (
     <>
-      <main>
-        {currentArticle[0] && <EditMarkdownContentForms {...currentArticle[0]} />}
-      </main>
+      <div className="flex-container">
+        <main>
+          {currentArticle[0] && (
+            <EditMarkdownContentForms {...currentArticle[0]} />
+          )}
+        </main>
+      </div>
     </>
   );
 };

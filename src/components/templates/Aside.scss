@@ -61,6 +61,7 @@
 
 .ranking {
   margin: 0;
+  margin-bottom: 50px;
   background: $back-color;
 
   .ranking_header {
@@ -72,7 +73,7 @@
     margin-top: -4vw;
   }
 
-  $reco_height: 70px;
+  $reco_height: 80px;
 
   .reco_container {
     margin: 0 auto;

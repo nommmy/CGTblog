@@ -19,14 +19,16 @@ const Home: FC = () => {
       <Helmet>
         <title>ぽむログ -好きなマンガを紹介-</title>
       </Helmet>
-      <main>
-        <SearchForms />
-        <ArticleCards comics={articles} />
-      </main>
-      <aside>
-        <WelcomeMessage />
-        <Aside />
-      </aside>
+      <div className="flex-container">
+        <main>
+          <SearchForms />
+          <ArticleCards comics={articles} />
+        </main>
+        <aside>
+          <WelcomeMessage />
+          <Aside />
+        </aside>
+      </div>
     </>
   );
 };

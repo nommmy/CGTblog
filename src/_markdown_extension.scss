@@ -16,7 +16,7 @@
 
   p {
     font-size: 1.3vw;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   strong {
@@ -187,7 +187,11 @@
   }
 
   h3 {
+    position: relative;
+    padding: 0.2rem 2rem;
+    margin-bottom: 1.1rem;
     font-size: 1.3em;
+    border-left: 4px solid $main-color;
   }
 
   h4 {

@@ -36,8 +36,8 @@
     z-index: 20;
     // margin-bottom: 1vw;
     background: white;
-    border-bottom: 1px solid $main-color;
-    box-shadow: 0 0 10px $main-color;
+    // border-bottom: 1px solid $main-color;
+    box-shadow: 0 0 5px $main-color;
 
     .header {
       display: flex;
@@ -73,39 +73,89 @@
   }
 
   .container {
-    display: flex;
     flex: 1;
-    padding: 6vh 4vw;
     background: $back-color;
 
-    main {
-      flex: 1;
-    }
-
-    aside {
+    .flex-container {
       display: flex;
-      flex-direction: column;
-      width: 300px;
-      padding: 0 10px;
-    }
+      padding: 6vh 4vw;
 
-    .article_tags {
-      height: 20px;
-      padding: 0 1vw;
-      margin-top: 1vw;
+      main {
+        flex: 1;
+      }
 
-      .tag {
-        margin: 0 2px;
-        color: $sub-color;
-        border: 1px solid $sub-color;
+      aside {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        padding: 0 10px;
+      }
+
+      .article_tags {
+        height: 20px;
+        padding: 0 1vw;
+        margin-top: 1vw;
+
+        .tag {
+          margin: 0 2px;
+          color: $sub-color;
+          border: 1px solid $sub-color;
+        }
       }
     }
   }
 
   footer {
-    min-height: 64px;
-    padding: 2vw;
-    background: $back-color;
+    background: white;
+    // border-top: 1px solid $main-color;
+    box-shadow: 0 0 5px $main-color;
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      max-width: 100%;
+      min-height: 64px;
+      padding: 2vw 6vw;
+
+      .footer-links {
+        display: flex;
+
+        p {
+          font-weight: bold;
+        }
+
+        ul {
+          padding: 0;
+
+          li {
+            padding: 0.5vw 0;
+
+            a {
+              color: #606060;
+            }
+
+            list-style: none;
+          }
+        }
+
+        .footer-sns {
+          margin-left: 4vw;
+        }
+      }
+
+      .footer-message {
+        text-align: center;
+
+        img {
+          max-width: 200px;
+          max-height: 64px;
+        }
+
+        p {
+          font-size: 0.8vw;
+        }
+      }
+    }
   }
 
   .summary_box {

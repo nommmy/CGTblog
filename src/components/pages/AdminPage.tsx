@@ -19,12 +19,14 @@ const AdminPage: FC = () => {
       <Helmet>
         <title>Admin</title>
       </Helmet>
-      <main>
-        <ArticleCards comics={articles} />
-      </main>
-      <Link to="new">
-        <LaunchIcon style={{ color: '#75deb9' }} fontSize="large" />
-      </Link>
+      <div className="flex-container">
+        <main>
+          <ArticleCards comics={articles} />
+        </main>
+        <Link to="new">
+          <LaunchIcon style={{ color: '#75deb9' }} fontSize="large" />
+        </Link>
+      </div>
     </>
   );
 };

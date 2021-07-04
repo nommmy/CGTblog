@@ -65,13 +65,17 @@
         position: relative;
         top: 40px;
         left: -2vw;
-        z-index: 3;
+        z-index: 1;
         width: 12vw;
         margin-top: -40px;
       }
 
       .twitter_button {
+        position: relative;
+        z-index: 2;
         display: block;
+        width: 80px;
+        margin: 0 auto;
         text-align: center;
 
         &:hover {
@@ -159,5 +163,65 @@
 
   .share_button_group {
     margin-top: 10vh;
+  }
+}
+
+.article-footer {
+  width: 100%;
+  padding: 4vw 6vw;
+  padding-bottom: 7vw;
+  margin: 0 auto;
+  background: white;
+
+  .article-info {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid lightgray;
+    -webkit-box-align: center;
+
+    .info-header {
+      width: 100px;
+      font-weight: bold;
+      color: $main-color;
+    }
+
+    .info-data {
+      flex: 1;
+      color: gray;
+
+      .tag {
+        margin: 0 2px;
+        color: $sub-color;
+        border: 1px solid $sub-color;
+      }
+    }
+  }
+
+  .relation {
+    margin-top: 3vw;
+    margin-bottom: 0;
+    background: white;
+
+    .relation_header {
+      width: 20vw;
+    }
+
+    .relation_grid {
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+      justify-content: center;
+
+      $reco_height: 90px;
+
+      .reco_item {
+        height: $reco_height;
+
+        .reco_media {
+          height: $reco_height;
+        }
+      }
+    }
   }
 }
