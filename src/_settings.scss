@@ -137,6 +137,12 @@
     padding: 0.5em 1em 0.5em 2.3em;
     margin: 0.8vw 0.5vw;
 
+    a {
+      font-size: 1.4vw;
+      // color: #666;
+      color: $font-color;
+    }
+
     li {
       display: block;
       padding: 0.5em 0;
@@ -156,15 +162,23 @@
       }
 
       ul {
-        padding-top: 0.7vw;
         padding-bottom: 0;
+        padding-left: 1em;
         margin: 0;
         font-size: 0.9rem;
-      }
 
-      a {
-        font-size: 1.4vw;
-        color: #666;
+        li {
+          padding: 0.2em 0;
+
+          &::before {
+            font-family: none;
+            content: '';
+          }
+
+          a {
+            color: #666;
+          }
+        }
       }
     }
   }
