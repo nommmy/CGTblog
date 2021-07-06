@@ -10,5 +10,11 @@ module.exports = {
         ignoreAtRules: ['function', 'if', 'each', 'include', 'mixin'],
       },
     ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global', 'export', 'import', 'local'],
+      },
+    ],
   },
 };

@@ -9,14 +9,14 @@
     top: 3vw;
     left: -1.5vw;
     z-index: 3;
-    width: 23vw;
+    width: 16rem;
     margin-top: -4vw;
   }
 
   .welcome_message {
-    padding: 1vw;
+    padding: 0.5rem 0.8rem;
     margin: 0 10px;
-    font-size: 1.1vw;
+    font-size: 0.8rem;
     // box-shadow: 0 0 0 10px #ffeaea;
     background: white;
     // background: #ffeaea;
@@ -27,7 +27,7 @@
       text-align: center;
 
       a {
-        font-size: 1vw;
+        font-size: 0.7rem;
         color: $main-color;
       }
     }
@@ -35,7 +35,7 @@
     .address_container {
       .address {
         margin: 0;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: gray;
 
         &:last-child {
@@ -60,16 +60,15 @@
 }
 
 .ranking {
+  padding-bottom: 40px;
   margin: 0;
-  margin-bottom: 50px;
-  background: $back-color;
 
   .ranking_header {
     position: relative;
     top: 4vw;
     left: -2vw;
     z-index: 3;
-    width: 18vw;
+    width: 12rem;
     margin-top: -4vw;
   }
 
@@ -103,7 +102,7 @@
         p {
           @include title;
 
-          font-size: 0.9em;
+          font-size: 0.9rem;
           line-height: 20px;
           border-radius: 0 0 4px 4px;
         }

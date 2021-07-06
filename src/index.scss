@@ -1,5 +1,9 @@
 html {
   height: 100%;
+
+  @media screen and (max-width: 576px) {
+    font-size: 70%;
+  }
 }
 
 body {

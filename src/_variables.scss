@@ -13,3 +13,14 @@ $lightgreen: #b8ff71;
 $back-color: rgb(250, 248, 248);
 // $back-color: white;
 $font-color: #4c4c4c;
+
+// $breakpoints: (
+//   sm: 576,
+//   md: 860,
+// );
+
+// @each $size, $value in $breakpoints {
+//   :export {
+//     $size: $value;
+//   }
+// }

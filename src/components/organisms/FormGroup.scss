@@ -15,11 +15,20 @@
     }
   }
 
-  .MuiTab-root {
-    flex: 1;
-    min-width: auto;
-    padding: 0.5vw 1vw;
-    font-size: 0.6rem;
+  .MuiTabs-flexContainer {
+    flex-wrap: wrap;
+
+    .MuiTab-root {
+      flex: 1;
+      min-width: auto;
+
+      @media screen and (max-width: 576px) {
+        min-width: calc(100% / 5);
+      }
+
+      padding: 0.5vw 1vw;
+      font-size: 0.6rem;
+    }
   }
 
   .PrivateTabIndicator-colorSecondary-3 {

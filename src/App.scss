@@ -1,4 +1,5 @@
-@import '_variables.scss';
+@import './variables';
+@import './settings';
 
 .body {
   display: flex;
@@ -27,6 +28,12 @@
     z-index: 3;
     width: 30vw;
     margin-top: -5vw;
+
+    @media screen and (max-width: 576px) {
+      top: 8vw;
+      width: 45vw;
+      margin-top: -4vw;
+    }
   }
 
   header {
@@ -66,7 +73,7 @@
     }
 
     img {
-      max-width: 200px;
+      max-width: 30vw;
       max-height: 64px;
       vertical-align: top;
     }
@@ -90,17 +97,16 @@
         width: 300px;
         padding: 0 10px;
       }
+    }
 
-      .article_tags {
-        height: 20px;
-        padding: 0 1vw;
-        margin-top: 1vw;
+    .aside-bottom-content {
+      padding: 2rem;
+      background: white;
 
-        .tag {
-          margin: 0 2px;
-          color: $sub-color;
-          border: 1px solid $sub-color;
-        }
+      .relation_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        justify-content: center;
       }
     }
   }
@@ -115,7 +121,7 @@
       justify-content: space-between;
       max-width: 100%;
       min-height: 64px;
-      padding: 2vw 6vw;
+      padding: 2rem 6vw;
 
       .footer-links {
         display: flex;
@@ -144,15 +150,16 @@
       }
 
       .footer-message {
+        margin-left: 80px;
         text-align: center;
 
         img {
           max-width: 200px;
-          max-height: 64px;
+          max-height: 14vw;
         }
 
         p {
-          font-size: 0.8vw;
+          font-size: 0.5rem;
         }
       }
     }
@@ -165,11 +172,11 @@
     .box_title {
       position: relative;
       top: -2px;
+      left: -2px;
       display: inline-block;
       padding: 2px 9px;
-      font-size: 1.5vw;
+      font-size: 0.9rem;
       font-weight: bold;
-      line-height: 1.5;
       color: #fff;
       background: $main-color;
     }
@@ -180,8 +187,8 @@
   }
 
   .chapter {
-    padding: 1rem 2rem;
-    font-size: 1.5vw;
+    padding: 0.2rem 1.5rem;
+    font-size: 1.3em;
     font-weight: bold;
     border-left: 4px solid $main-color;
   }
@@ -224,7 +231,7 @@
   }
 
   .hint.error {
-    background: #f7f9f9;
+    background: #f7f7f7;
 
     &::before {
       display: none;

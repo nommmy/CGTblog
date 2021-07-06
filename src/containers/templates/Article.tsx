@@ -19,6 +19,7 @@ import {
   FacebookIcon,
 } from 'react-share';
 import Chip from '@material-ui/core/Chip';
+import MediaQuery from 'react-responsive';
 import './Article.scss';
 import '_markdown_extension.scss';
 
@@ -105,25 +106,47 @@ const Article: FC<Comic> = ({
           )}
         </div>
       </section>
-      <section className="article_header">
-        <div className="header_image">
-          <img
-            src={image}
-            alt="Header"
-            style={{ width: '100%', display: 'block' }}
-            onError={(e) => {
-              (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                'IMG_0740.JPG';
-            }}
-          />
-        </div>
-        <div className="title_container">
-          <div className="article_title">
-            <p className="overview">{subtitle}</p>
-            <p className="title">{title}</p>
+      <MediaQuery minWidth={1024}>
+        <section className="article_header">
+          <div className="header_image">
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'IMG_0740.JPG';
+              }}
+            />
           </div>
-        </div>
-      </section>
+          <div className="title_container">
+            <div className="article_title">
+              <p className="overview">{subtitle}</p>
+              <p className="title">{title}</p>
+            </div>
+          </div>
+        </section>
+      </MediaQuery>
+      <MediaQuery maxWidth={1023}>
+        <section className="article_header">
+          <h2 className="md-title">{title}</h2>
+          <div className="header_image">
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'IMG_0740.JPG';
+              }}
+            />
+          </div>
+          <div className="ribbon14-wrapper">
+            <span className="ribbon14">★</span>
+            <p>{subtitle}</p>
+          </div>
+        </section>
+      </MediaQuery>
       <section className="article_tags">
         {tags?.map((tag) => (
           <Chip

@@ -104,10 +104,10 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding-left: 1vw;
+  padding-left: 10px;
   margin: 0;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 1.8rem;
   color: whitesmoke;
   background: rgb(103, 103, 103, 0.5);
 }
@@ -115,7 +115,7 @@
 @mixin table-of-content-container {
   position: relative;
   padding: 0.5em 1em;
-  margin: 5vw 3vw;
+  margin: 60px 3vw;
   border: solid 3px $main-color;
   border-radius: 8px;
 }
@@ -134,12 +134,10 @@
 
 @mixin table-of-content-list {
   ul {
-    padding: 0.5em 1em 0.5em 2.3em;
+    padding: 0.5vw 1em 0.5em 2.3em;
     margin: 0.8vw 0.5vw;
 
     a {
-      font-size: 1.4vw;
-      // color: #666;
       color: $font-color;
     }
 
@@ -165,14 +163,16 @@
         padding-bottom: 0;
         padding-left: 1em;
         margin: 0;
-        font-size: 0.9rem;
+        font-size: 0.9em;
 
         li {
           padding: 0.2em 0;
 
           &::before {
+            top: 2px;
+            left: -15px;
             font-family: none;
-            content: '';
+            content: '-';
           }
 
           a {
@@ -181,5 +181,16 @@
         }
       }
     }
+  }
+}
+
+@mixin article-tags {
+  padding: 0 10px;
+  margin-top: 10px;
+
+  .tag {
+    margin: 0 2px;
+    color: $sub-color;
+    border: 1px solid $sub-color;
   }
 }

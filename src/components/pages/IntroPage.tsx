@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import Aside from 'components/templates/Aside';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { TwitterIcon } from 'react-share';
+import MediaQuery from 'react-responsive';
 
 const IntroPage: FC = () => (
   <>
@@ -16,7 +17,7 @@ const IntroPage: FC = () => (
             <img
               src="header_logo7.png"
               alt="Header"
-              style={{ width: '100%', display: 'block' }}
+              style={{ width: '100%', display: 'block', paddingTop: '30px' }}
               onError={(e) => {
                 (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
                   'IMG_0740.JPG';
@@ -101,7 +102,7 @@ const IntroPage: FC = () => (
                   </div>
                   <div className="flex">
                     <GenreIcon genre="sports" />
-                    <p>スポーツ・スポ根</p>
+                    <p>スポーツ</p>
                   </div>
                   <div className="flex">
                     <GenreIcon genre="food" />
@@ -115,7 +116,7 @@ const IntroPage: FC = () => (
                     <GenreIcon genre="tears" />
                     <p>感動・涙</p>
                   </div>
-                  <div className="flex">
+                  <div className="flex last-grid">
                     <GenreIcon genre="drama" />
                     <p>ドキュメンタリ・お仕事もの</p>
                   </div>
@@ -169,9 +170,11 @@ const IntroPage: FC = () => (
           </div>
         </article>
       </main>
-      <aside>
-        <Aside />
-      </aside>
+      <MediaQuery minWidth={860}>
+        <aside>
+          <Aside />
+        </aside>
+      </MediaQuery>
     </div>
   </>
 );

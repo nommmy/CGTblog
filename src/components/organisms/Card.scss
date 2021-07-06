@@ -3,7 +3,7 @@
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 4vw 20px;
+  grid-gap: 2.5rem 20px;
   padding: 10px 20px;
 
   .MuiPaper-elevation1 {
@@ -23,12 +23,18 @@
       }
     }
 
+    .article_tags {
+      height: 20px;
+
+      @include article-tags;
+    }
+
     .card_thumbnail {
       position: relative;
 
       .card_media {
         height: 0;
-        padding-top: 70%; // 16:9
+        padding-top: 70%;
         border-radius: 4px 4px 0 0;
       }
 
@@ -39,7 +45,7 @@
 
     .card_subtitle {
       display: -webkit-box;
-      padding: 0 1vw;
+      padding: 0 10px;
       overflow: hidden;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -47,7 +53,7 @@
       h3 {
         height: 40px;
         margin-bottom: 0;
-        font-size: 14px;
+        font-size: 0.85rem;
         color: rgb(86, 86, 86);
       }
     }

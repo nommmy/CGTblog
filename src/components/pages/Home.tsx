@@ -7,6 +7,7 @@ import { typeState } from 'ducks/articleList';
 import Aside from 'components/templates/Aside';
 import { Comic } from 'data/comics';
 import WelcomeMessage from 'components/organisms/WelcomeMessage';
+import MediaQuery from 'react-responsive';
 
 const Home: FC = () => {
   const articles = useSelector<typeState, Comic[]>(
@@ -24,11 +25,19 @@ const Home: FC = () => {
           <SearchForms />
           <ArticleCards comics={articles} />
         </main>
-        <aside>
+        <MediaQuery minWidth={860}>
+          <aside>
+            <WelcomeMessage />
+            <Aside />
+          </aside>
+        </MediaQuery>
+      </div>
+      <MediaQuery maxWidth={859}>
+        <div className="aside-bottom-content">
           <WelcomeMessage />
           <Aside />
-        </aside>
-      </div>
+        </div>
+      </MediaQuery>
     </>
   );
 };

@@ -32,7 +32,7 @@ const SearchGenreButton: FC = () => {
           disableRipple
           data-color="gray"
           onClick={() => dispatch(resetShowArticle())}
-          icon={<MdViewList size="1.8vw" />}
+          icon={<MdViewList size="1.5rem" />}
         />
         {genreList.map((genre: [string, JSX.Element]) => (
           <Tab
@@ -41,7 +41,7 @@ const SearchGenreButton: FC = () => {
             label={genre[0]}
             data-color={genre[0]}
             onClick={() => dispatch(searchGenre(genre[0] as Genre))}
-            icon={React.cloneElement(genre[1], { size: '1.8vw' })}
+            icon={React.cloneElement(genre[1], { size: '1.5rem' })}
           />
         ))}
       </Tabs>

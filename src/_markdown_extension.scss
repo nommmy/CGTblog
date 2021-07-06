@@ -1,6 +1,8 @@
 @import './variables';
 @import './settings';
 
+$font-size: 1rem;
+
 .react-split-mde-preview {
   line-height: 1.9;
 
@@ -15,7 +17,7 @@
   }
 
   p {
-    font-size: 1.3vw;
+    font-size: 1rem;
     line-height: 1.8;
   }
 
@@ -28,6 +30,7 @@
   }
 
   a {
+    font-size: 1rem;
     color: $sub-color;
 
     &:hover {
@@ -342,6 +345,11 @@
 
     h6 {
       font-size: 0.85em;
+    }
+
+    p,
+    a {
+      font-size: 0.8rem;
     }
   }
 

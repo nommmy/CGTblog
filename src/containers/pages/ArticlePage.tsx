@@ -7,6 +7,7 @@ import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
 import Chip from '@material-ui/core/Chip';
+import MediaQuery from 'react-responsive';
 
 const ArticlePage: FC = () => {
   const { code } = useParams();
@@ -35,9 +36,11 @@ const ArticlePage: FC = () => {
         <main>
           <Article {...currentArticle[0]} />
         </main>
-        <aside>
-          <Aside />
-        </aside>
+        <MediaQuery minWidth={860}>
+          <aside>
+            <Aside />
+          </aside>
+        </MediaQuery>
       </div>
       {currentArticle[0] && (
         <div className="article-footer">
@@ -73,10 +76,13 @@ const ArticlePage: FC = () => {
             </div>
           </div>
           {!!relationArticles.length && (
-            <div>
-              <ArticleSideContents comics={relationArticles} />
-            </div>
+            <ArticleSideContents comics={relationArticles} />
           )}
+          <MediaQuery maxWidth={859}>
+            <div className="relation">
+              <Aside />
+            </div>
+          </MediaQuery>
         </div>
       )}
     </>

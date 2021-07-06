@@ -8,6 +8,7 @@ import { Comic } from 'data/comics';
 import { listComics } from 'graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Button from '@material-ui/core/Button';
+import MediaQuery from 'react-responsive';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
@@ -54,11 +55,13 @@ const App: FC = () => {
             <Link to="intro" className="nav">
               ぽむログとは？
             </Link>
-            <Link to="admin">
-              <Button className="nav" disableElevation variant="contained">
-                Admin
-              </Button>
-            </Link>
+            <MediaQuery minWidth={567}>
+              <Link to="admin">
+                <Button className="nav" disableElevation variant="contained">
+                  Admin
+                </Button>
+              </Link>
+            </MediaQuery>
           </nav>
         </div>
       </header>
