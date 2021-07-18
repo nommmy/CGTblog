@@ -10,6 +10,7 @@ export const createComic = /* GraphQL */ `
     createComic(input: $input, condition: $condition) {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -36,6 +37,7 @@ export const updateComic = /* GraphQL */ `
     updateComic(input: $input, condition: $condition) {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -62,6 +64,7 @@ export const deleteComic = /* GraphQL */ `
     deleteComic(input: $input, condition: $condition) {
       id
       code
+      owner
       title
       genres
       subtitle

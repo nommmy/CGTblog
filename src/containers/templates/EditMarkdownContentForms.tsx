@@ -42,9 +42,9 @@ const EditMarkdownContentForms: FC<Comic> = ({
     isHot: boolean;
     relation: string[] | null;
     tags: string[] | null;
-    author: string;
-    volume: string;
-    magazine: string;
+    author: string | null;
+    volume: string | null;
+    magazine: string | null;
   };
 
   const {
@@ -117,7 +117,6 @@ const EditMarkdownContentForms: FC<Comic> = ({
           subtitle,
           relation,
           tags,
-          // eslint-disable-next-line
           author,
           volume,
           magazine,

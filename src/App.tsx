@@ -3,9 +3,9 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { API } from 'aws-amplify';
-import { ListComicsQuery } from 'API';
+import { ListComicsSortedByCreatedAtQuery } from 'API';
 import { Comic } from 'data/comics';
-import { listComics } from 'graphql/queries';
+import { listComicsSortedByCreatedAt } from 'graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import Button from '@material-ui/core/Button';
 import MediaQuery from 'react-responsive';
@@ -32,13 +32,18 @@ const App: FC = () => {
     // eslint-disable-next-line
     (async () => {
       const result = await API.graphql({
-        query: listComics,
+        query: listComicsSortedByCreatedAt,
+        variables: { owner: 'owner', sortDirection: 'DESC' },
         authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
       });
       if ('data' in result && result.data) {
-        const articlesData = result.data as ListComicsQuery;
-        if (articlesData.listComics) {
-          dispatch(initArticle(articlesData.listComics.items as Comic[]));
+        const articlesData = result.data as ListComicsSortedByCreatedAtQuery;
+        if (articlesData.listComicsSortedByCreatedAt) {
+          dispatch(
+            initArticle(
+              articlesData.listComicsSortedByCreatedAt.items as Comic[],
+            ),
+          );
         }
       }
     })();

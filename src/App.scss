@@ -165,8 +165,33 @@
     }
   }
 
+  .fusen {
+    display: inline-block;
+    padding: 10px 25px 10px 15px;
+    margin: 15px 0;
+    font-size: 0.95rem;
+    font-weight: bold;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    background: #fff;
+    border-left: 20px solid $main-color;
+    box-shadow: 2px 2px 5px 1px #f3f3f3;
+    transform:
+      rotate(
+        -2deg
+      );
+  }
+
+  .simple_box {
+    padding: 1vw 2vw;
+    margin: 0 1vw;
+    font-size: 0.95rem;
+    border: solid 2px $main-color;
+    border-radius: 4px;
+  }
+
   .summary_box {
-    margin: 2vw 0;
+    margin: 2vw 1vw;
     border: solid 2px $main-color;
 
     .box_title {

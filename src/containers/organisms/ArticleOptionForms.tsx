@@ -32,9 +32,9 @@ type defaultValueType = {
   relation: string[] | null;
   genres: string[];
   tags: string[] | null;
-  author: string;
-  volume: string;
-  magazine: string;
+  author: string | null;
+  volume: string | null;
+  magazine: string | null;
 };
 
 type Props = {
@@ -135,7 +135,6 @@ const ArticleOptionForms: FC<Props> = ({
         control={control}
         name="author"
         defaultValue={defaultValue.author}
-        rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} className="author_form" label="Author" />
         )}
@@ -144,7 +143,6 @@ const ArticleOptionForms: FC<Props> = ({
         control={control}
         name="volume"
         defaultValue={defaultValue.volume}
-        rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} className="volume_form" label="Volume" />
         )}
@@ -153,7 +151,6 @@ const ArticleOptionForms: FC<Props> = ({
         control={control}
         name="magazine"
         defaultValue={defaultValue.magazine}
-        rules={{ required: true }}
         render={({ field }) => (
           <TextField {...field} className="magazine_form" label="Magazine" />
         )}

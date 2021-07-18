@@ -10,6 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 export type IFormInputs = {
   title: string;
   code: string;
+  owner: string;
   subtitle: string;
   content: string;
   image: string;

@@ -44,37 +44,44 @@ const ArticlePage: FC = () => {
       </div>
       {currentArticle[0] && (
         <div className="article-footer">
-          <div className="article-info">
-            <div className="info-header">作者</div>
-            <div className="info-data">{currentArticle[0].author}</div>
-          </div>
-          <div className="article-info">
-            <div className="info-header">巻数</div>
-            <div className="info-data">
-              {`${currentArticle[0].volume}巻 (${
-                currentArticle[0].updatedAt?.split('T')[0] as string
-              })`}
+          {currentArticle[0].author && (
+            <div className="article-info">
+              <div className="info-header">作者</div>
+              <div className="info-data">{currentArticle[0].author}</div>
             </div>
-          </div>
-
-          <div className="article-info">
-            <div className="info-header">連載</div>
-            <div className="info-data">{currentArticle[0].magazine}</div>
-          </div>
-          <div className="article-info">
-            <div className="info-header">タグ</div>
-            <div className="info-data">
-              {currentArticle[0].tags?.map((tag) => (
-                <Chip
-                  key={tag}
-                  variant="outlined"
-                  size="small"
-                  label={`#${tag}`}
-                  className="tag"
-                />
-              ))}
+          )}
+          {currentArticle[0].volume && (
+            <div className="article-info">
+              <div className="info-header">巻数</div>
+              <div className="info-data">
+                {`${currentArticle[0]?.volume}巻 (${
+                  currentArticle[0].updatedAt?.split('T')[0] as string
+                })`}
+              </div>
             </div>
-          </div>
+          )}
+          {currentArticle[0].magazine && (
+            <div className="article-info">
+              <div className="info-header">連載</div>
+              <div className="info-data">{currentArticle[0].magazine}</div>
+            </div>
+          )}
+          {!!currentArticle[0]?.tags?.length && (
+            <div className="article-info">
+              <div className="info-header">タグ</div>
+              <div className="info-data">
+                {currentArticle[0].tags?.map((tag) => (
+                  <Chip
+                    key={tag}
+                    variant="outlined"
+                    size="small"
+                    label={`#${tag}`}
+                    className="tag"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
           {!!relationArticles.length && (
             <ArticleSideContents comics={relationArticles} />
           )}

@@ -7,6 +7,7 @@ export const onCreateComic = /* GraphQL */ `
     onCreateComic {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -30,6 +31,7 @@ export const onUpdateComic = /* GraphQL */ `
     onUpdateComic {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -53,6 +55,7 @@ export const onDeleteComic = /* GraphQL */ `
     onDeleteComic {
       id
       code
+      owner
       title
       genres
       subtitle
