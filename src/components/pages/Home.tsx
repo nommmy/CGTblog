@@ -18,7 +18,7 @@ const Home: FC = () => {
   return (
     <>
       <Helmet>
-        <title>ぽむログ -好きなマンガを紹介-</title>
+        <title>ぽむログ - お気に入りのマンガを紹介！</title>
       </Helmet>
       <div className="flex-container">
         <main>

@@ -29,7 +29,7 @@ const App: FC = () => {
   }, [hash, pathname]);
 
   useEffect(() => {
-    // eslint-disable-next-line
+    /* eslint-disable */
     (async () => {
       const result = await API.graphql({
         query: listComicsSortedByUpdatedAt,
@@ -47,6 +47,7 @@ const App: FC = () => {
         }
       }
     })();
+    /* eslint-enable */
   }, [dispatch, initArticle]);
 
   return (
