@@ -1,9 +1,9 @@
 type Comic
   @model
   @key(
-    name: "SortByCreatedAt"
-    fields: ["owner", "createdAt"]
-    queryField: "listComicsSortedByCreatedAt"
+    name: "SortByUpdatedAt"
+    fields: ["owner", "updatedAt"]
+    queryField: "listComicsSortedByUpdatedAt"
   )
   @auth(
     rules: [

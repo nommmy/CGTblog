@@ -89,6 +89,7 @@
 
       main {
         flex: 1;
+        min-width: 0;
       }
 
       aside {
@@ -135,12 +136,11 @@
 
           li {
             padding: 0.5vw 0;
+            list-style: none;
 
             a {
               color: #606060;
             }
-
-            list-style: none;
           }
         }
 
@@ -191,7 +191,7 @@
   }
 
   .summary_box {
-    margin: 2vw 1vw;
+    margin: 1rem 0.5rem;
     border: solid 2px $main-color;
 
     .box_title {
@@ -207,7 +207,12 @@
     }
 
     .box_content {
-      padding: 2vw;
+      padding: 1rem;
+      padding-top: 0.5rem;
+
+      @media screen and (max-width: 576px) {
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -222,7 +227,6 @@
     position: relative;
     padding: 21px 15px 21px 45px;
     margin: 1.5rem 0;
-    font-size: 14.5px;
     line-height: 1.6;
     color: rgba(0, 0, 0, 0.65);
     background: #fff6e4;

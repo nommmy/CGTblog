@@ -26,7 +26,13 @@ $font-size: 1rem;
   }
 
   span.highlight {
+    font-weight: bold;
     background: linear-gradient(transparent 70%, $highlight-color 70%);
+  }
+
+  span.quote {
+    font-size: 0.8rem;
+    color: gray;
   }
 
   a {
@@ -356,8 +362,8 @@ $font-size: 1rem;
   img:not(.emoji) {
     display: table;
     max-width: 100%;
-    height: auto;
-    margin: 1.5rem auto;
+    max-height: 25rem;
+    margin: 0 auto;
   }
 
   img + br {
@@ -370,7 +376,76 @@ $font-size: 1rem;
     font-size: 0.95rem;
     line-height: 1.3;
     color: #93a5b1;
-    text-align: center;
+    // text-align: center;
+  }
+
+  .img_quote {
+    position: relative;
+    padding-top: 1rem;
+    margin: 2rem auto;
+    font-style: italic;
+    color: #585858;
+
+    &::before {
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 40px;
+      color: lightgray;
+      text-align: center;
+      content: '\f10d';
+    }
+
+    &::after {
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 40px;
+      color: lightgray;
+      text-align: center;
+      content: '\f10e';
+    }
+
+    cite {
+      display: block;
+      margin-right: 2rem;
+      font-size: 0.6vw;
+      color: lightgray;
+      text-align: right;
+    }
+  }
+
+  .img_double {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-height: 25rem;
+    margin: 0;
+
+    p {
+      height: 100%;
+      margin: 0 3vw;
+    }
+  }
+
+  .img_page {
+    p {
+      margin: 0 0.5vw;
+    }
   }
 
   // stylelint-disable-next-line

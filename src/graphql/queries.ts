@@ -57,18 +57,18 @@ export const listComics = /* GraphQL */ `
     }
   }
 `;
-export const listComicsSortedByCreatedAt = /* GraphQL */ `
-  query ListComicsSortedByCreatedAt(
+export const listComicsSortedByUpdatedAt = /* GraphQL */ `
+  query ListComicsSortedByUpdatedAt(
     $owner: String
-    $createdAt: ModelStringKeyConditionInput
+    $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelComicFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listComicsSortedByCreatedAt(
+    listComicsSortedByUpdatedAt(
       owner: $owner
-      createdAt: $createdAt
+      updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit

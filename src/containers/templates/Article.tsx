@@ -82,7 +82,8 @@ const Article: FC<Comic> = ({
   return (
     <article className="article_container">
       <Helmet>
-        <title>{title}</title>
+        <title>{`『${title}』: ${subtitle} | ぽむログ`}</title>
+        <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
       </Helmet>
       <div className="genre_icon_group">
         {genres &&

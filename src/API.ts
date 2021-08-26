@@ -383,17 +383,17 @@ export type ListComicsQuery = {
   } | null,
 };
 
-export type ListComicsSortedByCreatedAtQueryVariables = {
+export type ListComicsSortedByUpdatedAtQueryVariables = {
   owner?: string | null,
-  createdAt?: ModelStringKeyConditionInput | null,
+  updatedAt?: ModelStringKeyConditionInput | null,
   sortDirection?: ModelSortDirection | null,
   filter?: ModelComicFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListComicsSortedByCreatedAtQuery = {
-  listComicsSortedByCreatedAt?:  {
+export type ListComicsSortedByUpdatedAtQuery = {
+  listComicsSortedByUpdatedAt?:  {
     __typename: "ModelComicConnection",
     items?:  Array< {
       __typename: "Comic",

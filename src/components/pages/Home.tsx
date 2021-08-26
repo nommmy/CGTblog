@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import ArticleCards from 'components/organisms/ArticleCards';
-import SearchForms from 'components/organisms/SearchForms';
+import SearchGenreButton from 'components/molecules/SearchGenreButton';
 import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
 import Aside from 'components/templates/Aside';
@@ -22,7 +22,7 @@ const Home: FC = () => {
       </Helmet>
       <div className="flex-container">
         <main>
-          <SearchForms />
+          <SearchGenreButton />
           <ArticleCards comics={articles} />
         </main>
         <MediaQuery minWidth={860}>

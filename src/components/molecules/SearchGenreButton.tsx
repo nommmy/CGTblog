@@ -1,31 +1,36 @@
-import React, { FC, useState } from 'react';
-import { articleListSlice } from 'ducks/articleList';
-import { useDispatch } from 'react-redux';
+import React, { FC } from 'react';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { typeState, articleListSlice } from 'ducks/articleList';
 import { MdViewList } from 'react-icons/md';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { genres } from 'components/atoms/GenreIcon';
 import { Genre } from 'API';
+import './FormGroup.scss';
 
 const SearchGenreButton: FC = () => {
   const genreList = Object.entries(genres);
-  const { searchGenre, resetShowArticle } = articleListSlice.actions;
+  const {
+    searchGenre,
+    resetShowArticle,
+    setTabValue,
+  } = articleListSlice.actions;
   const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
-  
+  const tabValue = useSelector<typeState, number>(
+    (state) => state.tabValue,
+    shallowEqual,
+  );
+
   const handleChange = (
     event: React.ChangeEvent<Record<string, unknown>>,
     newValue: number,
   ) => {
-    setValue(newValue);
+    dispatch(setTabValue(newValue));
   };
 
   return (
     <div className="button_group">
-      <Tabs
-        value={value}
-        onChange={handleChange}
-      >
+      <Tabs value={tabValue} onChange={handleChange}>
         <Tab
           key="reset"
           label="List"

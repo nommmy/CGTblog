@@ -12,22 +12,27 @@ import MediaQuery from 'react-responsive';
 const ArticlePage: FC = () => {
   const { code } = useParams();
 
-  const showArticles = useSelector<typeState, Comic[]>(
-    (state) => state.showArticles,
+  const allArticles = useSelector<typeState, Comic[]>(
+    (state) => state.allArticles,
     shallowEqual,
   );
 
   const currentArticle = useMemo(
-    () => showArticles.filter((comic) => comic.code === code),
-    [code, showArticles],
+    () =>
+      allArticles.filter(
+        (comic) => comic.code === code && comic.isPublic === true,
+      ),
+    [code, allArticles],
   );
 
   const relationArticles = useMemo(
     () =>
-      showArticles.filter((comic) =>
-        currentArticle[0].relation?.includes(comic.code),
+      allArticles.filter(
+        (comic) =>
+          currentArticle[0].relation?.includes(comic.code) &&
+          comic.isPublic === true,
       ),
-    [showArticles, currentArticle],
+    [allArticles, currentArticle],
   );
 
   return (
