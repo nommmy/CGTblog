@@ -8,9 +8,11 @@ const CreatePage: FC = () => (
     <Helmet>
       <title>Creat New Article</title>
     </Helmet>
-    <main>
-      <MarkdownContentForms />
-    </main>
+    <div className="flex-container">
+      <main>
+        <MarkdownContentForms />
+      </main>
+    </div>
   </>
 );
 

@@ -18,6 +18,8 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from 'react-share';
+import Chip from '@material-ui/core/Chip';
+import MediaQuery from 'react-responsive';
 import './Article.scss';
 import '_markdown_extension.scss';
 
@@ -34,6 +36,7 @@ const Article: FC<Comic> = ({
   updatedAt,
   image,
   content,
+  tags,
 }) => {
   const metaItems = [...document.querySelectorAll('meta')];
   // eslint-disable-next-line
@@ -79,43 +82,82 @@ const Article: FC<Comic> = ({
   return (
     <article className="article_container">
       <Helmet>
-        <title>{title}</title>
+        <title>{`『${title}』: ${subtitle} | ぽむログ`}</title>
+        <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
       </Helmet>
       <div className="genre_icon_group">
         {genres &&
-          genres.map((genre) => <GenreIcon key={genre} genre={genre} />)}
+          genres.map((genre) => (
+            <GenreIcon key={genre} genre={genre} iconSize={{ size: '35' }} />
+          ))}
       </div>
       <section className="option">
-        <div>
+        <div className="location">
           <Link to="/">Top</Link> / {title}
         </div>
         <div className="date_container">
           {updatedAt && (
             <>
-              <MdUpdate style={{ color: 'gray', margin: 5 }} />
+              <MdUpdate
+                style={{ color: 'gray', margin: 5, marginBottom: 0 }}
+                size="1.2vw"
+              />
               <span className="date">{updatedAt?.split('T')[0]}</span>
             </>
           )}
         </div>
       </section>
-      <section className="article_header">
-        <div className="header_image">
-          <img
-            src={image}
-            alt="Header"
-            style={{ width: '100%', display: 'block' }}
-            onError={(e) => {
-              (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                'IMG_0740.JPG';
-            }}
-          />
-        </div>
-        <div className="title_container">
-          <div className="article_title">
-            <p className="overview">{subtitle}</p>
-            <p className="title">{title}</p>
+      <MediaQuery minWidth={1024}>
+        <section className="article_header">
+          <div className="header_image">
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'IMG_0740.JPG';
+              }}
+            />
           </div>
-        </div>
+          <div className="title_container">
+            <div className="article_title">
+              <p className="overview">{subtitle}</p>
+              <p className="title">{title}</p>
+            </div>
+          </div>
+        </section>
+      </MediaQuery>
+      <MediaQuery maxWidth={1023}>
+        <section className="article_header">
+          <h2 className="md-title">{title}</h2>
+          <div className="header_image">
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'IMG_0740.JPG';
+              }}
+            />
+          </div>
+          <div className="ribbon14-wrapper">
+            <span className="ribbon14">★</span>
+            <p>{subtitle}</p>
+          </div>
+        </section>
+      </MediaQuery>
+      <section className="article_tags">
+        {tags?.map((tag) => (
+          <Chip
+            key={tag}
+            variant="outlined"
+            size="small"
+            label={`#${tag}`}
+            className="tag"
+          />
+        ))}
       </section>
       <section className="react-split-mde-preview">{markdown}</section>
       <section className="share_button_group">

@@ -7,12 +7,14 @@ export type typeState = {
   showArticles: Comic[];
   recommendArticles: Comic[];
   hotArticles: Comic[];
+  tabValue: number;
 };
 export const initialState = {
   allArticles: [] as Comic[],
   showArticles: [] as Comic[],
   recommendArticles: [] as Comic[],
   hotArticles: [] as Comic[],
+  tabValue: 0,
 };
 export const articleListSlice = createSlice({
   name: 'articlelist',
@@ -34,11 +36,12 @@ export const articleListSlice = createSlice({
         showArticles: publicArticles,
         recommendArticles: sortArticles.slice(0, 5),
         hotArticles: faveArticles,
+        tabValue: 0,
       };
     },
     searchGenre: (state, action: PayloadAction<Genre>) => {
       const articleList = state.allArticles.filter((comic) =>
-        comic.genres.includes(action.payload),
+        comic.isPublic===true && comic.genres.includes(action.payload),
       );
 
       return {
@@ -56,5 +59,9 @@ export const articleListSlice = createSlice({
         showArticles: publicArticles,
       };
     },
+    setTabValue: (state, action: PayloadAction<number>) => ({
+        ...state,
+        tabValue: action.payload,
+    })
   }
 });

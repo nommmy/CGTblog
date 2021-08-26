@@ -1,18 +1,112 @@
 @import '_variables.scss';
+@import '/src/settings';
+
+.welcome {
+  margin-bottom: 3vw;
+
+  .welcome_header {
+    position: relative;
+    top: 3vw;
+    left: -1.5vw;
+    z-index: 3;
+    width: 16rem;
+    margin-top: -4vw;
+  }
+
+  .welcome_message {
+    padding: 0.5rem 0.8rem;
+    margin: 0 10px;
+    font-size: 0.8rem;
+    // box-shadow: 0 0 0 10px #ffeaea;
+    background: white;
+    // background: #ffeaea;
+    border: dashed 4px $main-color;
+    border-radius: 4px;
+
+    .welcome_link {
+      text-align: center;
+
+      a {
+        font-size: 0.7rem;
+        color: $main-color;
+      }
+    }
+
+    .address_container {
+      .address {
+        margin: 0;
+        font-size: 0.7rem;
+        color: gray;
+
+        &:last-child {
+          padding-bottom: 5px;
+          margin-bottom: 10px;
+          border-bottom: 1px dashed lightgray;
+        }
+
+        .mail_icon {
+          width: 1rem;
+          margin-right: 4px;
+          vertical-align: middle;
+        }
+
+        .twitter_icon {
+          position: relative;
+          top: -10px;
+        }
+      }
+    }
+  }
+}
 
 .ranking {
+  padding-bottom: 40px;
   margin: 0;
-  background: white;
 
   .ranking_header {
     position: relative;
-    top: 0;
-    width: 100%;
-    padding: 1vh 1vw;
-    font-size: 1.8vw;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    background: $main-color;
+    top: 4vw;
+    left: -2vw;
+    z-index: 3;
+    width: 12rem;
+    margin-top: -4vw;
+  }
+
+  $reco_height: 80px;
+
+  .reco_container {
+    margin: 0 auto;
+
+    .reco_item {
+      height: $reco_height;
+      margin: 20px 10px;
+      overflow: visible;
+
+      .reco_thumbnail {
+        position: relative;
+
+        .reco_media {
+          width: 100%;
+          height: $reco_height;
+          border-radius: 4px;
+
+          .genre_icon_group {
+            @include icon_position;
+
+            .genre_icon {
+              @include genre_icon;
+            }
+          }
+        }
+
+        p {
+          @include title;
+
+          font-size: 0.9rem;
+          line-height: 20px;
+          border-radius: 0 0 4px 4px;
+        }
+      }
+    }
   }
 }

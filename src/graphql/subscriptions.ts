@@ -7,6 +7,7 @@ export const onCreateComic = /* GraphQL */ `
     onCreateComic {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -16,6 +17,10 @@ export const onCreateComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -26,6 +31,7 @@ export const onUpdateComic = /* GraphQL */ `
     onUpdateComic {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -35,6 +41,10 @@ export const onUpdateComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -45,6 +55,7 @@ export const onDeleteComic = /* GraphQL */ `
     onDeleteComic {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -54,6 +65,10 @@ export const onDeleteComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }

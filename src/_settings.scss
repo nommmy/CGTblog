@@ -1,49 +1,94 @@
+@import '_variables.scss';
+
 @mixin icon_color {
-  &[data-color='blue'] {
-    background: rgb(32, 136, 255);
+  &[data-color='battle'] {
+    background: $blue;
   }
 
-  &[data-color='pink'] {
-    background: pink;
+  &[data-color='love'] {
+    background: $pink;
   }
 
-  &[data-color='skyblue'] {
-    background: skyblue;
+  &[data-color='aoharu'] {
+    background: $skyblue;
   }
 
-  &[data-color='red'] {
-    background: red;
+  &[data-color='sports'] {
+    background: $red;
   }
 
-  &[data-color='green'] {
-    background: green;
+  &[data-color='drama'] {
+    background: $green;
   }
 
-  &[data-color='orange'] {
-    background: orange;
+  &[data-color='food'] {
+    background: $orange;
   }
 
-  &[data-color='purple'] {
-    background: purple;
+  &[data-color='music'] {
+    background: $purple;
   }
 
-  &[data-color='yellow'] {
-    background: rgb(255, 221, 0);
+  &[data-color='gag'] {
+    background: $yellow;
   }
 
   &[data-color='gray'] {
     background: gray;
   }
 
-  &[data-color='lightgreen'] {
-    background: lightgreen;
+  &[data-color='tears'] {
+    background: $lightgreen;
+  }
+}
+
+@mixin selected_color {
+  &[data-color='battle'] {
+    color: $blue;
+  }
+
+  &[data-color='love'] {
+    color: $pink;
+  }
+
+  &[data-color='aoharu'] {
+    color: $skyblue;
+  }
+
+  &[data-color='sports'] {
+    color: $red;
+  }
+
+  &[data-color='drama'] {
+    color: $green;
+  }
+
+  &[data-color='food'] {
+    color: $orange;
+  }
+
+  &[data-color='music'] {
+    color: $purple;
+  }
+
+  &[data-color='gag'] {
+    color: $yellow;
+  }
+
+  &[data-color='gray'] {
+    color: #444;
+  }
+
+  &[data-color='tears'] {
+    color: $lightgreen;
   }
 }
 
 @mixin icon_position {
   position: absolute;
-  top: -10px;
+  top: -15px;
   right: -10px;
+  z-index: 2;
 }
 
 @mixin genre_icon {
@@ -53,4 +98,99 @@
   @include icon_color;
 
   border-radius: 50%;
+}
+
+@mixin title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 10px;
+  margin: 0;
+  font-weight: bold;
+  line-height: 1.8rem;
+  color: whitesmoke;
+  background: rgb(103, 103, 103, 0.5);
+}
+
+@mixin table-of-content-container {
+  position: relative;
+  padding: 0.5em 1em;
+  margin: 60px 3vw;
+  border: solid 3px $main-color;
+  border-radius: 8px;
+}
+
+@mixin table-of-content-title {
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  display: inline-block;
+  padding: 0 9px;
+  line-height: 1;
+  color: $main-color;
+  background: #fff;
+  border-left: none;
+}
+
+@mixin table-of-content-list {
+  ul {
+    padding: 0.5vw 1em 0.5em 2.3em;
+    margin: 0.8vw 0.5vw;
+
+    a {
+      color: $font-color;
+    }
+
+    li {
+      display: block;
+      padding: 0.5em 0;
+      margin: 0;
+
+      &::before {
+        position: absolute;
+        left: -25px;
+        width: 0;
+        height: 0;
+        background: none;
+        // stylelint-disable-next-line
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: $sub-color;
+        content: '\f00c';
+      }
+
+      ul {
+        padding-bottom: 0;
+        padding-left: 1em;
+        margin: 0;
+        font-size: 0.9em;
+
+        li {
+          padding: 0.2em 0;
+
+          &::before {
+            top: 2px;
+            left: -15px;
+            font-family: none;
+            content: '-';
+          }
+
+          a {
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin article-tags {
+  padding: 0 10px;
+  margin-top: 10px;
+
+  .tag {
+    margin: 0 2px;
+    color: $sub-color;
+    border: 1px solid $sub-color;
+  }
 }

@@ -13,6 +13,10 @@ export type Comic = {
   content: string;
   isHot: boolean;
   relation: string[] | null;
+  tags: string[] | null;
+  author: string | null;
+  volume: string | null;
+  magazine: string | null;
   createdAt?: string | null;
   updatedAt?: string | null;
 };

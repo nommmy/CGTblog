@@ -10,14 +10,19 @@ import Checkbox from '@material-ui/core/Checkbox';
 export type IFormInputs = {
   title: string;
   code: string;
+  owner: string;
   subtitle: string;
   content: string;
   image: string;
   isPublic: boolean;
   isHot: boolean;
   relation: string[];
+  tags: string[];
   like: number;
   genres: string[];
+  author: string;
+  volume: string;
+  magazine: string;
 };
 
 type defaultValueType = {

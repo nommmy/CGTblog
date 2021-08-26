@@ -8,7 +8,7 @@ import GenreIcon from 'components/atoms/GenreIcon';
 import './Card.scss';
 
 const RecommendArticle: FC<ComicData> = ({ comics }) => (
-  <article className="reco_container">
+  <article className="reco_container relation_grid">
     {comics.map((comic) => (
       <Link to={`/${comic.code}`} key={comic.code}>
         <Card className="reco_item">
@@ -20,7 +20,11 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
             >
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
-                  <GenreIcon key={genre + comic.title} genre={genre} iconSize={{ size: '25' }} />
+                  <GenreIcon
+                    key={genre + comic.title}
+                    genre={genre}
+                    iconSize={{ size: '25' }}
+                  />
                 ))}
               </div>
             </CardMedia>

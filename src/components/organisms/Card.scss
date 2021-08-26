@@ -1,56 +1,14 @@
-@mixin title {
-  position: absolute;
-  bottom: 0.5vw;
-  left: 1vw;
-  margin: 0;
-  font-weight: bold;
-  color: whitesmoke;
-}
-
 @import '/src/settings';
-
-$reco_height: 60px;
-
-.reco_container {
-  padding: 0.5vw 1vw;
-  margin: 0 auto;
-
-  .reco_item {
-    height: $reco_height;
-    margin: 20px 10px;
-    overflow: visible;
-
-    .reco_thumbnail {
-      position: relative;
-
-      .reco_media {
-        width: 100%;
-        height: $reco_height;
-        border-radius: 4px;
-
-        .genre_icon_group {
-          @include icon_position;
-
-          .genre_icon {
-            @include genre_icon;
-          }
-        }
-      }
-
-      p {
-        @include title;
-
-        font-size: 0.9em;
-      }
-    }
-  }
-}
 
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 16px;
+  grid-gap: 2.5rem 20px;
   padding: 10px 20px;
+
+  .MuiPaper-elevation1 {
+    box-shadow: none;
+  }
 
   .card_item {
     position: relative;
@@ -65,16 +23,38 @@ $reco_height: 60px;
       }
     }
 
+    .article_tags {
+      height: 20px;
+
+      @include article-tags;
+    }
+
     .card_thumbnail {
       position: relative;
 
       .card_media {
         height: 0;
-        padding-top: 70%; // 16:9
+        padding-top: 70%;
+        border-radius: 4px 4px 0 0;
       }
 
       p {
         @include title;
+      }
+    }
+
+    .card_subtitle {
+      display: -webkit-box;
+      padding: 0 10px;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      h3 {
+        height: 40px;
+        margin-bottom: 0;
+        font-size: 0.85rem;
+        color: rgb(86, 86, 86);
       }
     }
 

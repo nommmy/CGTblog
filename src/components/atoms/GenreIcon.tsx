@@ -25,15 +25,15 @@ type genresData = {
 };
 
 export const genres: genresData = {
-  battle: <GiCrossedSwords data-color="blue" />,
-  love: <GiHeartKey data-color="pink" />,
-  aoharu: <GiHealing data-color="skyblue" />,
-  sports: <GiBurningRoundShot data-color="red" />,
-  drama: <GiHeartInside data-color="green" />,
-  music: <GiMusicalNotes data-color="purple" />,
-  food: <GiMeal data-color="orange" />,
-  gag: <FaRegGrinSquintTears data-color="yellow" />,
-  impression: <FaRegSadTear data-color="lightgreen" />,
+  aoharu: <GiHealing data-color="aoharu" />,
+  battle: <GiCrossedSwords data-color="battle" />,
+  music: <GiMusicalNotes data-color="music" />,
+  love: <GiHeartKey data-color="love" />,
+  sports: <GiBurningRoundShot data-color="sports" />,
+  food: <GiMeal data-color="food" />,
+  gag: <FaRegGrinSquintTears data-color="gag" />,
+  tears: <FaRegSadTear data-color="tears" />,
+  drama: <GiHeartInside data-color="drama" />,
 };
 
 const GenreIcon: FC<{ genre: string; iconSize?: sizeProps }> = ({

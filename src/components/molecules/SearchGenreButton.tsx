@@ -1,29 +1,55 @@
 import React, { FC } from 'react';
-import { IconButton } from '@material-ui/core';
-import { articleListSlice } from 'ducks/articleList';
-import { useDispatch } from 'react-redux';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { typeState, articleListSlice } from 'ducks/articleList';
 import { MdViewList } from 'react-icons/md';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import { genres } from 'components/atoms/GenreIcon';
 import { Genre } from 'API';
-import GenreIcon from 'components/atoms/GenreIcon';
+import './FormGroup.scss';
 
 const SearchGenreButton: FC = () => {
-  const genreList = Object.entries(Genre);
-  const { searchGenre, resetShowArticle } = articleListSlice.actions;
+  const genreList = Object.entries(genres);
+  const {
+    searchGenre,
+    resetShowArticle,
+    setTabValue,
+  } = articleListSlice.actions;
   const dispatch = useDispatch();
+  const tabValue = useSelector<typeState, number>(
+    (state) => state.tabValue,
+    shallowEqual,
+  );
+
+  const handleChange = (
+    event: React.ChangeEvent<Record<string, unknown>>,
+    newValue: number,
+  ) => {
+    dispatch(setTabValue(newValue));
+  };
 
   return (
     <div className="button_group">
-      <IconButton key="reset" onClick={() => dispatch(resetShowArticle())}>
-        <MdViewList data-color="gray" className="genre_icon" color="white" size="30" />
-      </IconButton>
-      {genreList.map((genre) => (
-        <IconButton
-          key={genre[0]}
-          onClick={() => dispatch(searchGenre(genre[1]))}
-        >
-          <GenreIcon genre={genre[1]} />
-        </IconButton>
-      ))}
+      <Tabs value={tabValue} onChange={handleChange}>
+        <Tab
+          key="reset"
+          label="List"
+          disableRipple
+          data-color="gray"
+          onClick={() => dispatch(resetShowArticle())}
+          icon={<MdViewList size="1.5rem" />}
+        />
+        {genreList.map((genre: [string, JSX.Element]) => (
+          <Tab
+            key={genre[0]}
+            disableRipple
+            label={genre[0]}
+            data-color={genre[0]}
+            onClick={() => dispatch(searchGenre(genre[0] as Genre))}
+            icon={React.cloneElement(genre[1], { size: '1.5rem' })}
+          />
+        ))}
+      </Tabs>
     </div>
   );
 };

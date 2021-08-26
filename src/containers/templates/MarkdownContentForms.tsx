@@ -45,6 +45,7 @@ const MarkdownContentForms: FC = () => {
       image: imageUrl,
       content: text,
       like: 0,
+      owner: 'owner',
     };
 
     await API.graphql({
@@ -66,7 +67,11 @@ const MarkdownContentForms: FC = () => {
 
   return (
     <div className="post_container">
-      <InsertImageButton text={text} setText={setText} codeWatched={codeWatched} />
+      <InsertImageButton
+        text={text}
+        setText={setText}
+        codeWatched={codeWatched}
+      />
       <ArticleOptionForms
         control={control}
         getValues={getValues}

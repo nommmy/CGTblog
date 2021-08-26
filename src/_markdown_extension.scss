@@ -1,3 +1,8 @@
+@import './variables';
+@import './settings';
+
+$font-size: 1rem;
+
 .react-split-mde-preview {
   line-height: 1.9;
 
@@ -11,12 +16,28 @@
     font-style: italic;
   }
 
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
   strong {
-    font-weight: 600;
+    font-weight: 700;
+  }
+
+  span.highlight {
+    font-weight: bold;
+    background: linear-gradient(transparent 70%, $highlight-color 70%);
+  }
+
+  span.quote {
+    font-size: 0.8rem;
+    color: gray;
   }
 
   a {
-    color: #0f83fd;
+    font-size: 1rem;
+    color: $sub-color;
 
     &:hover {
       text-decoration: underline;
@@ -124,19 +145,68 @@
   }
 
   h1 {
+    // // border-bottom: solid 1px rgba(92, 147, 187, 0.17);
+    // // padding-bottom: 0.2em;
+
+    // padding: 0.5em;
+    // background: #feecec;
+    // border-bottom: solid 3px $main-color;
+    // margin-bottom: 1.1rem;
+
+    // background: linear-gradient(transparent 70%, #fbb4ab 80%, $main-color 95%);
+    // background: linear-gradient(transparent 70%, #ff9689c4 70%);
+
     position: relative;
-    padding-bottom: 0.2em;
-    margin-bottom: 1.1rem;
+    padding-left: 1.4em;
+    margin-bottom: 2vw;
     font-size: 1.7em;
-    border-bottom: solid 1px rgba(92, 147, 187, 0.17);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1em;
+      font-weight: 900;
+      color: $main-color;
+      content: '\f00c';
+    }
   }
 
   h2 {
+    position: relative;
+    padding: 0.2rem 1.5rem;
+    margin-bottom: 1.1rem;
+    margin-left: 5px;
     font-size: 1.5em;
+    border-left: 4px solid $main-color;
+  }
+
+  .index + section {
+    @include table-of-content-container;
+    @include table-of-content-list;
+
+    h2#table-of-content {
+      @include table-of-content-title;
+
+      font-size: 0;
+
+      &::before {
+        font-size: 1.5rem;
+        font-weight: bold;
+        content: 'この記事の目次';
+      }
+    }
   }
 
   h3 {
+    position: relative;
+    padding: 0.2rem 1.5rem;
+    margin-bottom: 1.1rem;
+    margin-left: 5px;
     font-size: 1.3em;
+    border-left: 4px solid $main-color;
   }
 
   h4 {
@@ -186,7 +256,6 @@
   }
 
   table {
-    display: block;
     width: auto;
     margin: 1.2rem auto;
     overflow: auto;
@@ -200,12 +269,17 @@
   th,
   td {
     padding: 0.5rem;
-    border: solid 1px #cfdce6;
+    border: solid 1px darken($main-color, 10%);
+
+    strong {
+      color: $sub-color;
+    }
   }
 
   th {
-    font-weight: 600;
-    background: #edf2f7;
+    font-weight: 700;
+    color: white;
+    background: $main-color;
   }
 
   code {
@@ -278,13 +352,18 @@
     h6 {
       font-size: 0.85em;
     }
+
+    p,
+    a {
+      font-size: 0.8rem;
+    }
   }
 
   img:not(.emoji) {
     display: table;
     max-width: 100%;
-    height: auto;
-    margin: 1.5rem auto;
+    max-height: 25rem;
+    margin: 0 auto;
   }
 
   img + br {
@@ -297,9 +376,79 @@
     font-size: 0.95rem;
     line-height: 1.3;
     color: #93a5b1;
-    text-align: center;
+    // text-align: center;
   }
 
+  .img_quote {
+    position: relative;
+    padding-top: 1rem;
+    margin: 2rem auto;
+    font-style: italic;
+    color: #585858;
+
+    &::before {
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 40px;
+      color: lightgray;
+      text-align: center;
+      content: '\f10d';
+    }
+
+    &::after {
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      // stylelint-disable-next-line
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 40px;
+      color: lightgray;
+      text-align: center;
+      content: '\f10e';
+    }
+
+    cite {
+      display: block;
+      margin-right: 2rem;
+      font-size: 0.6vw;
+      color: lightgray;
+      text-align: right;
+    }
+  }
+
+  .img_double {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-height: 25rem;
+    margin: 0;
+
+    p {
+      height: 100%;
+      margin: 0 3vw;
+    }
+  }
+
+  .img_page {
+    p {
+      margin: 0 0.5vw;
+    }
+  }
+
+  // stylelint-disable-next-line
   .contains-task-list li::before {
     content: none !important;
   }
@@ -564,6 +713,7 @@
       margin: 0;
     }
 
+    // stylelint-disable-next-line
     a {
       color: inherit;
       text-decoration: underline;

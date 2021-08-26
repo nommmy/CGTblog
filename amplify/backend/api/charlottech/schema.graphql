@@ -1,6 +1,10 @@
 type Comic
   @model
-  @key(name: "code-index", fields: ["code"], queryField: "comicByCode")
+  @key(
+    name: "SortByUpdatedAt"
+    fields: ["owner", "updatedAt"]
+    queryField: "listComicsSortedByUpdatedAt"
+  )
   @auth(
     rules: [
       {
@@ -13,6 +17,7 @@ type Comic
   ) {
   id: ID!
   code: String!
+  owner: String!
   title: String!
   genres: [Genre!]!
   subtitle: String!
@@ -22,6 +27,10 @@ type Comic
   content: String!
   isHot: Boolean!
   relation: [String!]
+  tags: [String!]
+  author: String
+  volume: String
+  magazine: String
   createdAt: AWSDateTime
   updatedAt: AWSDateTime
 }
@@ -35,5 +44,5 @@ enum Genre {
   music
   food
   gag
-  impression
+  tears
 }

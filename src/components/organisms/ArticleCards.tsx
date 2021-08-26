@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { ComicData } from 'data/comics';
 import FlipMove from 'react-flip-move';
+import Chip from '@material-ui/core/Chip';
 import './Card.scss';
 
 const ArticleCards: FC<ComicData> = ({ comics }) => (
@@ -15,7 +16,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
       {comics.map((comic) => (
         <Card className="card_item" key={comic.code}>
           <Link to={comic.code}>
-            <section style={{ height: 30 }}>
+            <section>
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
                   <GenreIcon key={genre + comic.title} genre={genre} />
@@ -29,6 +30,20 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
                 title={comic.title}
               />
               <p>{comic.title}</p>
+            </section>
+            <section className="card_subtitle">
+              <h3>{comic.subtitle}</h3>
+            </section>
+            <section className="article_tags">
+              {comic.tags?.slice(0,3).map((tag) => (
+                <Chip
+                  key={tag}
+                  variant="outlined"
+                  size="small"
+                  label={`#${tag}`}
+                  className="tag"
+                />
+              ))}
             </section>
             <CardActions disableSpacing className="card_footer">
               <MdUpdate style={{ color: 'gray', margin: 5 }} />

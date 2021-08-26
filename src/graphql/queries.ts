@@ -7,6 +7,7 @@ export const getComic = /* GraphQL */ `
     getComic(id: $id) {
       id
       code
+      owner
       title
       genres
       subtitle
@@ -16,6 +17,10 @@ export const getComic = /* GraphQL */ `
       content
       isHot
       relation
+      tags
+      author
+      volume
+      magazine
       createdAt
       updatedAt
     }
@@ -31,6 +36,7 @@ export const listComics = /* GraphQL */ `
       items {
         id
         code
+        owner
         title
         genres
         subtitle
@@ -40,6 +46,10 @@ export const listComics = /* GraphQL */ `
         content
         isHot
         relation
+        tags
+        author
+        volume
+        magazine
         createdAt
         updatedAt
       }
@@ -47,16 +57,18 @@ export const listComics = /* GraphQL */ `
     }
   }
 `;
-export const comicByCode = /* GraphQL */ `
-  query ComicByCode(
-    $code: String
+export const listComicsSortedByUpdatedAt = /* GraphQL */ `
+  query ListComicsSortedByUpdatedAt(
+    $owner: String
+    $updatedAt: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelComicFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    comicByCode(
-      code: $code
+    listComicsSortedByUpdatedAt(
+      owner: $owner
+      updatedAt: $updatedAt
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -65,6 +77,7 @@ export const comicByCode = /* GraphQL */ `
       items {
         id
         code
+        owner
         title
         genres
         subtitle
@@ -74,6 +87,10 @@ export const comicByCode = /* GraphQL */ `
         content
         isHot
         relation
+        tags
+        author
+        volume
+        magazine
         createdAt
         updatedAt
       }

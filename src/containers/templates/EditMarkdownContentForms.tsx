@@ -24,6 +24,10 @@ const EditMarkdownContentForms: FC<Comic> = ({
   content,
   isHot,
   relation,
+  tags,
+  author,
+  volume,
+  magazine,
 }) => {
   type UpdateInput = {
     id: string;
@@ -37,6 +41,10 @@ const EditMarkdownContentForms: FC<Comic> = ({
     content: string;
     isHot: boolean;
     relation: string[] | null;
+    tags: string[] | null;
+    author: string | null;
+    volume: string | null;
+    magazine: string | null;
   };
 
   const {
@@ -108,6 +116,10 @@ const EditMarkdownContentForms: FC<Comic> = ({
           code,
           subtitle,
           relation,
+          tags,
+          author,
+          volume,
+          magazine,
           genres: genres as string[],
         }}
       />
