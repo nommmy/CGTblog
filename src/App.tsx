@@ -7,14 +7,9 @@ import { ListComicsSortedByUpdatedAtQuery } from 'API';
 import { Comic } from 'data/comics';
 import { listComicsSortedByUpdatedAt } from 'graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
-import Button from '@material-ui/core/Button';
-import MediaQuery from 'react-responsive';
 import Home from './components/pages/Home';
 import IntroPage from './components/pages/IntroPage';
 import ArticlePage from './containers/pages/ArticlePage';
-import EditPage from './containers/pages/EditPage';
-import CreatePage from './components/pages/CreatePage';
-import AdminPage from './components/pages/AdminPage';
 import HotArticles from './containers/templates/HotArticles';
 import { articleListSlice } from './ducks/articleList';
 import './App.scss';
@@ -61,13 +56,6 @@ const App: FC = () => {
             <Link to="intro" className="nav">
               ぽむログとは？
             </Link>
-            <MediaQuery minWidth={567}>
-              <Link to="admin">
-                <Button className="nav" disableElevation variant="contained">
-                  Admin
-                </Button>
-              </Link>
-            </MediaQuery>
           </nav>
         </div>
       </header>
@@ -77,13 +65,6 @@ const App: FC = () => {
           <Route path="/" element={<Home />} />
           <Route path=":code" element={<ArticlePage />} />
           <Route path="intro" element={<IntroPage />} />
-          <Route path="admin" element={<AdminPage />} />
-          <Route path="admin/new" element={<CreatePage />} />
-          <Route path="admin/:code" element={<EditPage />} />
-          {/* <Route path="admin" element={<AdminPage />}>
-            <Route path="new" exact element={<CreatePage />} />
-            <Route path=":code" exact element={<EditPage />} />
-          </Route> */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

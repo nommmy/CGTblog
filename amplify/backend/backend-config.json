@@ -34,10 +34,5 @@
       "providerPlugin": "awscloudformation"
     }
   },
-  "analytics": {
-    "charlottech": {
-      "service": "Pinpoint",
-      "providerPlugin": "awscloudformation"
-    }
-  }
+  "analytics": {}
 }
