@@ -9,7 +9,7 @@ const WelcomeMessage: FC = () => (
     <img src="headline/welcome.png" alt="Welcome" className="welcome_header" />
     <div className="welcome_message">
       <p>
-        <strong>ぽむログ</strong>は今おすすめの漫画を紹介する個人ブログです。
+        <strong>ぽむログ</strong>は今おすすめのマンガを紹介する個人ブログです。
       </p>
       <div className="address_container">
         <p className="address">

@@ -58,7 +58,7 @@ const Article: FC<Comic> = ({
   return (
     <article className="article_container">
       <Helmet>
-        <title>{`『${title}』: ${subtitle} | ぽむログ`}</title>
+        <title>{`【${title}】: ${subtitle} | ぽむログ`}</title>
         <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
       </Helmet>
       <div className="genre_icon_group">
@@ -139,13 +139,13 @@ const Article: FC<Comic> = ({
       <section className="share_button_group">
         <TwitterShareButton
           url={window.location.href}
-          title={`${subtitle} 「${title}」`}
+          title={`${subtitle} 【${title}】`}
         >
           <TwitterIcon size={30} round />
         </TwitterShareButton>
         <FacebookShareButton
           url={window.location.href}
-          quote={`${subtitle} 「${title}」`}
+          quote={`${subtitle} 【${title}】`}
         >
           <FacebookIcon size={30} round />
         </FacebookShareButton>
