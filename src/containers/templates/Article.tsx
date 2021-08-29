@@ -38,30 +38,6 @@ const Article: FC<Comic> = ({
   content,
   tags,
 }) => {
-  const metaItems = [...document.querySelectorAll('meta')];
-  // eslint-disable-next-line
-  metaItems.map((item) => {
-    const name = item.attributes[0].nodeValue ?? item.name;
-    switch (name) {
-      case 'og:title':
-        item.setAttribute('content', title);
-        break;
-      case 'description':
-        item.setAttribute('content', subtitle);
-        break;
-      case 'og:description':
-        item.setAttribute('content', subtitle);
-        break;
-      case 'og:url':
-        item.setAttribute('content', window.location.href);
-        break;
-      case 'og:image':
-        item.setAttribute('content', image);
-        break;
-      default:
-        break;
-    }
-  });
 
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
