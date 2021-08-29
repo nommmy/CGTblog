@@ -54,7 +54,7 @@ const MarkdownContentForms: FC = () => {
       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
     });
 
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   const [open, setOpen] = useState(false);
