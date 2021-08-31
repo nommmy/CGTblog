@@ -1,5 +1,6 @@
 type Comic
   @model
+  @key(fields: ["code"])
   @key(
     name: "SortByUpdatedAt"
     fields: ["owner", "updatedAt"]

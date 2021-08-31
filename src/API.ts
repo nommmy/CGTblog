@@ -37,7 +37,6 @@ export enum Genre {
 
 
 export type ModelComicConditionInput = {
-  code?: ModelStringInput | null,
   owner?: ModelStringInput | null,
   title?: ModelStringInput | null,
   genres?: ModelGenreListInput | null,
@@ -212,6 +211,12 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+
 export type ModelComicConnection = {
   __typename: "ModelComicConnection",
   items?:  Array<Comic | null > | null,
@@ -227,12 +232,6 @@ export type ModelStringKeyConditionInput = {
   between?: Array< string | null > | null,
   beginsWith?: string | null,
 };
-
-export enum ModelSortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
-
 
 export type CreateComicMutationVariables = {
   input?: CreateComicInput,
@@ -322,7 +321,7 @@ export type DeleteComicMutation = {
 };
 
 export type GetComicQueryVariables = {
-  id?: string,
+  code?: string,
 };
 
 export type GetComicQuery = {
@@ -350,9 +349,11 @@ export type GetComicQuery = {
 };
 
 export type ListComicsQueryVariables = {
+  code?: string | null,
   filter?: ModelComicFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListComicsQuery = {

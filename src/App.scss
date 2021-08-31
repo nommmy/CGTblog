@@ -83,6 +83,15 @@
     flex: 1;
     background: $back-color;
 
+    .MuiLinearProgress-colorPrimary {
+      color: $main-color;
+      background-color: #fbdad6;
+    }
+
+    .MuiLinearProgress-barColorPrimary {
+      background-color: $main-color;
+    }
+
     .flex-container {
       display: flex;
       padding: 6vh 4vw;

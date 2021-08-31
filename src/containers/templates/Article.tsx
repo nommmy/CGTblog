@@ -38,7 +38,6 @@ const Article: FC<Comic> = ({
   content,
   tags,
 }) => {
-
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
       [emoji],
@@ -59,6 +58,11 @@ const Article: FC<Comic> = ({
     <article className="article_container">
       <Helmet>
         <title>{`【${title}】: ${subtitle} | ぽむログ`}</title>
+        <meta
+          name="description"
+          // eslint-disable-next-line
+          content={content?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)?.join('').slice(0, 120)}
+        />
         <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
       </Helmet>
       <div className="genre_icon_group">
@@ -140,6 +144,7 @@ const Article: FC<Comic> = ({
         <TwitterShareButton
           url={window.location.href}
           title={`${subtitle} 【${title}】`}
+          hashtags={['#ぽむログ', `#${title}`]}
         >
           <TwitterIcon size={30} round />
         </TwitterShareButton>

@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const getComic = /* GraphQL */ `
-  query GetComic($id: ID!) {
-    getComic(id: $id) {
+  query GetComic($code: String!) {
+    getComic(code: $code) {
       id
       code
       owner
@@ -28,11 +28,19 @@ export const getComic = /* GraphQL */ `
 `;
 export const listComics = /* GraphQL */ `
   query ListComics(
+    $code: String
     $filter: ModelComicFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listComics(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listComics(
+      code: $code
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         code
