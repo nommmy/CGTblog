@@ -14,6 +14,16 @@ import HotArticles from './containers/templates/HotArticles';
 import { articleListSlice } from './ducks/articleList';
 import './App.scss';
 
+declare global {
+  interface Window {
+    gtag?: (
+      key: string,
+      trackingId: string,
+      config: { pagePath: string },
+    ) => void;
+  }
+}
+
 const App: FC = () => {
   const { hash, pathname } = useLocation();
   const { initArticle } = articleListSlice.actions;
@@ -44,6 +54,14 @@ const App: FC = () => {
     })();
     /* eslint-enable */
   }, [dispatch, initArticle]);
+
+  const location = useLocation();
+  const trackingId = process.env.REACT_APP_GA_TRACKING_ID;
+  useEffect(() => {
+    if (!window.gtag) return;
+    if (!trackingId) return;
+    window.gtag('config', trackingId, { pagePath: location.pathname });
+  }, [trackingId, location]);
 
   return (
     <div className="body">

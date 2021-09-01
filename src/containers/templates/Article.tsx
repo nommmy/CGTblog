@@ -144,7 +144,7 @@ const Article: FC<Comic> = ({
         <TwitterShareButton
           url={window.location.href}
           title={`${subtitle} 【${title}】`}
-          hashtags={['#ぽむログ', `#${title}`]}
+          hashtags={[title,'ぽむログ']}
         >
           <TwitterIcon size={30} round />
         </TwitterShareButton>
