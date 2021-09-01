@@ -80,7 +80,7 @@ const Article: FC<Comic> = ({
             <>
               <MdUpdate
                 style={{ color: 'gray', margin: 5, marginBottom: 0 }}
-                size="1.2vw"
+                size="1em"
               />
               <span className="date">{updatedAt?.split('T')[0]}</span>
             </>

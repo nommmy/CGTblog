@@ -39,7 +39,7 @@ const HotArticles: FC = () => {
       {!!hotArticles.length && (
         <>
           <img
-            src="headline/hot-topics.webp"
+            src="headline/hot-topics.png"
             alt="Hot Topics"
             className="headline"
           />

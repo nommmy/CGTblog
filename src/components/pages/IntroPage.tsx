@@ -15,7 +15,7 @@ const IntroPage: FC = () => (
         <article className="article_container">
           <section className="article_header">
             <img
-              src="header_logo7.webp"
+              src="header_logo7.png"
               alt="Header"
               style={{ width: '100%', display: 'block', paddingTop: '30px' }}
               onError={(e) => {
@@ -163,7 +163,7 @@ const IntroPage: FC = () => (
             </section>
             <div className="twitter_container">
               <img
-                src="headline/follow.webp"
+                src="headline/follow.png"
                 alt="follow"
                 className="followme_header"
               />

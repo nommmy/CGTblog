@@ -6,7 +6,7 @@ import './Aside.scss';
 const ArticleSideContents: FC<ComicData> = ({ comics }) => (
   <div className="ranking relation">
     <img
-      src="headline/relation.webp"
+      src="headline/relation.png"
       alt="Relation"
       className="ranking_header relation_header"
     />

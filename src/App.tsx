@@ -68,7 +68,7 @@ const App: FC = () => {
       <header>
         <div className="header">
           <Link to="/">
-            <img src="logo7.webp" alt="logo" />
+            <img src="logo7.png" alt="logo" />
           </Link>
           <nav className="header_nav">
             <Link to="intro" className="nav">
@@ -117,7 +117,7 @@ const App: FC = () => {
           </div>
           <div className="footer-message">
             <Link to="/">
-              <img src="logo7.webp" alt="logo" />
+              <img src="logo7.png" alt="logo" />
             </Link>
             <p>
               <strong>ぽむログ</strong>
