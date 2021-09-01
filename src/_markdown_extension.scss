@@ -352,11 +352,6 @@ $font-size: 1rem;
     h6 {
       font-size: 0.85em;
     }
-
-    p,
-    a {
-      font-size: 0.8rem;
-    }
   }
 
   img:not(.emoji) {
@@ -423,7 +418,7 @@ $font-size: 1rem;
     cite {
       display: block;
       margin-right: 2rem;
-      font-size: 0.6vw;
+      font-size: 0.8rem;
       color: lightgray;
       text-align: right;
     }

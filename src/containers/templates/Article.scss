@@ -99,8 +99,8 @@
 
         .twitter_id {
           position: relative;
-          top: -10px;
-          font-size: 4px;
+          top: -5px;
+          font-size: 0.8rem;
           color: $sub-color;
         }
       }
@@ -116,7 +116,7 @@
     }
 
     .location {
-      font-size: 1vw;
+      font-size: 0.85rem;
     }
   }
 
@@ -327,7 +327,7 @@
       color: gray;
 
       .tag {
-        margin: 0 2px;
+        margin: 1px 2px;
         color: $sub-color;
         border: 1px solid $sub-color;
       }
