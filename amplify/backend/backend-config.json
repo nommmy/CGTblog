@@ -34,5 +34,22 @@
       "providerPlugin": "awscloudformation"
     }
   },
-  "analytics": {}
+  "analytics": {},
+  "function": {
+    "pageViewRegister": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "charlottech",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        }
+      ]
+    }
+  }
 }

@@ -19,7 +19,8 @@ declare global {
     gtag?: (
       key: string,
       trackingId: string,
-      config: { pagePath: string },
+      // eslint-disable-next-line
+      config: { page_path: string },
     ) => void;
   }
 }
@@ -55,13 +56,17 @@ const App: FC = () => {
     /* eslint-enable */
   }, [dispatch, initArticle]);
 
+  // google analytics
   const location = useLocation();
   const trackingId = process.env.REACT_APP_GA_TRACKING_ID;
+  const trackingIdUA = process.env.REACT_APP_UA_TRACKING_ID;
   useEffect(() => {
     if (!window.gtag) return;
     if (!trackingId) return;
-    window.gtag('config', trackingId, { pagePath: location.pathname });
-  }, [trackingId, location]);
+    window.gtag('config', trackingId, { page_path: location.pathname });
+    if (!trackingIdUA) return;
+    window.gtag('config', trackingIdUA, { page_path: location.pathname });
+  }, [trackingId, trackingIdUA, location]);
 
   return (
     <div className="body">

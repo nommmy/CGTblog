@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "api": {
+      "charlottech": [
+        "Mutation"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

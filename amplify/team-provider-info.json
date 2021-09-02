@@ -15,6 +15,12 @@
       "auth": {
         "charlottecha3fdcf9d": {},
         "charlottech734334e4": {}
+      },
+      "function": {
+        "pageViewRegister": {
+          "deploymentBucketName": "amplify-amplify6aeb149b22384-staging-160346-deployment",
+          "s3Key": "amplify-builds/pageViewRegister-585854676d775a49796f-build.zip"
+        }
       }
     }
   },
