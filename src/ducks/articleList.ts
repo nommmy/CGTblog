@@ -24,7 +24,7 @@ export const articleListSlice = createSlice({
       const publicArticles = action.payload.filter(
         (comic) => comic.isPublic === true,
       );
-      const sortArticles = publicArticles.slice().sort((n, m) => n.like < m.like ? -1 : 1);
+      const sortArticles = publicArticles.slice().sort((n, m) => n.like > m.like ? -1 : 1);
 
       const faveArticles = publicArticles.filter(
         (comic) => comic.isHot === true,

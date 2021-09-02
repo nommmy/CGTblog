@@ -19,7 +19,7 @@
       "function": {
         "pageViewRegister": {
           "deploymentBucketName": "amplify-amplify6aeb149b22384-staging-160346-deployment",
-          "s3Key": "amplify-builds/pageViewRegister-585854676d775a49796f-build.zip"
+          "s3Key": "amplify-builds/pageViewRegister-777a4750436d434d4a63-build.zip"
         }
       }
     }
