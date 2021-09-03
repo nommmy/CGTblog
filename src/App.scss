@@ -29,10 +29,10 @@
     width: 30vw;
     margin-top: -5vw;
 
-    @media screen and (max-width: 576px) {
-      top: 8vw;
-      width: 45vw;
-      margin-top: -4vw;
+    @media screen and (max-width: 860px) {
+      top: 3rem;
+      width: 16rem;
+      margin-top: -2rem;
     }
   }
 
@@ -221,7 +221,7 @@
       padding-top: 0.5rem;
 
       @media screen and (max-width: 576px) {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
     }
   }

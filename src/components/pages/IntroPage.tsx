@@ -186,6 +186,11 @@ const IntroPage: FC = () => (
         </aside>
       </MediaQuery>
     </div>
+    <MediaQuery maxWidth={859}>
+      <div className="aside-bottom-content">
+        <Aside />
+      </div>
+    </MediaQuery>
   </>
 );
 
