@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { MdUpdate } from 'react-icons/md';
@@ -54,17 +53,19 @@ const Article: FC<Comic> = ({
   });
   useEffect(() => setMarkdown(content), [content, setMarkdown]);
 
+  document.title = `【${title}】: ${subtitle} | ぽむログ`;
+  /* eslint-disable */
+  document.getElementsByName('description')[0].setAttribute(
+    'content',
+    `${content
+      ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
+      ?.join('')
+      ?.slice(0, 120)}`,
+  );
+  /* eslint-enable */
+
   return (
     <article className="article_container">
-      <Helmet>
-        <title>{`【${title}】: ${subtitle} | ぽむログ`}</title>
-        <meta
-          name="description"
-          // eslint-disable-next-line
-          content={content?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)?.join('').slice(0, 120)}
-        />
-        <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
-      </Helmet>
       <div className="genre_icon_group">
         {genres &&
           genres.map((genre) => (
@@ -144,7 +145,7 @@ const Article: FC<Comic> = ({
         <TwitterShareButton
           url={window.location.href}
           title={`${subtitle} 【${title}】`}
-          hashtags={[title,'ぽむログ']}
+          hashtags={[title, 'ぽむログ']}
         >
           <TwitterIcon size={30} round />
         </TwitterShareButton>

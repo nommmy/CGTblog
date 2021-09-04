@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import ArticleCards from 'components/organisms/ArticleCards';
 import SearchGenreButton from 'components/molecules/SearchGenreButton';
 import { useSelector, shallowEqual } from 'react-redux';
@@ -15,11 +14,18 @@ const Home: FC = () => {
     shallowEqual,
   );
 
+  document.title = 'ぽむログ - お気に入りのマンガを紹介！';
+  /* eslint-disable */
+  document
+    .getElementsByName('description')[0]
+    .setAttribute(
+      'content',
+      'ぽむログはおすすめのマンガを紹介する個人ブログです！最近流行りのものからちょっとマイナーな良作までジャンル問わず幅広くおすすめします！！',
+    );
+  /* eslint-enable */
+
   return (
     <>
-      <Helmet>
-        <title>ぽむログ - お気に入りのマンガを紹介！</title>
-      </Helmet>
       <div className="flex-container">
         <main>
           <SearchGenreButton />
