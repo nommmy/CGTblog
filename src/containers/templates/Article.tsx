@@ -53,11 +53,11 @@ const Article: FC<Comic> = ({
   });
   useEffect(() => setMarkdown(content), [content, setMarkdown]);
 
-  document.title = `【${title}】: ${subtitle} | ぽむログ`;
+  document.title = `${title} | ぽむログ`;
   /* eslint-disable */
   document.getElementsByName('description')[0].setAttribute(
     'content',
-    `${content
+    `【${subtitle}】${content
       ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
       ?.join('')
       ?.slice(0, 120)}`,
