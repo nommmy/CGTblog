@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { typeState, articleListSlice } from 'ducks/articleList';
-import { MdViewList } from 'react-icons/md';
+import { MdViewList } from '@react-icons/all-files/md/MdViewList';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { genres } from 'components/atoms/GenreIcon';

@@ -9,6 +9,7 @@ import { Comic } from 'data/comics';
 import Chip from '@material-ui/core/Chip';
 import MediaQuery from 'react-responsive';
 import { LinearProgress } from '@material-ui/core';
+import Iframely from 'components/molecules/Iframely';
 
 const ArticlePage: FC = () => {
   const { code } = useParams();
@@ -31,6 +32,7 @@ const ArticlePage: FC = () => {
 
       return (
         <>
+          <Iframely />
           <div className="flex-container">
             <main>
               <Article {...currentArticle[0]} />

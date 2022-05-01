@@ -22,6 +22,8 @@ declare global {
       // eslint-disable-next-line
       config: { page_path: string },
     ) => void;
+    // eslint-disable-next-line
+    iframely: any;
   }
 }
 
