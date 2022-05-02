@@ -59,13 +59,9 @@ const HotArticles: FC = () => {
                           }}
                         />
                       </div>
-                      <div className="title_container">
-                        <div className="article_title">
-                          <p className="overview text-overflow">
-                            {comic.subtitle}
-                          </p>
-                          <p className="title">{comic.title}</p>
-                        </div>
+                      <div className="hot_title_container">
+                        <p className="subtitle">{comic.subtitle}</p>
+                        <p className="title">{comic.title}</p>
                       </div>
                     </section>
                   </MediaQuery>
