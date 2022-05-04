@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GenreIcon from 'components/atoms/GenreIcon';
-import { MdUpdate } from 'react-icons/md';
+import { MdUpdate } from '@react-icons/all-files/md/MdUpdate';
 import { Comic } from 'data/comics';
 import { htmlDirectives } from 'containers/organisms/ArticleContentForm';
 import { useRemark } from 'react-remark';

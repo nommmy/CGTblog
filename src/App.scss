@@ -7,6 +7,19 @@
   height: 100%;
   margin: 0;
 
+  .suspense{
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 10vw;
+      height:10vw;
+    }
+  }
+
   a {
     color: $sub-color;
     text-decoration: none;

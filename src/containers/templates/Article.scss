@@ -347,16 +347,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       justify-content: center;
-
-      $reco_height: 90px;
-
-      .reco_item {
-        height: $reco_height;
-
-        .reco_media {
-          height: $reco_height;
-        }
-      }
     }
   }
 }

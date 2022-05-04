@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import { useController, Control } from 'react-hook-form';
 
 type Props = {

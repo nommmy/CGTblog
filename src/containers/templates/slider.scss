@@ -4,7 +4,7 @@
   padding: 0 1rem;
   margin: 0.5rem 4rem;
   margin-bottom: 4rem;
-  border-bottom: 1px solid lightgray;
+  // border-bottom: 1px solid lightgray;
 
   :hover {
     cursor: pointer;
@@ -22,7 +22,7 @@
         img {
           display: block;
           width: 100%;
-          height: 22vw;
+          height: 25vw;
         }
       }
 
@@ -39,7 +39,7 @@
       @media screen and (max-width: 576px) {
         .header_image {
           img {
-            height: 45vw;
+            height: 52vw;
           }
         }
 
@@ -50,22 +50,17 @@
         }
       }
 
-      .title_container {
-        padding: 3vw;
-
-        .title {
+      .hot_title_container {
+        padding: 2vw;
+        padding-top: 1.5vw;
+        .subtitle {
           font-size: 1.1vw;
+          height: 2.2vw;
+          color: gray;
         }
-
-        .overview {
-          font-size: 0.3vw;
-        }
-
-        .text-overflow {
-          display: -webkit-box;
-          overflow: hidden;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
+        .title {
+          font-weight: bold;
+          font-size: 1.5vw;
         }
       }
     }

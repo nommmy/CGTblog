@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
-import {
-  GiCrossedSwords,
-  GiHealing,
-  GiHeartKey,
-  GiBurningRoundShot,
-  GiHeartInside,
-  GiMusicalNotes,
-  GiMeal,
-} from 'react-icons/gi';
-import { FaRegGrinSquintTears, FaRegSadTear } from 'react-icons/fa';
+import { GiCrossedSwords } from '@react-icons/all-files/gi/GiCrossedSwords';
+import { GiHealing } from '@react-icons/all-files/gi/GiHealing';
+import { GiHeartKey } from '@react-icons/all-files/gi/GiHeartKey';
+import { GiBurningRoundShot } from '@react-icons/all-files/gi/GiBurningRoundShot';
+import { GiHeartInside } from '@react-icons/all-files/gi/GiHeartInside';
+import { GiMusicalNotes } from '@react-icons/all-files/gi/GiMusicalNotes';
+import { GiMeal } from '@react-icons/all-files/gi/GiMeal';
+import { FaRegGrinSquintTears } from '@react-icons/all-files/fa/FaRegGrinSquintTears';
+import { FaRegSadTear } from '@react-icons/all-files/fa/FaRegSadTear';
 
 const genreIconProps = {
   className: 'genre_icon',

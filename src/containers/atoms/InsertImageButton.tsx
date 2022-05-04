@@ -22,7 +22,7 @@ const InsertImageButton: FC<Props> = ({ text, setText, codeWatched }) => {
     const s3BucketRegion = process.env
       .REACT_APP_AWS_USER_FILES_S3_BUCKET_REGION as string;
     setText(
-      `${text}![${file.name}](https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/${codeWatched}/${file.name})`,
+      `${text}:img{src="/favicon.ico" data-src="https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/${codeWatched}/${file.name}" .lazyload alt="${file.name}"}`,
     );
   };
 
