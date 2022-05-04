@@ -97,7 +97,7 @@ const Article: FC<Comic> = ({
               style={{ width: '100%', display: 'block' }}
               onError={(e) => {
                 (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                  'IMG_0740.JPG';
+                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
               }}
             />
           </div>
@@ -119,7 +119,7 @@ const Article: FC<Comic> = ({
               style={{ width: '100%', display: 'block' }}
               onError={(e) => {
                 (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                  'IMG_0740.JPG';
+                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
               }}
             />
           </div>

@@ -6,7 +6,11 @@ import { TwitterIcon } from 'react-share';
 
 const WelcomeMessage: FC = () => (
   <div className="welcome">
-    <img src="headline/welcome.webp" alt="Welcome" className="welcome_header" />
+    <img
+      src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/welcome.webp"
+      alt="Welcome"
+      className="welcome_header"
+    />
     <div className="welcome_message">
       <p>
         <strong>ぽむログ</strong>は今おすすめのマンガを紹介する個人ブログです。

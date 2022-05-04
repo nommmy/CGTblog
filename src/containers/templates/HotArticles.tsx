@@ -39,7 +39,7 @@ const HotArticles: FC = () => {
       {!!hotArticles.length && (
         <>
           <img
-            src="headline/hot-topics.webp"
+            src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/hot-topics.webp"
             alt="Hot Topics"
             className="headline"
           />
@@ -55,7 +55,7 @@ const HotArticles: FC = () => {
                           alt="Header"
                           onError={(e) => {
                             (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                              'IMG_0740.JPG';
+                              'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
                           }}
                         />
                       </div>
@@ -73,7 +73,7 @@ const HotArticles: FC = () => {
                           alt="Header"
                           onError={(e) => {
                             (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                              'IMG_0740.JPG';
+                              'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
                           }}
                         />
                         <p>{comic.title}</p>

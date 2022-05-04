@@ -3,6 +3,7 @@ import Aside from 'components/templates/Aside';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { TwitterIcon } from 'react-share';
 import MediaQuery from 'react-responsive';
+import '_markdown_extension.scss';
 
 const IntroPage: FC = () => {
   document.title = 'ぽむログってどんなサイト？';
@@ -22,12 +23,12 @@ const IntroPage: FC = () => {
           <article className="article_container">
             <section className="article_header">
               <img
-                src="header_logo7.webp"
+                src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
                 alt="Header"
                 style={{ width: '100%', display: 'block', paddingTop: '30px' }}
                 onError={(e) => {
                   (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                    'IMG_0740.JPG';
+                    'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
                 }}
               />
             </section>
@@ -91,7 +92,7 @@ const IntroPage: FC = () => {
                   <h2 id="ジャンル検索">ジャンル検索</h2>
                   <div className="welcome_image">
                     <img
-                      src="genre_search.webp"
+                      src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/genre_search.webp"
                       alt="genre_search"
                       style={{
                         width: '100%',
@@ -171,7 +172,7 @@ const IntroPage: FC = () => {
               </section>
               <div className="twitter_container">
                 <img
-                  src="headline/follow.webp"
+                  src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/follow.webp"
                   alt="follow"
                   className="followme_header"
                 />
