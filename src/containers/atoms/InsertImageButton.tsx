@@ -16,13 +16,13 @@ const InsertImageButton: FC<Props> = ({ text, setText, codeWatched }) => {
     await Storage.put(`${codeWatched}/${file.name}`, file, {
       level: 'public',
       contentType: file.type,
-    }) 
+    });
     // const image = (await Storage.get(`${codeWatched}/${file.name}`)) as string;
     const s3Bucket = process.env.REACT_APP_AWS_USER_FILES_S3_BUCKET as string;
     const s3BucketRegion = process.env
       .REACT_APP_AWS_USER_FILES_S3_BUCKET_REGION as string;
     setText(
-      `${text}![${file.name}](https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/${codeWatched}/${file.name})`,
+      `${text}:img{src="/favicon.ico" data-src="https://${s3Bucket}.s3-${s3BucketRegion}.amazonaws.com/public/${codeWatched}/${file.name}" .lazyload alt="${file.name}"}`,
     );
   };
 

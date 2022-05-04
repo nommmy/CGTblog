@@ -11,6 +11,7 @@ import { articleListSlice } from './ducks/articleList';
 import './App.scss';
 // code splittingの関係で先読み
 import './containers/templates/Article.scss';
+import 'lazysizes';
 
 const Home = React.lazy(() => import('./components/pages/Home'));
 const IntroPage = React.lazy(() => import('./components/pages/IntroPage'));
