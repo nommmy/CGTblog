@@ -5,7 +5,7 @@ import { TwitterIcon } from 'react-share';
 import MediaQuery from 'react-responsive';
 
 const IntroPage: FC = () => {
-  document.title = 'ぽむログってどんなサイト？ | ぽむログ';
+  document.title = 'ぽむログってどんなサイト？';
   /* eslint-disable */
   document
     .getElementsByName('description')[0]

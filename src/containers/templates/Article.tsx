@@ -53,14 +53,14 @@ const Article: FC<Comic> = ({
   });
   useEffect(() => setMarkdown(content), [content, setMarkdown]);
 
-  document.title = `${title} | ぽむログ`;
+  document.title = `【${title}】${subtitle}`;
   /* eslint-disable */
   document.getElementsByName('description')[0].setAttribute(
     'content',
-    `【${subtitle}】${content
+    `${content
       ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
       ?.join('')
-      ?.slice(0, 120)}`,
+      ?.slice(0, 150)}`,
   );
   /* eslint-enable */
 
