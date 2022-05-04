@@ -4,6 +4,7 @@ import Aside from 'components/templates/Aside';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { TwitterIcon } from 'react-share';
 import MediaQuery from 'react-responsive';
+import '_markdown_extension.scss';
 
 const IntroPage: FC = () => (
   <>
