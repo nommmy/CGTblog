@@ -22,7 +22,7 @@ const IntroPage: FC = () => {
           <article className="article_container">
             <section className="article_header">
               <img
-                src="header_logo7.png"
+                src="header_logo7.webp"
                 alt="Header"
                 style={{ width: '100%', display: 'block', paddingTop: '30px' }}
                 onError={(e) => {
@@ -91,7 +91,7 @@ const IntroPage: FC = () => {
                   <h2 id="ジャンル検索">ジャンル検索</h2>
                   <div className="welcome_image">
                     <img
-                      src="genre_search.png"
+                      src="genre_search.webp"
                       alt="genre_search"
                       style={{
                         width: '100%',
@@ -171,7 +171,7 @@ const IntroPage: FC = () => {
               </section>
               <div className="twitter_container">
                 <img
-                  src="headline/follow.png"
+                  src="headline/follow.webp"
                   alt="follow"
                   className="followme_header"
                 />

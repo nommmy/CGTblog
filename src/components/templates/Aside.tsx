@@ -13,7 +13,7 @@ const Aside: FC = () => {
 
   return (
     <div className="ranking">
-      <img src="headline/ranking.png" alt="Ranking" className="ranking_header" />
+      <img src="headline/ranking.webp" alt="Ranking" className="ranking_header" />
       <RecommendArticle comics={articles} />
     </div>
   );

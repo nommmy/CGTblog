@@ -32,7 +32,7 @@ const Footer: FC = () => (
     </div>
     <div className="footer-message">
       <Link to="/">
-        <img src="logo7.png" alt="logo" />
+        <img src="logo7.webp" alt="logo" />
       </Link>
       <p>
         <strong>ぽむログ</strong>

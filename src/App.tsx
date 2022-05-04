@@ -82,14 +82,14 @@ const App: FC = () => {
       <Suspense
         fallback={
           <div className="suspense">
-            <img src="pommeblog.png" alt="icon" />
+            <img src="pommeblog.webp" alt="icon" />
           </div>
         }
       >
         <header>
           <div className="header">
             <Link to="/">
-              <img src="logo7.png" alt="logo" />
+              <img src="logo7.webp" alt="logo" />
             </Link>
             <nav className="header_nav">
               <Link to="intro" className="nav">
