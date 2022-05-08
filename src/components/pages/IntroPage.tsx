@@ -26,6 +26,7 @@ const IntroPage: FC = () => {
                 src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
                 alt="Header"
                 style={{ width: '100%', display: 'block', paddingTop: '30px' }}
+                decoding="async"
                 onError={(e) => {
                   (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
                     'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
@@ -94,6 +95,7 @@ const IntroPage: FC = () => {
                     <img
                       src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/genre_search.webp"
                       alt="genre_search"
+                      decoding="async"
                       style={{
                         width: '100%',
                       }}
@@ -174,6 +176,7 @@ const IntroPage: FC = () => {
                 <img
                   src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/follow.webp"
                   alt="follow"
+                  decoding="async"
                   className="followme_header"
                 />
                 <a

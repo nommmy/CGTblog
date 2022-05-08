@@ -10,6 +10,7 @@ const WelcomeMessage: FC = () => (
       src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/welcome.webp"
       alt="Welcome"
       className="welcome_header"
+      decoding="async"
     />
     <div className="welcome_message">
       <p>

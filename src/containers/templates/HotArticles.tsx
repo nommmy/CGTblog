@@ -41,6 +41,7 @@ const HotArticles: FC = () => {
           <img
             src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/hot-topics.webp"
             alt="Hot Topics"
+            decoding="async"
             className="headline"
           />
           <Slider {...settings} className="article_container">
@@ -53,6 +54,7 @@ const HotArticles: FC = () => {
                         <img
                           src={comic.image}
                           alt="Header"
+                          decoding="async"
                           onError={(e) => {
                             (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
                               'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
@@ -71,6 +73,7 @@ const HotArticles: FC = () => {
                         <img
                           src={comic.image}
                           alt="Header"
+                          decoding="async"
                           onError={(e) => {
                             (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
                               'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';

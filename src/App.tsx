@@ -85,6 +85,7 @@ const App: FC = () => {
             <img
               src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/pommeblog.webp"
               alt="icon"
+              decoding="async"
             />
           </div>
         }
@@ -95,6 +96,7 @@ const App: FC = () => {
               <img
                 src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/logo7.webp"
                 alt="logo"
+                decoding="async"
               />
             </Link>
             <nav className="header_nav">
