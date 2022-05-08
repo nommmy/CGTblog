@@ -25,9 +25,10 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
             </section>
             <section className="card_thumbnail">
               <CardMedia
-                className="card_media"
-                image={comic.image}
+                className="card_media lazyload"
+                image="/pommeblog.webp"
                 title={comic.title}
+                data-bg={comic.image}
               />
               <p>{comic.title}</p>
             </section>
@@ -35,7 +36,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
               <h3>{comic.subtitle}</h3>
             </section>
             <section className="article_tags">
-              {comic.tags?.slice(0,3).map((tag) => (
+              {comic.tags?.slice(0, 3).map((tag) => (
                 <Chip
                   key={tag}
                   variant="outlined"

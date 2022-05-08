@@ -14,9 +14,10 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
         <Card className="reco_item">
           <section className="reco_thumbnail">
             <CardMedia
-              className="reco_media"
-              image={comic.image}
+              className="reco_media lazyload"
+              image="/pommeblog.webp"
               title={comic.title}
+              data-bg={comic.image}
             >
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (
@@ -36,5 +37,4 @@ const RecommendArticle: FC<ComicData> = ({ comics }) => (
     ))}
   </article>
 );
-
 export default RecommendArticle;
