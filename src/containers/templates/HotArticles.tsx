@@ -6,6 +6,7 @@ import { Comic } from 'data/comics';
 import Slider from 'react-slick';
 import Hammer from 'react-hammerjs';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
+import PreloadImage from 'containers/atoms/PreloadImage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slider.scss';
@@ -51,15 +52,7 @@ const HotArticles: FC = () => {
                   <MediaQuery minWidth={860}>
                     <section className="article_header">
                       <div className="header_image">
-                        <img
-                          src={comic.image}
-                          alt="Header"
-                          decoding="async"
-                          onError={(e) => {
-                            (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                              'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-                          }}
-                        />
+                        <PreloadImage image={comic.image} />
                       </div>
                       <div className="hot_title_container">
                         <p className="subtitle">{comic.subtitle}</p>
@@ -70,15 +63,7 @@ const HotArticles: FC = () => {
                   <MediaQuery maxWidth={859}>
                     <section className="article_header">
                       <div className="header_image card_thumbnail">
-                        <img
-                          src={comic.image}
-                          alt="Header"
-                          decoding="async"
-                          onError={(e) => {
-                            (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                              'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-                          }}
-                        />
+                        <PreloadImage image={comic.image} />
                         <p>{comic.title}</p>
                       </div>
                     </section>
