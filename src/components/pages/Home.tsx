@@ -9,11 +9,6 @@ import WelcomeMessage from 'components/organisms/WelcomeMessage';
 import MediaQuery from 'react-responsive';
 
 const Home: FC = () => {
-  const articles = useSelector<typeState, Comic[]>(
-    (state) => state.showArticles,
-    shallowEqual,
-  );
-
   document.title = 'ぽむログ - お気に入りのマンガを紹介！';
   /* eslint-disable */
   document
@@ -23,6 +18,11 @@ const Home: FC = () => {
       'ぽむログはおすすめのマンガを紹介する個人ブログです！最近流行りのものからちょっとマイナーな良作までジャンル問わず幅広くおすすめします！！',
     );
   /* eslint-enable */
+  
+  const articles = useSelector<typeState, Comic[]>(
+    (state) => state.showArticles,
+    shallowEqual,
+  );
 
   return (
     <>

@@ -6,7 +6,6 @@ import { Comic } from 'data/comics';
 import Slider from 'react-slick';
 import Hammer from 'react-hammerjs';
 import MediaQuery, { useMediaQuery } from 'react-responsive';
-import PreloadImage from 'containers/atoms/PreloadImage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './slider.scss';
@@ -16,6 +15,18 @@ const HotArticles: FC = () => {
     (state) => state.hotArticles,
     shallowEqual,
   );
+
+  hotArticles.forEach((comic) => {
+    if (document.getElementById(comic.title) === null) {
+      const elem = document.createElement('link');
+      elem.setAttribute('id', comic.title);
+      elem.setAttribute('rel', 'preload');
+      elem.setAttribute('as', 'image');
+      elem.setAttribute('href', comic.image);
+      const parent = document.head;
+      parent.appendChild(elem);
+    }
+  });
 
   const isSmallScreen = useMediaQuery({ query: '(min-width: 577px)' });
 
@@ -52,7 +63,7 @@ const HotArticles: FC = () => {
                   <MediaQuery minWidth={860}>
                     <section className="article_header">
                       <div className="header_image">
-                        <PreloadImage image={comic.image} />
+                        <img src={comic.image} alt="Header" decoding="async" />
                       </div>
                       <div className="hot_title_container">
                         <p className="subtitle">{comic.subtitle}</p>
@@ -63,7 +74,7 @@ const HotArticles: FC = () => {
                   <MediaQuery maxWidth={859}>
                     <section className="article_header">
                       <div className="header_image card_thumbnail">
-                        <PreloadImage image={comic.image} />
+                        <img src={comic.image} alt="Header" decoding="async" />
                         <p>{comic.title}</p>
                       </div>
                     </section>

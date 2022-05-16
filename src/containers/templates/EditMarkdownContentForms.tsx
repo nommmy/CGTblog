@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@material-ui/core';
@@ -47,6 +46,8 @@ const EditMarkdownContentForms: FC<Comic> = ({
     magazine: string | null;
   };
 
+  document.title = `Edit 【${title}】`;
+  
   const {
     register,
     handleSubmit,
@@ -99,9 +100,6 @@ const EditMarkdownContentForms: FC<Comic> = ({
 
   return (
     <div className="post_container">
-      <Helmet>
-        <title>Edit {title}</title>
-      </Helmet>
       <InsertImageButton
         text={text}
         setText={setText}

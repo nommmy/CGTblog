@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import ArticleCards from 'components/organisms/ArticleCards';
 import { useSelector, shallowEqual } from 'react-redux';
 import { typeState } from 'ducks/articleList';
@@ -9,6 +8,8 @@ import { Link } from 'react-router-dom';
 import LaunchIcon from '@material-ui/icons/Launch';
 
 const AdminPage: FC = () => {
+  document.title = 'Admin';
+
   const articles = useSelector<typeState, Comic[]>(
     (state) => state.allArticles,
     shallowEqual,
@@ -16,9 +17,6 @@ const AdminPage: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Admin</title>
-      </Helmet>
       <div className="flex-container">
         <main>
           <ArticleCards comics={articles} />

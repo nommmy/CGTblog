@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { MdUpdate } from '@react-icons/all-files/md/MdUpdate';
@@ -37,6 +37,44 @@ const Article: FC<Comic> = ({
   content,
   tags,
 }) => {
+  document.title = `【${title}】${subtitle}`;
+  /* eslint-disable */
+  document.getElementsByName('description')[0].setAttribute(
+    'content',
+    `${content
+      ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
+      ?.join('')
+      ?.slice(0, 150)}`,
+  );
+  /* eslint-enable */
+
+  if (document.getElementById(title) === null) {
+    const elem = document.createElement('link');
+    elem.setAttribute('id', title);
+    elem.setAttribute('rel', 'preload');
+    elem.setAttribute('as', 'image');
+    elem.setAttribute('href', image);
+    const parent = document.head;
+    parent.appendChild(elem);
+  }
+
+  if (document.getElementById('iframe-script') === null) {
+    const iframeElem = document.createElement('script');
+    iframeElem.setAttribute('id', 'iframe-script');
+    iframeElem.setAttribute('type', 'text/javascript');
+    iframeElem.setAttribute('defer', '');
+    iframeElem.setAttribute('src', 'https://cdn.iframe.ly/embed.js');
+    const parentHead = document.head;
+    parentHead.appendChild(iframeElem);
+  }
+
+  // useEffect(() => {
+  //   if (window && window.iframely) {
+  //     // eslint-disable-next-line
+  //     window.iframely.load();
+  //   }
+  // }, []);
+
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
       [emoji],
@@ -51,27 +89,8 @@ const Article: FC<Comic> = ({
       [sectionize],
     ],
   });
+
   useEffect(() => setMarkdown(content), [content, setMarkdown]);
-
-  const [loaded, setLoaded] = useState(false);
-  useEffect(() => {
-    const img = new Image();
-    img.src = image;
-    img.onload = () => {
-      setLoaded(true);
-    };
-  }, [image]);
-
-  document.title = `【${title}】${subtitle}`;
-  /* eslint-disable */
-  document.getElementsByName('description')[0].setAttribute(
-    'content',
-    `${content
-      ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
-      ?.join('')
-      ?.slice(0, 150)}`,
-  );
-  /* eslint-enable */
 
   return (
     <article className="article_container">
@@ -100,18 +119,16 @@ const Article: FC<Comic> = ({
       <MediaQuery minWidth={1024}>
         <section className="article_header">
           <div className="header_image">
-            {loaded && (
-              <img
-                src={image}
-                alt="Header"
-                style={{ width: '100%', display: 'block' }}
-                decoding="async"
-                onError={(e) => {
-                  (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                    'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-                }}
-              />
-            )}
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              decoding="async"
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
+              }}
+            />
           </div>
           <div className="title_container">
             <div className="article_title">
@@ -125,18 +142,16 @@ const Article: FC<Comic> = ({
         <section className="article_header">
           <h2 className="md-title">{title}</h2>
           <div className="header_image">
-            {loaded && (
-              <img
-                src={image}
-                alt="Header"
-                style={{ width: '100%', display: 'block' }}
-                decoding="async"
-                onError={(e) => {
-                  (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                    'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-                }}
-              />
-            )}
+            <img
+              src={image}
+              alt="Header"
+              style={{ width: '100%', display: 'block' }}
+              decoding="async"
+              onError={(e) => {
+                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
+              }}
+            />
           </div>
           <div className="ribbon14-wrapper">
             <span className="ribbon14">★</span>
