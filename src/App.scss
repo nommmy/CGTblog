@@ -87,14 +87,14 @@
           background-color: $main-color;
         }
       }
-    }
 
-    img {
-      width: auto;
-      height: 100%;
-      max-width: 30vw;
-      max-height: 64px;
-      vertical-align: top;
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 30vw;
+        max-height: 64px;
+        vertical-align: top;
+      }
     }
   }
 
