@@ -2,13 +2,18 @@
 
 .slick-slider {
   padding: 0 1vw;
-  margin: 0.5rem 4rem;
-  margin-bottom: 4rem;
+  margin: 0 4rem;
+  margin-bottom: 3rem;
   // border-bottom: 1px solid lightgray;
 
+  @media screen and (max-width: 859px) {
+    margin: 0 3rem;
+    margin-bottom: 2.5rem;
+  }
+
   @media screen and (max-width: 576px) {
-    margin: 0.5rem 3.5rem;
-    margin-bottom: 4rem;
+    margin: 0 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   :hover {
@@ -19,7 +24,7 @@
     padding: 0 1vw;
 
     .article_header {
-      margin-bottom: 0;
+      margin-bottom: 20px;
 
       .header_image {
         width: 100%;
@@ -41,10 +46,93 @@
         }
       }
 
-      @media screen and (max-width: 576px) {
+      .ribbon_wrapper {
+        position: relative;
+        text-align: center;
+        margin: 5vw 0;
+
+        h3:before, h3:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          display: inline-block;
+          width: 12vw;
+          height: 1px;
+          background-color: darkgray;
+        }
+
+        h3:before {
+          left:2px;
+        }
+        h3:after {
+          right: 2px;
+        }
+
+        // くの字カッコの装飾
+        // h3 {
+        //   &::before {
+        //     position: relative;
+        //     font-family: "Font Awesome 5 Free";
+        //     font-weight: 900;
+        //     display: inline-block;
+        //     // font-size: 1.0em;
+        //     color: $main-color;
+        //     content:"\f053";/*アイコン種類*/
+        //     padding-right: 1em
+        //   }
+        //   &::after {
+        //     position: relative;
+        //     font-family: "Font Awesome 5 Free";
+        //     font-weight: 900;
+        //     display: inline-block;
+        //     // font-size: 1.0em;
+        //     color: $main-color;
+        //     content:"\f054";/*アイコン種類*/
+        //     padding-left: 1em
+        //   }
+        // }
+      }
+
+      // 画像上のリボン
+      // .ribbon_wrapper {
+      //   display: inline-block;
+      //   position: absolute;
+      //   height: 60px;
+      //   line-height: 60px;
+      //   text-align: center;
+      //   padding: 7px 0;
+      //   font-size: 16px;
+      //   background: $main-color;
+      //   color: #FFF;
+      //   box-sizing: border-box;
+      //   bottom: 0;
+      //   right: 0;
+
+      //   h3 {
+      //     margin: 0;
+      //     padding: 0 30px;
+      //     border-top: dashed 2px rgba(255, 255, 255, 0.5);
+      //     border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+      //     line-height: 42px;
+      //   }
+
+      //   @media screen and (max-width: 576px) {
+      //     height: 50px;
+      //     line-height: 50px;
+      //     font-size: 1rem;
+
+      //     h3 {
+      //       padding: 0 20px;
+      //       line-height: 32px;
+      //     }
+      //   }
+      // }
+      
+
+      @media screen and (max-width: 859px) {
         .header_image {
           img {
-            height: 52vw;
+            height: 54vw;
           }
         }
 
@@ -72,12 +160,23 @@
     }
   }
 
+  .slick-dots {
+    // これabsoluteがデフォだったけど、何故か右にずれるので
+    position: initial;
+    bottom: 0;
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: 40%;
+  }
+
   .slick-prev::before,
   .slick-next::before {
     color: gray;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 859px) {
     .slick-prev {
       left: -20px;
     }

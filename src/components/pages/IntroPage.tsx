@@ -16,16 +16,39 @@ const IntroPage: FC = () => {
     );
   /* eslint-enable */
 
+  if (document.getElementById('intro-header') === null) {
+    const elem = document.createElement('link');
+    elem.setAttribute('id', 'intro-header');
+    elem.setAttribute('rel', 'preload');
+    elem.setAttribute('as', 'image');
+    elem.setAttribute(
+      'href',
+      'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp',
+    );
+    const parent = document.head;
+    parent.appendChild(elem);
+  }
+
   return (
     <>
       <div className="flex-container">
         <main>
-          <article className="article_container">
-            <section className="article_header">
+          <MediaQuery maxWidth={859}>
+            <section
+              className="article_header"
+              style={{ marginBottom: '20vw' }}
+            >
               <img
                 src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
                 alt="Header"
-                style={{ width: '100%', display: 'block', paddingTop: '30px' }}
+                width="780"
+                height="420"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  padding: '20px 0',
+                }}
                 decoding="async"
                 onError={(e) => {
                   (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
@@ -33,6 +56,29 @@ const IntroPage: FC = () => {
                 }}
               />
             </section>
+          </MediaQuery>
+          <article className="article_container">
+            <MediaQuery minWidth={860}>
+              <section className="article_header">
+                <img
+                  src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
+                  alt="Header"
+                  width="780"
+                  height="420"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    padding: '20px 0',
+                  }}
+                  decoding="async"
+                  onError={(e) => {
+                    (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                      'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
+                  }}
+                />
+              </section>
+            </MediaQuery>
             <div className="react-split-mde-preview welcome_content">
               <p>
                 漫画好きの皆さん、はじめまして！
@@ -95,9 +141,12 @@ const IntroPage: FC = () => {
                     <img
                       src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/genre_search.webp"
                       alt="genre_search"
+                      width="750"
+                      height="70"
                       decoding="async"
                       style={{
                         width: '100%',
+                        height: 'auto',
                       }}
                     />
                   </div>
@@ -176,6 +225,8 @@ const IntroPage: FC = () => {
                 <img
                   src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/follow.webp"
                   alt="follow"
+                  width="140"
+                  height="55"
                   decoding="async"
                   className="followme_header"
                 />

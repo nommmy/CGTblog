@@ -65,6 +65,26 @@ const App: FC = () => {
     /* eslint-enable */
   }, [dispatch, initArticle]);
 
+  // const fetchArticle = async () => {
+  //   const result = await API.graphql({
+  //     query: listComicsSortedByUpdatedAt,
+  //     variables: { owner: 'owner', sortDirection: 'DESC' },
+  //     authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
+  //   });
+  //   if ('data' in result && result.data) {
+  //     const articlesData = result.data as ListComicsSortedByUpdatedAtQuery;
+  //     if (articlesData.listComicsSortedByUpdatedAt) {
+  //       dispatch(
+  //         initArticle(
+  //           articlesData.listComicsSortedByUpdatedAt.items as Comic[],
+  //         ),
+  //       );
+  //     }
+  //   }
+
+  //   return result;
+  // };
+
   // google analytics
   const location = useLocation();
   const trackingId = process.env.REACT_APP_GA_TRACKING_ID;
@@ -96,6 +116,8 @@ const App: FC = () => {
               <img
                 src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/logo7.webp"
                 alt="logo"
+                width="150"
+                height="64"
                 decoding="async"
               />
             </Link>

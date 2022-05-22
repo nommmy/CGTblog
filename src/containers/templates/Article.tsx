@@ -93,100 +93,96 @@ const Article: FC<Comic> = ({
   useEffect(() => setMarkdown(content), [content, setMarkdown]);
 
   return (
-    <article className="article_container">
-      <div className="genre_icon_group">
-        {genres &&
-          genres.map((genre) => (
-            <GenreIcon key={genre} genre={genre} iconSize={{ size: '35' }} />
-          ))}
-      </div>
-      <section className="option">
-        <div className="location">
-          <Link to="/">Top</Link> / {title}
+    <>
+      <MediaQuery maxWidth={859}>
+        <div className="header_image">
+          <img
+            src={image}
+            alt="Header"
+            width="800"
+            height="480"
+            decoding="async"
+            onError={(e) => {
+              (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
+            }}
+          />
         </div>
-        <div className="date_container">
-          {updatedAt && (
-            <>
-              <MdUpdate
-                style={{ color: 'gray', margin: 5, marginBottom: 0 }}
-                size="1em"
-              />
-              <span className="date">{updatedAt?.split('T')[0]}</span>
-            </>
-          )}
+      </MediaQuery>
+      <article className="article_container">
+        <div className="genre_icon_group">
+          {genres &&
+            genres.map((genre) => (
+              <GenreIcon key={genre} genre={genre} iconSize={{ size: '35' }} />
+            ))}
         </div>
-      </section>
-      <MediaQuery minWidth={1024}>
-        <section className="article_header">
-          <div className="header_image">
-            <img
-              src={image}
-              alt="Header"
-              style={{ width: '100%', display: 'block' }}
-              decoding="async"
-              onError={(e) => {
-                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-              }}
-            />
+        <section className="option">
+          <div className="location">
+            <Link to="/">Top</Link> / {title}
           </div>
-          <div className="title_container">
-            <div className="article_title">
-              <p className="overview">{subtitle}</p>
-              <p className="title">{title}</p>
-            </div>
+          <div className="date_container">
+            {updatedAt && (
+              <>
+                <MdUpdate
+                  style={{ color: 'gray', margin: 5, marginBottom: 0 }}
+                  size="1em"
+                />
+                <span className="date">{updatedAt?.split('T')[0]}</span>
+              </>
+            )}
           </div>
         </section>
-      </MediaQuery>
-      <MediaQuery maxWidth={1023}>
         <section className="article_header">
           <h2 className="md-title">{title}</h2>
-          <div className="header_image">
-            <img
-              src={image}
-              alt="Header"
-              style={{ width: '100%', display: 'block' }}
-              decoding="async"
-              onError={(e) => {
-                (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
-                  'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
-              }}
-            />
-          </div>
+          <MediaQuery minWidth={860}>
+            <div className="header_image">
+              <img
+                src={image}
+                alt="Header"
+                width="800"
+                height="480"
+                decoding="async"
+                onError={(e) => {
+                  (e.target as React.ImgHTMLAttributes<HTMLImageElement>).src =
+                    'https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/IMG_0740.JPG';
+                }}
+              />
+            </div>
+          </MediaQuery>
           <div className="ribbon14-wrapper">
             <span className="ribbon14">★</span>
             <p>{subtitle}</p>
           </div>
         </section>
-      </MediaQuery>
-      <section className="article_tags">
-        {tags?.map((tag) => (
-          <Chip
-            key={tag}
-            variant="outlined"
-            size="small"
-            label={`#${tag}`}
-            className="tag"
-          />
-        ))}
-      </section>
-      <section className="react-split-mde-preview">{markdown}</section>
-      <section className="share_button_group">
-        <TwitterShareButton
-          url={window.location.href}
-          title={`${subtitle} 【${title}】`}
-          hashtags={[title, 'ぽむログ']}
-        >
-          <TwitterIcon size={30} round />
-        </TwitterShareButton>
-        <FacebookShareButton
-          url={window.location.href}
-          quote={`${subtitle} 【${title}】`}
-        >
-          <FacebookIcon size={30} round />
-        </FacebookShareButton>
-      </section>
-    </article>
+        <section className="article_tags">
+          {tags?.map((tag) => (
+            <Chip
+              key={tag}
+              variant="outlined"
+              size="small"
+              label={`#${tag}`}
+              className="tag"
+            />
+          ))}
+        </section>
+        <section className="react-split-mde-preview">{markdown}</section>
+        <section className="share_button_group">
+          <TwitterShareButton
+            url={window.location.href}
+            title={`${subtitle} 【${title}】`}
+            hashtags={[title, 'ぽむログ']}
+          >
+            <TwitterIcon size={30} round />
+          </TwitterShareButton>
+          <FacebookShareButton
+            url={window.location.href}
+            quote={`${subtitle} 【${title}】`}
+          >
+            <FacebookIcon size={30} round />
+          </FacebookShareButton>
+        </section>
+      </article>
+    </>
   );
 };
 

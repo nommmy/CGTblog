@@ -9,6 +9,8 @@ const WelcomeMessage: FC = () => (
     <img
       src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/welcome.webp"
       alt="Welcome"
+      width="290"
+      height="150"
       className="welcome_header"
       decoding="async"
     />

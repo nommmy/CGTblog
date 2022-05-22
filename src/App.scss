@@ -39,13 +39,18 @@
     top: 6vw;
     left: 2vw;
     z-index: 3;
-    width: 30vw;
+    width: 38vw;
+    height: auto;
     margin-top: -5vw;
 
-    @media screen and (max-width: 860px) {
-      top: 3rem;
-      width: 16rem;
+    @media screen and (max-width: 859px) {
+      top: 4rem;
+      width: 22rem;
       margin-top: -2rem;
+    }
+    @media screen and (max-width: 576px) {
+      top: 3.5rem;
+      width: 60vw;
     }
   }
 
@@ -55,9 +60,7 @@
     top: 0;
     z-index: 20;
     // margin-bottom: 1vw;
-    background: white;
-    // border-bottom: 1px solid $main-color;
-    box-shadow: 0 0 5px $main-color;
+    background: rgba(255, 255, 255, 0);
 
     .header {
       display: flex;
@@ -87,6 +90,8 @@
     }
 
     img {
+      width: auto;
+      height: 100%;
       max-width: 30vw;
       max-height: 64px;
       vertical-align: top;
@@ -137,8 +142,8 @@
 
   footer {
     background: white;
+    // background: #ff97894a;
     // border-top: 1px solid $main-color;
-    box-shadow: 0 0 5px $main-color;
 
     .footer {
       display: flex;

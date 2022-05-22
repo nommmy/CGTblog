@@ -8,7 +8,7 @@ import { typeState } from 'ducks/articleList';
 import { Comic } from 'data/comics';
 import Chip from '@material-ui/core/Chip';
 import MediaQuery from 'react-responsive';
-import { LinearProgress } from '@material-ui/core';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const ArticlePage: FC = () => {
   const { code } = useParams();

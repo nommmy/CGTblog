@@ -28,7 +28,7 @@ const HotArticles: FC = () => {
     }
   });
 
-  const isSmallScreen = useMediaQuery({ query: '(min-width: 577px)' });
+  const isSmallScreen = useMediaQuery({ query: '(min-width: 860px)' });
 
   const settings = {
     slidesToShow: isSmallScreen && hotArticles.length >= 2 ? 2 : 1,
@@ -53,6 +53,8 @@ const HotArticles: FC = () => {
           <img
             src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/headline/hot-topics.webp"
             alt="Hot Topics"
+            width="450"
+            height="200"
             decoding="async"
             className="headline"
           />
@@ -63,7 +65,13 @@ const HotArticles: FC = () => {
                   <MediaQuery minWidth={860}>
                     <section className="article_header">
                       <div className="header_image">
-                        <img src={comic.image} alt="Header" decoding="async" />
+                        <img
+                          src={comic.image}
+                          alt="Header"
+                          width="600"
+                          height="360"
+                          decoding="async"
+                        />
                       </div>
                       <div className="hot_title_container">
                         <p className="subtitle">{comic.subtitle}</p>
@@ -74,8 +82,16 @@ const HotArticles: FC = () => {
                   <MediaQuery maxWidth={859}>
                     <section className="article_header">
                       <div className="header_image card_thumbnail">
-                        <img src={comic.image} alt="Header" decoding="async" />
-                        <p>{comic.title}</p>
+                        <img
+                          src={comic.image}
+                          alt="Header"
+                          width="500"
+                          height="300"
+                          decoding="async"
+                        />
+                      </div>
+                      <div className="ribbon_wrapper">
+                        <h3>{comic.title}</h3>
                       </div>
                     </section>
                   </MediaQuery>

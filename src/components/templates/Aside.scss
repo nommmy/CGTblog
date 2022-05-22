@@ -3,24 +3,37 @@
 
 .welcome {
   margin-bottom: 3vw;
+  @media screen and (max-width: 859px) {
+    margin-bottom: 5rem;
+    margin-top: 40px;
+  }
 
   .welcome_header {
     position: relative;
     top: 3vw;
     left: -1.5vw;
     z-index: 3;
-    width: 16rem;
+    width: 18rem;
+    height: auto;
     margin-top: -4vw;
+    @media screen and (max-width: 859px) {
+      top: 5vw;
+      left: -1rem;
+      width: 24rem;
+    }
+    @media screen and (max-width: 576px) {
+      top: 8vw;
+    }
   }
 
   .welcome_message {
     padding: 0.5rem 0.8rem;
-    margin: 0 10px;
+    margin: 0 8px;
     font-size: 0.75rem;
     // box-shadow: 0 0 0 10px #ffeaea;
     background: white;
     // background: #ffeaea;
-    border: dashed 4px $main-color;
+    border: dashed 3px $main-color;
     border-radius: 4px;
 
     .welcome_link {
@@ -63,13 +76,32 @@
   padding-bottom: 40px;
   margin: 0;
 
+  @media screen and (min-width: 860px) {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px;
+  }
+
+  @media screen and (max-width: 859px) {
+    margin-top: 40px;
+  }
+
   .ranking_header {
     position: relative;
     top: 4vw;
     left: -2vw;
     z-index: 3;
-    width: 12rem;
+    width: 14rem;
+    height: auto;
     margin-top: -4vw;
+    @media screen and (max-width: 859px) {
+      top: 6vw;
+      left: -1.3rem;
+      width: 17rem;
+    }
+    @media screen and (max-width: 576px) {
+      top: 8vw;
+    }
   }
 
   $reco_height: 90px;
@@ -79,7 +111,7 @@
 
     .reco_item {
       height: $reco_height;
-      margin: 20px 10px;
+      margin: 1.7vw 8px;
       overflow: visible;
 
       .reco_thumbnail {
@@ -89,6 +121,7 @@
           width: 100%;
           height: $reco_height;
           border-radius: 4px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 6px;
 
           .genre_icon_group {
             @include icon_position;

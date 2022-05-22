@@ -104,12 +104,16 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding-left: 10px;
+  padding-left: 12px;
   margin: 0;
   font-weight: bold;
-  line-height: 1.8rem;
+  font-size: 1.02em;
+  line-height: 1.85rem;
   color: whitesmoke;
-  background: rgb(103, 103, 103, 0.5);
+  background: -moz-linear-gradient(top, rgba(103, 103, 103, 0.2), rgb(103, 103, 103, 0.5));
+  background: -webkit-linear-gradient(top, rgb(103, 103, 103, 0.2), rgb(103, 103, 103, 0.5));
+  background: linear-gradient(to bottom, rgb(103, 103, 103, 0.2), rgb(103, 103, 103, 0.5));
+  // background: rgb(103, 103, 103, 0.5);
 }
 
 @mixin table-of-content-container {
@@ -186,7 +190,7 @@
 
 @mixin article-tags {
   padding: 0 10px;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 
   .tag {
     margin: 1px 2px;
