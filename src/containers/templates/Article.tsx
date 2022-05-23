@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { MdUpdate } from '@react-icons/all-files/md/MdUpdate';
@@ -63,6 +62,26 @@ const Article: FC<Comic> = ({
     }
   });
 
+  document.title = `【${title}】${subtitle}`;
+  /* eslint-disable */
+  document.getElementsByName('description')[0].setAttribute(
+    'content',
+    `${content
+      ?.match(/[^\x00-\x7Eｧ-ﾝﾞﾟ]+/g)
+      ?.join('')
+      ?.slice(0, 150)}`,
+  );
+
+  if (document.getElementById('iframe-script') === null) {
+    const iframeElem = document.createElement('script');
+    iframeElem.setAttribute('id', 'iframe-script');
+    iframeElem.setAttribute('type', 'text/javascript');
+    iframeElem.setAttribute('defer', '');
+    iframeElem.setAttribute('src', 'https://cdn.iframe.ly/embed.js');
+    const parentHead = document.head;
+    parentHead.appendChild(iframeElem);
+  }
+
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
       [emoji],
@@ -81,10 +100,6 @@ const Article: FC<Comic> = ({
 
   return (
     <article className="article_container">
-      <Helmet>
-        <title>{`『${title}』: ${subtitle} | ぽむログ`}</title>
-        <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" />
-      </Helmet>
       <div className="genre_icon_group">
         {genres &&
           genres.map((genre) => (

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Helmet } from 'react-helmet';
 import ArticleCards from 'components/organisms/ArticleCards';
 import SearchGenreButton from 'components/molecules/SearchGenreButton';
 import { useSelector, shallowEqual } from 'react-redux';
@@ -10,6 +9,8 @@ import WelcomeMessage from 'components/organisms/WelcomeMessage';
 import MediaQuery from 'react-responsive';
 
 const Home: FC = () => {
+  document.title = 'ぽむログ - お気に入りのマンガを紹介！';
+
   const articles = useSelector<typeState, Comic[]>(
     (state) => state.showArticles,
     shallowEqual,
@@ -17,9 +18,6 @@ const Home: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>ぽむログ - お気に入りのマンガを紹介！</title>
-      </Helmet>
       <div className="flex-container">
         <main>
           <SearchGenreButton />
