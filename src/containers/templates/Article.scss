@@ -150,7 +150,7 @@ main{
     margin-bottom: 2rem;
 
     .md-title {
-      margin: 3rem 0 0.5rem 0;
+      margin: 3rem 0 0.7rem 0;
       padding: 0.25em 0.5em;
       border-left: solid 5px $main-color;
       @media screen and (min-width: 1024px) {
@@ -188,7 +188,7 @@ main{
         background: $main-color;
         border-bottom: 0.2px solid $main-color;
         @media screen and (max-width: 859px) {
-          width: 2rem;
+          width: 25px;
           font-size: 1rem;
         }
 
@@ -203,9 +203,9 @@ main{
           border-bottom: 0.75rem solid transparent;
           border-left: 1.5rem solid $main-color;
           @media screen and (max-width: 859px) {
-            border-right: 1rem solid $main-color;
+            border-right: 12.5px solid $main-color;
             border-bottom: 0.5rem solid transparent;
-            border-left: 1rem solid $main-color;
+            border-left: 12.5px solid $main-color;
           }
         }
       }
