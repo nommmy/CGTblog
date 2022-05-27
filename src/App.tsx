@@ -132,8 +132,8 @@ const App: FC = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path=":code" element={<ArticlePage />} />
-            <Route path="intro" element={<IntroPage />} />
+            <Route path="/:code" element={<ArticlePage />} />
+            <Route path="/intro" element={<IntroPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

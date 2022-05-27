@@ -67,7 +67,7 @@ const HotArticles: FC = () => {
                       <div className="header_image">
                         <img
                           src={comic.image}
-                          alt="Header"
+                          alt="HotArticle-Header"
                           width="600"
                           height="360"
                           decoding="async"
@@ -84,7 +84,7 @@ const HotArticles: FC = () => {
                       <div className="header_image card_thumbnail">
                         <img
                           src={comic.image}
-                          alt="Header"
+                          alt="HotArticle-Header"
                           width="500"
                           height="300"
                           decoding="async"

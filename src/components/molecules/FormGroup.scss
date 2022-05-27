@@ -2,6 +2,9 @@
 
 .button_group {
   margin-bottom: 3vw;
+  @media screen and (max-width: 859px) {
+    margin-bottom: 5vw;
+  }
 
   .MuiTab-textColorInherit {
     &:hover {

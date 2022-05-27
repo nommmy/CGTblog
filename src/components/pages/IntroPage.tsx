@@ -40,7 +40,7 @@ const IntroPage: FC = () => {
             >
               <img
                 src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
-                alt="Header"
+                alt="Intro-Header"
                 width="780"
                 height="420"
                 style={{
@@ -62,7 +62,7 @@ const IntroPage: FC = () => {
               <section className="article_header">
                 <img
                   src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/header_logo7.webp"
-                  alt="Header"
+                  alt="Intro-Header"
                   width="780"
                   height="420"
                   style={{

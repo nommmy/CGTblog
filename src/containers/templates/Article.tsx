@@ -62,18 +62,18 @@ const Article: FC<Comic> = ({
     const iframeElem = document.createElement('script');
     iframeElem.setAttribute('id', 'iframe-script');
     iframeElem.setAttribute('type', 'text/javascript');
-    iframeElem.setAttribute('defer', '');
+    iframeElem.setAttribute('async', '');
     iframeElem.setAttribute('src', 'https://cdn.iframe.ly/embed.js');
     const parentHead = document.head;
     parentHead.appendChild(iframeElem);
   }
 
-  // useEffect(() => {
-  //   if (window && window.iframely) {
-  //     // eslint-disable-next-line
-  //     window.iframely.load();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window && window.iframely) {
+      // eslint-disable-next-line
+      window.iframely.load();
+    }
+  });
 
   const [markdown, setMarkdown] = useRemark({
     remarkPlugins: [
@@ -98,7 +98,7 @@ const Article: FC<Comic> = ({
         <div className="header_image">
           <img
             src={image}
-            alt="Header"
+            alt="Article-Header"
             width="800"
             height="480"
             decoding="async"
@@ -138,7 +138,7 @@ const Article: FC<Comic> = ({
             <div className="header_image">
               <img
                 src={image}
-                alt="Header"
+                alt="Article-Header"
                 width="800"
                 height="480"
                 decoding="async"
