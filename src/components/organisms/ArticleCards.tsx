@@ -15,7 +15,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
     <FlipMove className="card_container">
       {comics.map((comic) => (
         <Card className="card_item" key={comic.code}>
-          <Link to={comic.code}>
+          <Link to={`/article/${comic.code}`}>
             <section>
               <div className="genre_icon_group">
                 {comic.genres.map((genre) => (

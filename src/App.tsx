@@ -19,6 +19,7 @@ const ArticlePage = React.lazy(() => import('./containers/pages/ArticlePage'));
 const HotArticles = React.lazy(
   () => import('./containers/templates/HotArticles'),
 );
+const BlogHome = React.lazy(() => import('./components/pages/BlogHome'));
 const Footer = React.lazy(() => import('./components/templates/Footer'));
 
 declare global {
@@ -122,7 +123,7 @@ const App: FC = () => {
               />
             </Link>
             <nav className="header_nav">
-              <Link to="intro" className="nav">
+              <Link to="/intro" className="nav">
                 ぽむログとは？
               </Link>
             </nav>
@@ -132,7 +133,8 @@ const App: FC = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/:code" element={<ArticlePage />} />
+            <Route path="/article/:code" element={<ArticlePage />} />
+            <Route path="/blog/home" element={<BlogHome />} />
             <Route path="/intro" element={<IntroPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

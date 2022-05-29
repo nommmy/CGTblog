@@ -16,7 +16,8 @@ const WelcomeMessage: FC = () => (
     />
     <div className="welcome_message">
       <p>
-        <strong>ぽむログ</strong>は今おすすめのマンガを紹介する個人ブログです。
+        <strong>ぽむログ</strong>
+        は今おすすめのマンガを紹介する個人ブログです。有名な作品から隠れた名作まで幅広くおすすめします！
       </p>
       <div className="address_container">
         <p className="address">
@@ -36,6 +37,17 @@ const WelcomeMessage: FC = () => (
       </div>
       <div className="welcome_link">
         <Link to="intro">もっとくわしく</Link>
+      </div>
+    </div>
+    <div className="welcome_message" style={{ marginTop: "2rem" }}>
+      <p>
+        マンガ以外のことを書いた<strong>趣味ブログ</strong>もぜひぜひ
+      </p>
+      <div className="address_container">
+        <p className="address"/>
+      </div>
+      <div className="welcome_link">
+        <Link to="/blog/home" className="blog_link">ぽむログ - Hobby</Link>
       </div>
     </div>
   </div>

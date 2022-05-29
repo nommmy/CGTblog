@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import Aside from 'components/templates/Aside';
 import GenreIcon from 'components/atoms/GenreIcon';
 import { TwitterIcon } from 'react-share';
@@ -217,7 +218,7 @@ const IntroPage: FC = () => {
                     ということです。ストーリーの根幹や種明かしみたいなそれを言っちゃったら面白さ半減みたいなことはやらないつもりですが、未読の方がある程度先の展開がわかっちゃったみたいなこと（「あ、この人仲間になるのね」とか「主人公こういう成長するのね」とか）はあるかもしれませんのでご了承ください。
                   </p>
                   <p>
-                    それでは、マンガ探しの旅をお楽しみください。公式Twitterの方もぜひぜひフォローお願いします！
+                    それでは、マンガ探しの旅をお楽しみください。マンガ以外のことを書いた<Link to="/blog/home">趣味ブログ</Link>もありますのでよろしければぜひ。Twitterの方もぜひぜひフォローお願いします！
                   </p>
                 </section>
               </section>

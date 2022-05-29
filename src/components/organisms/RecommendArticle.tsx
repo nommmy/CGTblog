@@ -10,7 +10,7 @@ import './Card.scss';
 const RecommendArticle: FC<ComicData> = ({ comics }) => (
   <article className="reco_container relation_grid">
     {comics.map((comic) => (
-      <Link to={`/${comic.code}`} key={comic.code}>
+      <Link to={`/article/${comic.code}`} key={comic.code}>
         <Card className="reco_item">
           <section className="reco_thumbnail">
             <CardMedia

@@ -60,7 +60,10 @@ const HotArticles: FC = () => {
           />
           <Slider {...settings} className="article_container">
             {hotArticles.map((comic) => (
-              <Hammer onTap={() => onTapAndMove(comic.code)} key={comic.code}>
+              <Hammer
+                onTap={() => onTapAndMove(`/article/${comic.code}`)}
+                key={comic.code}
+              >
                 <div className="hot_header">
                   <MediaQuery minWidth={860}>
                     <section className="article_header">
