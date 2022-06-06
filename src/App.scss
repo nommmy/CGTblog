@@ -89,9 +89,10 @@
       }
 
       img {
-        width: 100%;
+        width: 20vw;
         height: auto;
-        max-width: 30vw;
+        max-width: 150px;
+        min-width: 120px;
         max-height: 64px;
         vertical-align: top;
       }
@@ -150,7 +151,7 @@
       justify-content: space-between;
       max-width: 100%;
       min-height: 64px;
-      padding: 2rem 6vw;
+      padding: 3rem 6vw;
 
       .footer-links {
         display: flex;
@@ -182,8 +183,11 @@
         text-align: center;
 
         img {
+          width: 28vw;
+          height: auto;
           max-width: 200px;
-          max-height: 14vw;
+          min-width: 128px;
+          max-height: 87px;
         }
 
         p {

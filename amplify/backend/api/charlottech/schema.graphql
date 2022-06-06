@@ -6,6 +6,11 @@ type Comic
     fields: ["owner", "updatedAt"]
     queryField: "listComicsSortedByUpdatedAt"
   )
+  @key(
+    name: "SortByCreatedAt"
+    fields: ["owner", "createdAt"]
+    queryField: "listComicsSortedByCreatedAt"
+  )
   @auth(
     rules: [
       {

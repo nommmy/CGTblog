@@ -421,6 +421,43 @@ export type ListComicsSortedByUpdatedAtQuery = {
   } | null,
 };
 
+export type ListComicsSortedByCreatedAtQueryVariables = {
+  owner?: string | null,
+  createdAt?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelComicFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListComicsSortedByCreatedAtQuery = {
+  listComicsSortedByCreatedAt?:  {
+    __typename: "ModelComicConnection",
+    items?:  Array< {
+      __typename: "Comic",
+      id: string,
+      code: string,
+      owner: string,
+      title: string,
+      genres: Array< Genre >,
+      subtitle: string,
+      like: number,
+      image: string,
+      isPublic: boolean,
+      content: string,
+      isHot: boolean,
+      relation?: Array< string > | null,
+      tags?: Array< string > | null,
+      author?: string | null,
+      volume?: string | null,
+      magazine?: string | null,
+      createdAt?: string | null,
+      updatedAt?: string | null,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateComicSubscription = {
   onCreateComic?:  {
     __typename: "Comic",

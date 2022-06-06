@@ -3,9 +3,9 @@ import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { API } from 'aws-amplify';
-import { ListComicsSortedByUpdatedAtQuery } from 'API';
+import { ListComicsSortedByCreatedAtQuery } from 'API';
 import { Comic } from 'data/comics';
-import { listComicsSortedByUpdatedAt } from 'graphql/queries';
+import { listComicsSortedByCreatedAt } from 'graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql/lib/types';
 import { articleListSlice } from './ducks/articleList';
 import './App.scss';
@@ -47,16 +47,16 @@ const App: FC = () => {
     /* eslint-disable */
     (async () => {
       const result = await API.graphql({
-        query: listComicsSortedByUpdatedAt,
+        query: listComicsSortedByCreatedAt,
         variables: { owner: 'owner', sortDirection: 'DESC' },
         authMode: GRAPHQL_AUTH_MODE.AWS_IAM,
       });
       if ('data' in result && result.data) {
-        const articlesData = result.data as ListComicsSortedByUpdatedAtQuery;
-        if (articlesData.listComicsSortedByUpdatedAt) {
+        const articlesData = result.data as ListComicsSortedByCreatedAtQuery;
+        if (articlesData.listComicsSortedByCreatedAt) {
           dispatch(
             initArticle(
-              articlesData.listComicsSortedByUpdatedAt.items as Comic[],
+              articlesData.listComicsSortedByCreatedAt.items as Comic[],
             ),
           );
         }

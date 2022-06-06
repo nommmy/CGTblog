@@ -35,6 +35,8 @@ const Footer: FC = () => (
         <img
           src="https://charlottech78897cd75f574612ace458f31b6d96a7160346-staging.s3.ap-northeast-1.amazonaws.com/logo7.webp"
           alt="logo"
+          width="200"
+          height="87"
           decoding="async"
         />
       </Link>

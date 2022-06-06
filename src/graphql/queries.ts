@@ -106,3 +106,44 @@ export const listComicsSortedByUpdatedAt = /* GraphQL */ `
     }
   }
 `;
+export const listComicsSortedByCreatedAt = /* GraphQL */ `
+  query ListComicsSortedByCreatedAt(
+    $owner: String
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelComicFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listComicsSortedByCreatedAt(
+      owner: $owner
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        code
+        owner
+        title
+        genres
+        subtitle
+        like
+        image
+        isPublic
+        content
+        isHot
+        relation
+        tags
+        author
+        volume
+        magazine
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
