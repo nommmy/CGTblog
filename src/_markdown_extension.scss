@@ -6,6 +6,116 @@ $font-size: 1rem;
 .react-split-mde-preview {
   line-height: 1.9;
 
+  .link_card {
+    width: 80%;
+    $link-height:7rem;
+    height: $link-height;
+    margin: 2rem auto;
+    overflow:hidden;
+    box-shadow: rgb(149 157 165 / 20%) 0px 4px 12px;
+    @media screen and (max-width: 1023px) {
+      height: 5rem;
+    }
+
+    a{
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .link_card_back{
+      height: 100%;
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 4px;
+      &:hover{
+        transform:scale(1.1);
+        transition:0.5s all;
+      }
+
+      .p_link{
+        width: 100%;
+        line-height: $link_height;
+        text-align: center;
+        margin: 0;
+        font-weight: bold;
+        color: whitesmoke;
+        background: rgba(103, 103, 103, 0.5);
+        font-size: 1.3rem;
+        border-radius: 4px;
+        @media screen and (max-width: 1023px) {
+          line-height: 5rem;
+        }
+        @media screen and (max-width: 576px) {
+            font-size: 1.1rem;;
+        }
+        &:hover{
+            opacity: 0;
+            transition:0.5s all;
+        }
+        &::after{
+          font-family: "Font Awesome 5 Free", sans-serif;
+          content: '\f35d';
+        }
+      }
+    }
+  }
+
+  .link_card2{
+    width: 90%;
+    $link-height:7rem;
+    height: $link-height;
+    margin: 2rem auto;
+    overflow:hidden;
+    box-shadow: rgb(149 157 165 / 20%) 0px 4px 12px;
+    a{
+      display: flex;
+      align-items: center;
+      &:hover {
+        text-decoration: none;
+      }
+
+      .link_card_back{
+        height: $link-height;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex: 1;
+      }
+      .link_card_title{
+        width:60%;
+        padding-left: 1rem;
+        padding-right: 7px;
+        p {
+          margin: 0;
+          font-weight: bold;
+          color: #5c5c5c;
+          font-size: 1rem;
+          @media screen and (max-width: 1023px) {
+            font-size: 0.8rem;;
+          }
+          @media screen and (max-width: 576px) {
+            font-size: 1rem;;
+          }
+        }
+        .p_link_des{
+          color: #6c6c6c;
+          font-size: 0.7rem;
+          @media screen and (max-width: 1023px) {
+            margin-top: 5px;
+            font-size: 0.4rem;;
+          }
+          @media screen and (max-width: 576px) {
+            display:none;
+          }
+        }
+      }
+    }
+  }
+
   &*:first-child {
     margin-top: 0;
   }
