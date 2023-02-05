@@ -2,7 +2,7 @@ import React, { Suspense, FC, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { API } from 'aws-amplify';
+import { API } from '@aws-amplify/api';
 import { ListComicsSortedByCreatedAtQuery } from 'API';
 import { Comic } from 'data/comics';
 import { listComicsSortedByCreatedAt } from 'graphql/queries';

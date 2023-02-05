@@ -4,7 +4,8 @@ import './index.scss';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { articleListSlice } from 'ducks/articleList';
-import Amplify, { Auth } from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
+import Amplify from '@aws-amplify/core';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
@@ -36,7 +37,6 @@ Auth.currentAuthenticatedUser()
       aws_appsync_authenticationType: 'AWS_IAM',
     });
   });
-
 
 const store = configureStore({ reducer: articleListSlice.reducer });
 

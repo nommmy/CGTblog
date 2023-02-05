@@ -31,7 +31,7 @@ const ArticlePage: FC = () => {
 
       return (
         <>
-          <div className="flex-container">
+          <div className="flex-container extend-padding">
             <main>
               <Article {...currentArticle[0]} />
             </main>

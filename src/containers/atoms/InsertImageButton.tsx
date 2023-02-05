@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import { Storage } from 'aws-amplify';
+import { Storage } from '@aws-amplify/storage';
 
 type Props = {
   text: string;

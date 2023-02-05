@@ -7,7 +7,7 @@
   height: 100%;
   margin: 0;
 
-  .suspense{
+  .suspense {
     img {
       position: absolute;
       top: 0;
@@ -16,7 +16,7 @@
       left: 0;
       margin: auto;
       width: 10vw;
-      height:10vw;
+      height: 10vw;
     }
   }
 
@@ -31,7 +31,9 @@
   }
 
   .sub_font {
-    font-family: “Quicksand”, “Avenir”, “Arial”, “BIZ UDGothic”, “Hiragino Kaku Gothic ProN”, YuGothic, “Yu Gothic”, “Hiragino Sans”, “ヒラギノ角ゴシック”, “メイリオ”, Meiryo, sans-serif;
+    font-family: “Quicksand”, “Avenir”, “Arial”, “BIZ UDGothic”,
+      “Hiragino Kaku Gothic ProN”, YuGothic, “Yu Gothic”, “Hiragino Sans”,
+      “ヒラギノ角ゴシック”, “メイリオ”, Meiryo, sans-serif;
   }
 
   .headline {
@@ -68,6 +70,11 @@
       // padding: 1.5vw 0 1vw 0;
       padding: 1rem 0;
       margin: 0 2vw;
+      @media screen and (max-width: 576px) {
+        min-height: 50px;
+        height: 50px;
+        padding: 0.7rem 0.5rem;
+      }
 
       .header_nav {
         margin-left: auto;
@@ -95,6 +102,11 @@
         min-width: 120px;
         max-height: 64px;
         vertical-align: top;
+        @media screen and (max-width: 576px) {
+          max-height: calc(50px - 1.4rem);
+          max-width: calc((150 * (50px - 1.4rem)) / 64);
+          min-width: 80px;
+        }
       }
     }
   }
@@ -126,6 +138,12 @@
         flex-direction: column;
         width: 300px;
         padding: 0 10px;
+      }
+    }
+
+    @media screen and (max-width: 1023px) {
+      .extend-padding {
+        padding: 6vh 0;
       }
     }
 
@@ -208,10 +226,7 @@
     background: #fff;
     border-left: 20px solid $main-color;
     box-shadow: 2px 2px 5px 1px #f3f3f3;
-    transform:
-      rotate(
-        -2deg
-      );
+    transform: rotate(-2deg);
   }
 
   .simple_box {

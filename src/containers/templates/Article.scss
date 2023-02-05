@@ -1,17 +1,17 @@
 @import '/src/settings';
 @import '/src/variables';
 
-main{
+main {
   @media screen and (max-width: 859px) {
     .header_image {
       width: 100vw;
       overflow: hidden;
       // border: 1px solid rgba(64, 87, 109, 0.07);
       // border-radius: 4px;
-      margin: -6vh -4vw;
+      margin: -6vh 0;
       // margin-top: calc(-6vh - 64px - 2rem);
-        
-      img{
+
+      img {
         width: 100%;
         height: auto;
         display: 'block';
@@ -29,38 +29,40 @@ main{
   @media screen and (max-width: 859px) {
     margin-top: -15vw;
     border-radius: 10px;
+    padding: 6vw 4vw;
+    margin: 0 1.5vw;
   }
 
   .link_card {
     width: 80%;
-    $link-height:7rem;
+    $link-height: 7rem;
     height: $link-height;
     margin: 2rem auto;
-    overflow:hidden;
+    overflow: hidden;
     box-shadow: rgb(149 157 165 / 20%) 0px 4px 12px;
     @media screen and (max-width: 1023px) {
       height: 5rem;
     }
 
-    a{
+    a {
       &:hover {
         text-decoration: none;
       }
     }
 
-    .link_card_back{
+    .link_card_back {
       height: 100%;
       display: block;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       border-radius: 4px;
-      &:hover{
-        transform:scale(1.1);
-        transition:0.5s all;
+      &:hover {
+        transform: scale(1.1);
+        transition: 0.5s all;
       }
 
-      .p_link{
+      .p_link {
         width: 100%;
         line-height: $link_height;
         text-align: center;
@@ -74,35 +76,35 @@ main{
           line-height: 5rem;
         }
         @media screen and (max-width: 576px) {
-            font-size: 1.1rem;;
+          font-size: 1.1rem;
         }
-        &:hover{
-            opacity: 0;
-            transition:0.5s all;
+        &:hover {
+          opacity: 0;
+          transition: 0.5s all;
         }
-        &::after{
-          font-family: "Font Awesome 5 Free", sans-serif;
+        &::after {
+          font-family: 'Font Awesome 5 Free', sans-serif;
           content: '\f35d';
         }
       }
     }
   }
 
-  .link_card2{
+  .link_card2 {
     width: 90%;
-    $link-height:7rem;
+    $link-height: 7rem;
     height: $link-height;
     margin: 2rem auto;
-    overflow:hidden;
+    overflow: hidden;
     box-shadow: rgb(149 157 165 / 20%) 0px 4px 12px;
-    a{
+    a {
       display: flex;
       align-items: center;
       &:hover {
         text-decoration: none;
       }
 
-      .link_card_back{
+      .link_card_back {
         height: $link-height;
         display: block;
         background-size: cover;
@@ -110,8 +112,8 @@ main{
         background-position: center;
         flex: 1;
       }
-      .link_card_title{
-        width:60%;
+      .link_card_title {
+        width: 60%;
         padding-left: 1rem;
         padding-right: 7px;
         p {
@@ -120,21 +122,21 @@ main{
           color: #5c5c5c;
           font-size: 1rem;
           @media screen and (max-width: 1023px) {
-            font-size: 0.8rem;;
+            font-size: 0.8rem;
           }
           @media screen and (max-width: 576px) {
-            font-size: 1rem;;
+            font-size: 1rem;
           }
         }
-        .p_link_des{
+        .p_link_des {
           color: #6c6c6c;
           font-size: 0.7rem;
           @media screen and (max-width: 1023px) {
             margin-top: 5px;
-            font-size: 0.4rem;;
+            font-size: 0.4rem;
           }
           @media screen and (max-width: 576px) {
-            display:none;
+            display: none;
           }
         }
       }
@@ -143,6 +145,7 @@ main{
 
   .genre_icon_group {
     @include icon_position;
+    right: -1vw;
 
     .genre_icon {
       @include genre_icon;
@@ -203,7 +206,7 @@ main{
 
       .last-grid {
         grid-row: 5;
-        grid-column: 1 /span 2;
+        grid-column: 1 / span 2;
       }
     }
 
@@ -320,7 +323,7 @@ main{
         }
       }
 
-      p{
+      p {
         color: #5f5f5f;
         font-size: 1.02rem;
         font-weight: bold;
@@ -336,7 +339,7 @@ main{
       // border: 1px solid rgba(64, 87, 109, 0.07);
       // border-radius: 4px;
 
-      img{
+      img {
         width: 100%;
         height: auto;
         display: 'block';
@@ -347,7 +350,7 @@ main{
       position: absolute;
       top: 60%;
       right: 0;
-      width: calc(((100% - 264px)/12) * 6 + 102px);
+      width: calc(((100% - 264px) / 12) * 6 + 102px);
       padding: 1vw;
       padding-right: 0;
       overflow: hidden;
