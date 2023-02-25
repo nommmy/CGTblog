@@ -39,7 +39,7 @@ main {
     height: $link-height;
     margin: 2rem auto;
     overflow: hidden;
-    box-shadow: rgb(149 157 165 / 20%) 0px 4px 12px;
+    box-shadow: rgba(149 157 165, 0.2) 0px 4px 12px;
     @media screen and (max-width: 1023px) {
       height: 5rem;
     }
