@@ -32,7 +32,7 @@ const Article: FC<Comic> = ({
   title,
   genres,
   subtitle,
-  updatedAt,
+  createdAt,
   image,
   content,
   tags,
@@ -121,13 +121,13 @@ const Article: FC<Comic> = ({
             <Link to="/">Top</Link> / {title}
           </div>
           <div className="date_container">
-            {updatedAt && (
+            {createdAt && (
               <>
                 <MdUpdate
                   style={{ color: 'gray', margin: 5, marginBottom: 0 }}
                   size="1em"
                 />
-                <span className="date">{updatedAt?.split('T')[0]}</span>
+                <span className="date">{createdAt?.split('T')[0]}</span>
               </>
             )}
           </div>

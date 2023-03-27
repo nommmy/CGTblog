@@ -48,7 +48,7 @@ const ArticleCards: FC<ComicData> = ({ comics }) => (
             </section>
             <CardActions disableSpacing className="card_footer">
               <MdUpdate style={{ color: 'gray', margin: 5 }} />
-              <span className="date">{comic.updatedAt?.split('T')[0]}</span>
+              <span className="date">{comic.createdAt?.split('T')[0]}</span>
             </CardActions>
           </Link>
         </Card>
